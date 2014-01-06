@@ -6118,6 +6118,16 @@ public final class Settings {
         private static final Validator TEXT_CLOCK_PADDING_VALIDATOR = ANY_INTEGER_VALIDATOR;
 
         /**
+         * Force expanded notifications on all apps that support it.
+         * @hide
+         */
+        public static final String FORCE_EXPANDED_NOTIFICATIONS = "force_expanded_notifications";
+
+        /** @hide */
+        private static final Validator FORCE_EXPANDED_NOTIFICATIONS_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -6338,6 +6348,7 @@ public final class Settings {
             FOD_ANIM,
             TEXT_CLOCK_ALIGNMENT,
             TEXT_CLOCK_PADDING,
+            FORCE_EXPANDED_NOTIFICATIONS,
         };
 
         /**
@@ -6827,6 +6838,7 @@ public final class Settings {
             VALIDATORS.put(FOD_ANIM, FOD_ANIM_VALIDATOR);
             VALIDATORS.put(TEXT_CLOCK_ALIGNMENT, TEXT_CLOCK_ALIGNMENT_VALIDATOR);
             VALIDATORS.put(TEXT_CLOCK_PADDING, TEXT_CLOCK_PADDING_VALIDATOR);
+            VALIDATORS.put(FORCE_EXPANDED_NOTIFICATIONS, FORCE_EXPANDED_NOTIFICATIONS_VALIDATOR);
         }
 
         /**
