@@ -4124,6 +4124,15 @@ public final class Settings {
         public static final String ANIMATOR_DURATION_SCALE = Global.ANIMATOR_DURATION_SCALE;
 
         /**
+         * Show the pending notification counts as overlays on the status bar
+         * @hide
+         */
+        public static final String STATUS_BAR_NOTIF_COUNT = "status_bar_notif_count";
+
+        /** @hide */
+        public static final Validator STATUS_BAR_NOTIF_COUNT_VALIDATOR = BOOLEAN_VALIDATOR;
+
+        /**
          * Control whether the accelerometer will be used to change screen
          * orientation.  If 0, it will not be used unless explicitly requested
          * by the application; if 1, it will be used by default unless explicitly
@@ -6608,6 +6617,7 @@ public final class Settings {
             RINGTONE2,
             LOCK_TO_APP_ENABLED,
             NOTIFICATION_SOUND,
+            STATUS_BAR_NOTIF_COUNT,
             ACCELEROMETER_ROTATION,
             NOTIFICATION_VIBRATION_INTENSITY,
             RING_VIBRATION_INTENSITY,
@@ -6871,6 +6881,7 @@ public final class Settings {
             PUBLIC_SETTINGS.add(TIME_12_24);
             PUBLIC_SETTINGS.add(DATE_FORMAT);
             PUBLIC_SETTINGS.add(SETUP_WIZARD_HAS_RUN);
+            PUBLIC_SETTINGS.add(STATUS_BAR_NOTIF_COUNT);
             PUBLIC_SETTINGS.add(ACCELEROMETER_ROTATION);
             PUBLIC_SETTINGS.add(USER_ROTATION);
             PUBLIC_SETTINGS.add(DTMF_TONE_WHEN_DIALING);
@@ -7097,6 +7108,7 @@ public final class Settings {
             VALIDATORS.put(TIME_12_24, TIME_12_24_VALIDATOR);
             VALIDATORS.put(DATE_FORMAT, DATE_FORMAT_VALIDATOR);
             VALIDATORS.put(SETUP_WIZARD_HAS_RUN, SETUP_WIZARD_HAS_RUN_VALIDATOR);
+            VALIDATORS.put(STATUS_BAR_NOTIF_COUNT, STATUS_BAR_NOTIF_COUNT_VALIDATOR);
             VALIDATORS.put(ACCELEROMETER_ROTATION, ACCELEROMETER_ROTATION_VALIDATOR);
             VALIDATORS.put(USER_ROTATION, USER_ROTATION_VALIDATOR);
             VALIDATORS.put(DTMF_TONE_WHEN_DIALING, DTMF_TONE_WHEN_DIALING_VALIDATOR);
