@@ -7432,5 +7432,7 @@ message MetricsEvent {
 
     // OwlsNest
     OWLSNEST = 10001;
+
+    TILE_LOCATION_DETAIL = 2001;
   }
 }
