@@ -6075,6 +6075,16 @@ public final class Settings {
         public static final String FOD_ANIM = "fod_anim";
 
         /**
+         * Enable/Disable screenshot sound
+         * @hide
+         */
+        public static final String SCREENSHOT_SOUND = "screenshot_sound";
+
+        /** @hide */
+        private static final Validator SCREENSHOT_SOUND_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -6288,6 +6298,7 @@ public final class Settings {
             QS_RUNNING_SERVICES_TOGGLE,
             LOCKSCREEN_CLOCK,
             LOCKSCREEN_INFO,
+            SCREENSHOT_SOUND,
         };
 
         /**
@@ -6511,6 +6522,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(CLOCK_SHOW_STATUS_AREA);
             PRIVATE_SETTINGS.add(LOCKSCREEN_CLOCK);
             PRIVATE_SETTINGS.add(LOCKSCREEN_INFO);
+            PRIVATE_SETTINGS.add(SCREENSHOT_SOUND);
         }
 
         /**
@@ -6767,6 +6779,7 @@ public final class Settings {
             VALIDATORS.put(CLOCK_SHOW_STATUS_AREA, CLOCK_SHOW_STATUS_AREA_VALIDATOR);
             VALIDATORS.put(LOCKSCREEN_CLOCK, LOCKSCREEN_CLOCK_VALIDATOR);
             VALIDATORS.put(LOCKSCREEN_INFO, LOCKSCREEN_INFO_VALIDATOR);
+            VALIDATORS.put(SCREENSHOT_SOUND, SCREENSHOT_SOUND_VALIDATOR);
         }
 
         /**
