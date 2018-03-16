@@ -54,6 +54,7 @@ import com.android.systemui.qs.tiles.NightDisplayTile;
 import com.android.systemui.qs.tiles.RebootTile;
 import com.android.systemui.qs.tiles.RotationLockTile;
 import com.android.systemui.qs.tiles.ScreenrecordTile;
+import com.android.systemui.qs.tiles.ScreenStabilizationTile;
 import com.android.systemui.qs.tiles.UiModeNightTile;
 import com.android.systemui.qs.tiles.SoundTile;
 import com.android.systemui.qs.tiles.ScreenshotTile;
@@ -269,6 +270,8 @@ public class QSFactoryImpl implements QSFactory {
                 return new RebootTile(mHost);
             case "immersive":
                 return mImmersiveTileProvider.get();
+	    case "screenstabilization":
+		return new ScreenStabilizationTile(mHost);
         }
 
         // Intent tiles.
