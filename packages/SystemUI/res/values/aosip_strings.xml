@@ -228,8 +228,9 @@
     <!-- Running service button -->
     <string name="accessibility_quick_settings_running_services">Open Running Services screen.</string>
 
-    <!-- Reboot/Recovery QS tile -->
+    <!-- Reboot/Recovery/PowerOff QS tile -->
     <string name="quick_settings_reboot_label">Reboot</string>
     <string name="quick_settings_reboot_recovery_label">Recovery</string>
+    <string name="quick_settings_poweroff_label">Power off</string>
 
 </resources>
