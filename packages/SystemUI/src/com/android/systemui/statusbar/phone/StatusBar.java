@@ -832,6 +832,9 @@ public class StatusBar extends SystemUI implements DemoMode,
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.QS_HEADER_STYLE),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.QS_TILE_STYLE),
+                    false, this, UserHandle.USER_ALL);
         }
 
         @Override
@@ -909,6 +912,10 @@ public class StatusBar extends SystemUI implements DemoMode,
                 setMediaHeadsup();
             } else if (uri.equals(Settings.System.getUriFor(Settings.System.QS_HEADER_STYLE))) {
                 updateQSHeaderStyle();
+            } else if (uri.equals(Settings.System.getUriFor(Settings.System.QS_TILE_STYLE))) {
+                stockTileStyle();
+                updateTileStyle();
+                mQSPanel.getHost().reloadAllTiles();
             }
         }
 
@@ -4331,6 +4338,18 @@ public class StatusBar extends SystemUI implements DemoMode,
         if (qsHeaderStyle == 0)
             return;
         ThemesUtils.updateQSHeaderStyle(mOverlayManager, mLockscreenUserManager.getCurrentUserId(), qsHeaderStyle);
+    }
+
+    // Switches qs tile style from stock to custom
+    public void updateTileStyle() {
+        int qsTileStyle = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.QS_TILE_STYLE, 0, mLockscreenUserManager.getCurrentUserId());
+        ThemesUtils.updateTileStyle(mOverlayManager, mLockscreenUserManager.getCurrentUserId(), qsTileStyle);
+    }
+
+    // Unload all qs tile styles back to stock
+    public void stockTileStyle() {
+        ThemesUtils.stockTileStyle(mOverlayManager, mLockscreenUserManager.getCurrentUserId());
     }
 
     private void updateDozingState() {

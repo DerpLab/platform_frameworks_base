@@ -6735,6 +6735,18 @@ public final class Settings {
                 BOOLEAN_VALIDATOR;
 
         /**
+         * 0 - Default
+         * 1 - Round with ring
+         * 2 - Two-toned round with ring
+         * 3 - Squircle with ring
+         * @hide
+         */
+        public static final String QS_TILE_STYLE = "qs_tile_style";
+        /** @hide */
+        private static final Validator QS_TILE_STYLE_VALIDATOR =
+                new SettingsValidators.InclusiveIntegerRangeValidator(0, 3);
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -7013,6 +7025,7 @@ public final class Settings {
             POWER_MENU_BG_STYLE,
             POWER_MENU_BG_BLUR_RADIUS,
             SHOW_MEDIA_HEADS_UP,
+            QS_TILE_STYLE,
         };
 
         /**
@@ -7576,6 +7589,7 @@ public final class Settings {
             VALIDATORS.put(POWER_MENU_BG_STYLE, POWER_MENU_BG_STYLE_VALIDATOR);
             VALIDATORS.put(POWER_MENU_BG_BLUR_RADIUS, POWER_MENU_BG_BLUR_RADIUS_VALIDATOR);
             VALIDATORS.put(SHOW_MEDIA_HEADS_UP, SHOW_MEDIA_HEADS_UP_VALIDATOR);
+            VALIDATORS.put(QS_TILE_STYLE, QS_TILE_STYLE_VALIDATOR);
         }
 
         /**
