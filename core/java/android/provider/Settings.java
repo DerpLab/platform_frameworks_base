@@ -6744,7 +6744,7 @@ public final class Settings {
         public static final String QS_TILE_STYLE = "qs_tile_style";
         /** @hide */
         private static final Validator QS_TILE_STYLE_VALIDATOR =
-                new SettingsValidators.InclusiveIntegerRangeValidator(0, 15);
+                new SettingsValidators.InclusiveIntegerRangeValidator(0, 16);
 
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
