@@ -288,4 +288,7 @@
     <!-- Alerting notification header label -->
     <string name="notification_section_header_alerting">Alerting notifications</string>
 
+    <!-- Screenrecord UI -->
+    <string name="screenrecord_stopdot_label">Show stop dot</string>
+
 </resources>
