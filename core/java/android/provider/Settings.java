@@ -6267,6 +6267,15 @@ public final class Settings {
         private static final Validator QS_TILE_PANELS_VALIDATOR = BOOLEAN_VALIDATOR;
 
         /**
+         * Whether to show arrow keys in navigation bar
+         * @hide
+         */
+        public static final String OMNI_NAVIGATION_BAR_ARROW_KEYS = "navigation_bar_arrow_keys";
+
+        private static final Validator OMNI_NAVIGATION_BAR_ARROW_KEYS_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
+        /**
          * IMPORTANT: If you add a new public settings you also have to add it to
          * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
          * it to PRIVATE_SETTINGS below. Also add a validator that can validate
@@ -6653,6 +6662,7 @@ public final class Settings {
             OMNI_STATUS_BAR_CUSTOM_HEADER_PROVIDER,
             OMNI_STATUS_BAR_CUSTOM_HEADER_IMAGE,
             OMNI_STATUS_BAR_FILE_HEADER_IMAGE,
+            OMNI_NAVIGATION_BAR_ARROW_KEYS,
             OMNI_AOD_NOTIFICATION_PULSE_TIMEOUT,
             OMNI_PULSE_AMBIENT_LIGHT,
             OMNI_AMBIENT_NOTIFICATION_LIGHT,
@@ -6928,6 +6938,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(OMNI_STATUS_BAR_CUSTOM_HEADER_PROVIDER);
             PRIVATE_SETTINGS.add(OMNI_STATUS_BAR_CUSTOM_HEADER_IMAGE);
             PRIVATE_SETTINGS.add(OMNI_STATUS_BAR_FILE_HEADER_IMAGE);
+            PRIVATE_SETTINGS.add(OMNI_NAVIGATION_BAR_ARROW_KEYS);
             PRIVATE_SETTINGS.add(OMNI_PULSE_AMBIENT_LIGHT);
             PRIVATE_SETTINGS.add(OMNI_AMBIENT_NOTIFICATION_LIGHT_ENABLED);
             PRIVATE_SETTINGS.add(OMNI_NOTIFICATION_PULSE_COLOR_AUTOMATIC);
@@ -7181,6 +7192,8 @@ public final class Settings {
                     OMNI_STATUS_BAR_CUSTOM_HEADER_IMAGE_VALIDATOR);
             VALIDATORS.put(OMNI_STATUS_BAR_FILE_HEADER_IMAGE,
                     OMNI_STATUS_BAR_FILE_HEADER_IMAGE_VALIDATOR);
+            VALIDATORS.put(OMNI_NAVIGATION_BAR_ARROW_KEYS,
+                    OMNI_NAVIGATION_BAR_ARROW_KEYS_VALIDATOR);
             VALIDATORS.put(OMNI_AOD_NOTIFICATION_PULSE_TIMEOUT, OMNI_AOD_NOTIFICATION_PULSE_TIMEOUT_VALIDATOR);
             VALIDATORS.put(OMNI_PULSE_AMBIENT_LIGHT, OMNI_PULSE_AMBIENT_LIGHT_VALIDATOR);
             VALIDATORS.put(OMNI_AMBIENT_NOTIFICATION_LIGHT, OMNI_AMBIENT_NOTIFICATION_LIGHT_VALIDATOR);
