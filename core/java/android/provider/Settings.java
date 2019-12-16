@@ -6448,6 +6448,19 @@ public final class Settings {
         private static final Validator REFRESH_RATE_SETTING_VALIDATOR = NON_NEGATIVE_INTEGER_VALIDATOR;
 
         /**
+         * Whether to blink flashlight for incoming calls
+         * 0 = Disabled (Default)
+         * 1 = Blink flashlight only in Ringer mode
+         * 2 = Blink flashlight only when ringer is not audible
+         * 3 = Blink flashlight always regardless of ringer mode
+         * @hide
+         */
+        public static final String FLASHLIGHT_ON_CALL = "flashlight_on_call";
+        /** @hide */
+        public static final Validator FLASHLIGHT_ON_CALL_VALIDATOR =
+                new SettingsValidators.InclusiveIntegerRangeValidator(0, 3);
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -6698,6 +6711,7 @@ public final class Settings {
             BATTERY_BAR_HIGH_COLOR,
             BATTERY_BAR_LOW_COLOR,
             BATTERY_BAR_USE_GRADIENT_COLOR,
+            FLASHLIGHT_ON_CALL,
         };
 
         /**
@@ -6932,6 +6946,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(DISPLAY_CUTOUT_MODE);
             PRIVATE_SETTINGS.add(STOCK_STATUSBAR_IN_HIDE);
             PRIVATE_SETTINGS.add(REFRESH_RATE_SETTING);
+            PRIVATE_SETTINGS.add(FLASHLIGHT_ON_CALL);
         }
 
         /**
@@ -7226,7 +7241,8 @@ public final class Settings {
             VALIDATORS.put(BATTERY_BAR_HIGH_COLOR, BATTERY_BAR_HIGH_COLOR_VALIDATOR);
             VALIDATORS.put(BATTERY_BAR_LOW_COLOR, BATTERY_BAR_LOW_COLOR_VALIDATOR);
             VALIDATORS.put(BATTERY_BAR_USE_GRADIENT_COLOR, BATTERY_BAR_USE_GRADIENT_COLOR_VALIDATOR);
-	      VALIDATORS.put(REFRESH_RATE_SETTING, REFRESH_RATE_SETTING_VALIDATOR);
+            VALIDATORS.put(REFRESH_RATE_SETTING, REFRESH_RATE_SETTING_VALIDATOR);
+            VALIDATORS.put(FLASHLIGHT_ON_CALL, FLASHLIGHT_ON_CALL_VALIDATOR);
         }
 
         /**
