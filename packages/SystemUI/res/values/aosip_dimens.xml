@@ -84,4 +84,10 @@
     <!-- Ending padding for custom status bar elements -->
     <dimen name="status_bar_end_padding">1dp</dimen>
 
+    <!-- Custom cutout overlay view sizes -->
+    <dimen name="config_customCutoutTopWidth">0.0px</dimen>
+    <dimen name="config_customCutoutTopHeight">0.0px</dimen>
+    <dimen name="config_customCutoutBottomWidth">0.0px</dimen>
+    <dimen name="config_customCutoutBottomHeight">0.0px</dimen>
+
 </resources>
