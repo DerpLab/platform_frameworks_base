@@ -6011,6 +6011,24 @@ public final class Settings {
                BOOLEAN_VALIDATOR;
 
         /**
+         * Whether to show lockscreen clock
+         * @hide
+         */
+        public static final String LOCKSCREEN_CLOCK = "lockscreen_clock";
+
+        /** @hide */
+        private static final Validator LOCKSCREEN_CLOCK_VALIDATOR = BOOLEAN_VALIDATOR;
+
+        /**
+         * Whether to show the items underneath lockscreen clock
+         * @hide
+         */
+        public static final String LOCKSCREEN_INFO = "lockscreen_info";
+
+        /** @hide */
+        private static final Validator LOCKSCREEN_INFO_VALIDATOR = BOOLEAN_VALIDATOR;
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -6222,6 +6240,8 @@ public final class Settings {
             STATUS_BAR_TICKER_TICK_DURATION,
             CLOCK_SHOW_STATUS_AREA,
             QS_RUNNING_SERVICES_TOGGLE,
+            LOCKSCREEN_CLOCK,
+            LOCKSCREEN_INFO,
         };
 
         /**
@@ -6443,6 +6463,8 @@ public final class Settings {
             PRIVATE_SETTINGS.add(STATUS_BAR_TICKER_ANIMATION_MODE);
             PRIVATE_SETTINGS.add(STATUS_BAR_TICKER_TICK_DURATION);
             PRIVATE_SETTINGS.add(CLOCK_SHOW_STATUS_AREA);
+            PRIVATE_SETTINGS.add(LOCKSCREEN_CLOCK);
+            PRIVATE_SETTINGS.add(LOCKSCREEN_INFO);
         }
 
         /**
@@ -6697,6 +6719,8 @@ public final class Settings {
                     STATUS_BAR_TICKER_TICK_DURATION_VALIDATOR);
             VALIDATORS.put(QS_RUNNING_SERVICES_TOGGLE, QS_RUNNING_SERVICES_TOGGLE_VALIDATOR);
             VALIDATORS.put(CLOCK_SHOW_STATUS_AREA, CLOCK_SHOW_STATUS_AREA_VALIDATOR);
+            VALIDATORS.put(LOCKSCREEN_CLOCK, LOCKSCREEN_CLOCK_VALIDATOR);
+            VALIDATORS.put(LOCKSCREEN_INFO, LOCKSCREEN_INFO_VALIDATOR);
         }
 
         /**
