@@ -11254,6 +11254,13 @@ public final class Settings {
         private static final Validator LOCKSCREEN_DATE_SELECTION_VALIDATOR =
                 new SettingsValidators.InclusiveIntegerRangeValidator(0, 8);
 
+        /*
+         * Whether to display the power menu in a secured lockscreen
+         *
+         * @hide
+         */
+        public static final String SECURED_LOCK_POWER_MENU = "secured_lock_power_menu";
+
         /**
          * Whether the Lockdown button should be shown in the power menu.
          * @hide
