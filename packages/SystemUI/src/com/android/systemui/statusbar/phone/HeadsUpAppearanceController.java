@@ -63,6 +63,7 @@ public class HeadsUpAppearanceController implements OnHeadsUpChangedListener,
     private final View mCenteredIconView;
     private final View mClockView;
     private final View mOperatorNameView;
+    private final View mCarrierLabelView;
     private final View mDerpQuestLogoView;
     private final DarkIconDispatcher mDarkIconDispatcher;
     private final NotificationPanelView mPanelView;
@@ -112,7 +113,8 @@ public class HeadsUpAppearanceController implements OnHeadsUpChangedListener,
                 statusbarView.findViewById(R.id.clock),
                 statusbarView.findViewById(R.id.operator_name_frame),
                 statusbarView.findViewById(R.id.centered_icon_area),
-                statusbarView.findViewById(R.id.status_bar_logo));
+                statusbarView.findViewById(R.id.status_bar_logo),
+                statusbarView.findViewById(R.id.statusbar_carrier_text));
     }
 
     @VisibleForTesting
@@ -128,7 +130,8 @@ public class HeadsUpAppearanceController implements OnHeadsUpChangedListener,
             View clockView,
             View operatorNameView,
             View centeredIconView,
-            View DerpQuestLogoView) {
+            View DerpQuestLogoView,
+            View carrierLabelView) {
         mNotificationIconAreaController = notificationIconAreaController;
         mHeadsUpManager = headsUpManager;
         mHeadsUpManager.addListener(this);
@@ -145,6 +148,7 @@ public class HeadsUpAppearanceController implements OnHeadsUpChangedListener,
         mStackScroller.addOnLayoutChangeListener(mStackScrollLayoutChangeListener);
         mStackScroller.setHeadsUpAppearanceController(this);
         mClockView = clockView;
+        mCarrierLabelView = carrierLabelView;
         mDerpQuestLogoView = DerpQuestLogoView;
         mOperatorNameView = operatorNameView;
         mDarkIconDispatcher = Dependency.get(DarkIconDispatcher.class);
@@ -297,7 +301,10 @@ public class HeadsUpAppearanceController implements OnHeadsUpChangedListener,
                 if (mOperatorNameView != null) {
                     hide(mOperatorNameView, View.INVISIBLE);
                 }
-               if (mDerpQuestLogoView.getVisibility() != View.GONE) {
+                if (mCarrierLabelView.getVisibility() != View.GONE) {
+                    hide(mCarrierLabelView, View.INVISIBLE);
+                }
+                if (mDerpQuestLogoView.getVisibility() != View.GONE) {
                     hide(mDerpQuestLogoView, View.INVISIBLE);
                 }
             } else {
@@ -312,7 +319,10 @@ public class HeadsUpAppearanceController implements OnHeadsUpChangedListener,
                 if (mOperatorNameView != null) {
                     show(mOperatorNameView);
                 }
-               if (mDerpQuestLogoView.getVisibility() != View.GONE) {
+                if (mCarrierLabelView.getVisibility() != View.GONE) {
+                    show(mCarrierLabelView);
+                }
+                if (mDerpQuestLogoView.getVisibility() != View.GONE) {
                     show(mDerpQuestLogoView);
                 }
                 hide(mHeadsUpStatusBarView, View.GONE, () -> {
