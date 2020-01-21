@@ -224,6 +224,7 @@ import com.android.systemui.statusbar.StatusBarState;
 import com.android.systemui.statusbar.SysuiStatusBarStateController;
 import com.android.systemui.statusbar.VibratorHelper;
 import com.android.systemui.statusbar.VisualizerView;
+import com.android.systemui.statusbar.info.DataUsageView;
 import com.android.systemui.statusbar.notification.ActivityLaunchAnimator;
 import com.android.systemui.statusbar.notification.BypassHeadsUpNotifier;
 import com.android.systemui.statusbar.notification.DynamicPrivacyController;
@@ -4803,6 +4804,10 @@ public class StatusBar extends SystemUI implements DemoMode,
         setBlackStatusBar(immerseMode);
         setCutoutOverlay(hideCutoutMode);
         setStatusBarStockOverlay(hideCutoutMode && statusBarStock);
+    }
+
+    public void updateQSDataUsageInfo() {
+        DataUsageView.updateUsage();
     }
 
     public int getWakefulnessState() {

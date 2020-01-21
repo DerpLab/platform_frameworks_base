@@ -6480,6 +6480,15 @@ public final class Settings {
                 new SettingsValidators.InclusiveIntegerRangeValidator(1, 5);
 
         /**
+         * Show data usage in QS header
+         * @hide
+         */
+        public static final String QS_DATAUSAGE = "qs_datausage";
+
+        /** @hide */
+        private static final Validator QS_DATAUSAGE_VALIDATOR = ANY_INTEGER_VALIDATOR;
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -6733,6 +6742,7 @@ public final class Settings {
             FLASHLIGHT_ON_CALL,
             FLASHLIGHT_ON_CALL_IGNORE_DND,
             FLASHLIGHT_ON_CALL_RATE,
+            QS_DATAUSAGE,
         };
 
         /**
@@ -6970,6 +6980,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(FLASHLIGHT_ON_CALL);
             PRIVATE_SETTINGS.add(FLASHLIGHT_ON_CALL_IGNORE_DND);
             PRIVATE_SETTINGS.add(FLASHLIGHT_ON_CALL_RATE);
+            PRIVATE_SETTINGS.add(QS_DATAUSAGE);
         }
 
         /**
@@ -7268,6 +7279,7 @@ public final class Settings {
             VALIDATORS.put(FLASHLIGHT_ON_CALL, FLASHLIGHT_ON_CALL_VALIDATOR);
             VALIDATORS.put(FLASHLIGHT_ON_CALL_IGNORE_DND, FLASHLIGHT_ON_CALL_IGNORE_DND_VALIDATOR);
             VALIDATORS.put(FLASHLIGHT_ON_CALL_RATE, FLASHLIGHT_ON_CALL_RATE_VALIDATOR);
+            VALIDATORS.put(QS_DATAUSAGE, QS_DATAUSAGE_VALIDATOR);
         }
 
         /**
