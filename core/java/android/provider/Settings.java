@@ -11310,6 +11310,12 @@ public final class Settings {
         private static final Validator HIDE_LOCKICON_VALIDATOR = BOOLEAN_VALIDATOR;
 
         /**
+         * Accent color
+         * @hide
+         */
+        public static final String ACCENT_COLOR_PROP = "accent_color_prop";
+
+        /**
          * Whether tethering is allowed to use VPN upstreams
          * 0 = false, 1 = true
          * @hide
