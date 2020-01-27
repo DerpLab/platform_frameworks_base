@@ -51,5 +51,6 @@
 
     <!-- Volume panel -->
     <dimen name="volume_dialog_panel_transparent_padding_left">20dp</dimen>
-  
+
+   <dimen name="fod_animation_size">280dp</dimen>  
 </resources>
