@@ -93,9 +93,14 @@ public class NotificationLightsView extends RelativeLayout {
     }
 
     public void animateNotification(boolean mNotification) {
-        int color = Settings.System.getIntForUser(mContext.getContentResolver(),
-                Settings.System.PULSE_AMBIENT_LIGHT_COLOR, 0xFF3980FF,
-                UserHandle.USER_CURRENT);
+        boolean useAccent = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.OMNI_AMBIENT_NOTIFICATION_LIGHT_ACCENT,
+                0, UserHandle.USER_CURRENT) != 0;
+        int color = useAccent ?
+                Utils.getColorAccentDefaultColor(getContext()) :
+                Settings.System.getIntForUser(mContext.getContentResolver(),
+                        Settings.System.PULSE_AMBIENT_LIGHT_COLOR, 0xFF3980FF,
+                        UserHandle.USER_CURRENT);
         int duration = Settings.System.getIntForUser(mContext.getContentResolver(),
                 Settings.System.PULSE_AMBIENT_LIGHT_DURATION, 2,
                 UserHandle.USER_CURRENT) * 1000;
