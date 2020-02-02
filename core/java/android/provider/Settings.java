@@ -10741,12 +10741,6 @@ public final class Settings {
         };
 
         /**
-         * Select which lockscreen clock style to display
-         * @hide
-         */
-        public static final String LOCKSCREEN_CLOCK_SELECTION = "lockscreen_clock_selection";
-
-        /**
          * Whether the Lockdown button should be shown in the power menu.
          * @hide
          */

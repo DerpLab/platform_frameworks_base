@@ -760,9 +760,6 @@ public class StatusBar extends SystemUI implements DemoMode,
                     Settings.System.USE_OLD_MOBILETYPE),
                     false, this, UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.Secure.getUriFor(
-                    Settings.Secure.LOCKSCREEN_CLOCK_SELECTION),
-                    false, this, UserHandle.USER_ALL);
-            resolver.registerContentObserver(Settings.Secure.getUriFor(
                     Settings.Secure.SHOW_BACK_ARROW_GESTURE),
                     false, this, UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.Secure.getUriFor(
@@ -817,8 +814,6 @@ public class StatusBar extends SystemUI implements DemoMode,
             } else if (uri.equals(Settings.System.getUriFor(
                     Settings.System.USE_OLD_MOBILETYPE))) {
                 setOldMobileType();
-            } else if (uri.equals(Settings.Secure.getUriFor(Settings.Secure.LOCKSCREEN_CLOCK_SELECTION))) {
-                updateKeyguardStatusSettings();
             } else if (uri.equals(Settings.System.getUriFor(
                     Settings.System.QS_PANEL_BG_USE_WALL))) {
                 updateQSPanel();
@@ -844,15 +839,10 @@ public class StatusBar extends SystemUI implements DemoMode,
             setOldMobileType();
             setHideArrowForBackGesture();
             updateNavigationBarVisibility();
-            updateKeyguardStatusSettings();
             updateQSPanel();
             updateTickerAnimation();
             updateTickerTickDuration();
         }
-    }
-
-    private void updateKeyguardStatusSettings() {
-        mNotificationPanel.updateKeyguardStatusSettings();
     }
 
     private void setOldMobileType() {
