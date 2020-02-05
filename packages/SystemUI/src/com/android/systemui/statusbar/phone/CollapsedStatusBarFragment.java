@@ -522,11 +522,11 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
                 UserHandle.USER_CURRENT);
 
         switch(mLogoStyle) {
-                // DerpQuest 1
+                // DerpFest 1
             case 1:
                 logo = getContext().getDrawable(R.drawable.ic_derpquest_logo);
                 break;
-                // DerpQuest 2
+                // DerpFest 2
             case 2:
                 logo = getContext().getResources().getDrawable(R.drawable.ic_derpquest1_logo);
                 break;
@@ -554,7 +554,7 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
             case 8:
                 logo = getContext().getResources().getDrawable(R.drawable.ic_android_logo);
                 break;
-                // DerpQuest
+                // DerpFest
             case 0:
             default:
                 logo = getContext().getDrawable(R.drawable.status_bar_logo);
