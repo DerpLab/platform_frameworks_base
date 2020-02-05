@@ -65,4 +65,9 @@
     <dimen name="opa_line_x_trans_ry">15dp</dimen>
     <dimen name="opa_line_y_translation">16dp</dimen>
 
+    <!-- Height of the big battery circle icon in the status bar. -->
+    <dimen name="status_bar_battery_bigcircle_icon_height">20.5dp</dimen>
+    <!-- Width of the big battery circle icon in the status bar. -->
+    <dimen name="status_bar_battery_bigcircle_icon_width">20.5dp</dimen>
+
 </resources>

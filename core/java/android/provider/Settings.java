@@ -5299,9 +5299,11 @@ public final class Settings {
          * Display style of the status bar battery information
          *    0: Display the battery as portrait icon (default)
          *    1: Display the battery as dotted circle
-         *    2: Display the battery as circle
-         *    3: Display the battery as text
-         *    4: Do not display the battery
+         *    2: Display the battery as PA circle
+         *    3: Display the battery as circle
+         *    4: Display the battery as big circle
+         *    5: Display the battery as text
+         *    6: Do not display the battery
          *    default: 0
          * @hide
          */
