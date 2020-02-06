@@ -23,6 +23,7 @@ import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.hardware.biometrics.BiometricSourceType;
 import android.hardware.face.FaceManager;
 import android.hardware.fingerprint.FingerprintManager;
@@ -139,6 +140,7 @@ public class KeyguardIndicationController implements StateListener,
     private static final String KEYGUARD_SHOW_BATTERY_BAR = "sysui_keyguard_show_battery_bar";
     private static final String KEYGUARD_SHOW_BATTERY_BAR_ALWAYS = "sysui_keyguard_show_battery_bar_always";
     private static final String KEYGUARD_BATTERY_BAR_COLOR = "sysui_keyguard_battery_bar_color";
+    private static final String KEYGUARD_BATTERY_INFO_FONT = "lockscreen_battery_info_font";
 
     private BatteryBarView mBatteryBar;
 
@@ -377,9 +379,161 @@ public class KeyguardIndicationController implements StateListener,
                     KEYGUARD_SHOW_BATTERY_BAR, 1) == 1;
             final boolean showBatteryBarAlways = Settings.System.getInt(mContext.getContentResolver(),
                     KEYGUARD_SHOW_BATTERY_BAR_ALWAYS, 0) == 1;
+            int chargingInfoFont = Settings.System.getInt(mContext.getContentResolver(),
+                    KEYGUARD_BATTERY_INFO_FONT, 28);
             int batteryBarColor = Settings.System.getInt(mContext.getContentResolver(),
                     KEYGUARD_BATTERY_BAR_COLOR, 0xffffffff);
             batteryBarColor = Color.argb(255, Color.red(batteryBarColor), Color.green(batteryBarColor), Color.blue(batteryBarColor));
+
+            switch (chargingInfoFont) {
+                case 0:
+                    mTextView.setTypeface(Typeface.create("sans-serif", Typeface.NORMAL));
+                    break;
+                case 1:
+                    mTextView.setTypeface(Typeface.create("sans-serif", Typeface.BOLD));
+                    break;
+                case 2:
+                    mTextView.setTypeface(Typeface.create("sans-serif", Typeface.ITALIC));
+                    break;
+                case 3:
+                    mTextView.setTypeface(Typeface.create("sans-serif", Typeface.BOLD_ITALIC));
+                    break;
+                case 4:
+                    mTextView.setTypeface(Typeface.create("sans-serif-light", Typeface.ITALIC));
+                    break;
+                case 5:
+                    mTextView.setTypeface(Typeface.create("sans-serif-light", Typeface.NORMAL));
+                    break;
+                case 6:
+                    mTextView.setTypeface(Typeface.create("sans-serif-thin", Typeface.ITALIC));
+                    break;
+                case 7:
+                    mTextView.setTypeface(Typeface.create("sans-serif-thin", Typeface.NORMAL));
+                    break;
+                case 8:
+                    mTextView.setTypeface(Typeface.create("sans-serif-condensed", Typeface.NORMAL));
+                    break;
+                case 9:
+                    mTextView.setTypeface(Typeface.create("sans-serif-condensed", Typeface.ITALIC));
+                    break;
+                case 10:
+                    mTextView.setTypeface(Typeface.create("sans-serif-condensed", Typeface.BOLD));
+                    break;
+                case 11:
+                    mTextView.setTypeface(Typeface.create("sans-serif-condensed", Typeface.BOLD_ITALIC));
+                    break;
+                case 12:
+                    mTextView.setTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL));
+                    break;
+                case 13:
+                    mTextView.setTypeface(Typeface.create("sans-serif-medium", Typeface.ITALIC));
+                    break;
+                case 14:
+                    mTextView.setTypeface(Typeface.create("sans-serif-condensed-light", Typeface.NORMAL));
+                    break;
+                case 15:
+                    mTextView.setTypeface(Typeface.create("sans-serif-condensed-light", Typeface.ITALIC));
+                    break;
+                case 16:
+                    mTextView.setTypeface(Typeface.create("sans-serif-black", Typeface.NORMAL));
+                    break;
+                case 17:
+                    mTextView.setTypeface(Typeface.create("sans-serif-black", Typeface.ITALIC));
+                    break;
+                case 18:
+                    mTextView.setTypeface(Typeface.create("cursive", Typeface.NORMAL));
+                    break;
+                case 19:
+                    mTextView.setTypeface(Typeface.create("cursive", Typeface.BOLD));
+                    break;
+                case 20:
+                    mTextView.setTypeface(Typeface.create("casual", Typeface.NORMAL));
+                    break;
+                case 21:
+                    mTextView.setTypeface(Typeface.create("serif", Typeface.NORMAL));
+                    break;
+                case 22:
+                    mTextView.setTypeface(Typeface.create("serif", Typeface.ITALIC));
+                    break;
+                case 23:
+                    mTextView.setTypeface(Typeface.create("serif", Typeface.BOLD));
+                    break;
+                case 24:
+                    mTextView.setTypeface(Typeface.create("serif", Typeface.BOLD_ITALIC));
+                    break;
+                case 25:
+                    mTextView.setTypeface(Typeface.create("gobold-light-sys", Typeface.NORMAL));
+                    break;
+                case 26:
+                    mTextView.setTypeface(Typeface.create("roadrage-sys", Typeface.NORMAL));
+                    break;
+                case 27:
+                    mTextView.setTypeface(Typeface.create("snowstorm-sys", Typeface.NORMAL));
+                    break;
+                case 28:
+                    mTextView.setTypeface(Typeface.create("googlesans-sys", Typeface.NORMAL));
+                    break;
+                case 29:
+                    mTextView.setTypeface(Typeface.create("neoneon-sys", Typeface.NORMAL));
+                    break;
+                case 30:
+                    mTextView.setTypeface(Typeface.create("themeable-sys", Typeface.NORMAL));
+                    break;
+                case 31:
+                    mTextView.setTypeface(Typeface.create("samsung-sys", Typeface.NORMAL));
+                    break;
+                case 32:
+                    mTextView.setTypeface(Typeface.create("mexcellent-sys", Typeface.NORMAL));
+                    break;
+                case 33:
+                    mTextView.setTypeface(Typeface.create("burnstown-sys", Typeface.NORMAL));
+                    break;
+                case 34:
+                    mTextView.setTypeface(Typeface.create("dumbledor-sys", Typeface.NORMAL));
+                    break;
+                case 35:
+                    mTextView.setTypeface(Typeface.create("phantombold-sys", Typeface.NORMAL));
+                    break;
+                case 36:
+                    mTextView.setTypeface(Typeface.create("sourcesanspro-sys", Typeface.NORMAL));
+                    break;
+                case 37:
+                    mTextView.setTypeface(Typeface.create("circularstd-sys", Typeface.NORMAL));
+                    break;
+                case 38:
+                    mTextView.setTypeface(Typeface.create("oneplusslate-sys", Typeface.NORMAL));
+                    break;
+                case 39:
+                    mTextView.setTypeface(Typeface.create("aclonica-sys", Typeface.NORMAL));
+                    break;
+                case 40:
+                    mTextView.setTypeface(Typeface.create("amarante-sys", Typeface.NORMAL));
+                    break;
+                case 41:
+                    mTextView.setTypeface(Typeface.create("bariol-sys", Typeface.NORMAL));
+                    break;
+                case 42:
+                    mTextView.setTypeface(Typeface.create("cagliostro-sys", Typeface.NORMAL));
+                    break;
+                case 43:
+                    mTextView.setTypeface(Typeface.create("coolstory-sys", Typeface.NORMAL));
+                    break;
+                case 44:
+                    mTextView.setTypeface(Typeface.create("lgsmartgothic-sys", Typeface.NORMAL));
+                    break;
+                case 45:
+                    mTextView.setTypeface(Typeface.create("rosemary-sys", Typeface.NORMAL));
+                    break;
+                case 46:
+                    mTextView.setTypeface(Typeface.create("sonysketch-sys", Typeface.NORMAL));
+                    break;
+                case 47:
+                    mTextView.setTypeface(Typeface.create("surfer-sys", Typeface.NORMAL));
+                    break;
+                default:
+                    mTextView.setTypeface(Typeface.create("themeable-sys", Typeface.NORMAL));
+                    break;
+            }
 
             // Walk down a precedence-ordered list of what indication
             // should be shown based on user or device state

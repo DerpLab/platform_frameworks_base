@@ -5254,6 +5254,16 @@ public final class Settings {
         private static final Validator LOCKSCREEN_BATTERY_INFO_VALIDATOR = BOOLEAN_VALIDATOR;
 
         /**
+         * Battery info font
+         *
+         * @hide
+         */
+        public static final String LOCKSCREEN_BATTERY_INFO_FONT = "lockscreen_battery_info_font";
+        /** @hide */
+        private static final Validator LOCKSCREEN_BATTERY_INFO_FONT_VALIDATOR =
+                ANY_INTEGER_VALIDATOR;
+
+        /**
          * Display style of the status bar battery information
          *    0: Display the battery as portrait icon (default)
          *    1: Display the battery as dotted circle
@@ -6148,6 +6158,7 @@ public final class Settings {
             DATA_DISABLED_ICON,
             THREE_FINGER_GESTURE,
             LOCKSCREEN_BATTERY_INFO,
+            LOCKSCREEN_BATTERY_INFO_FONT,
             ENABLE_CONDITIONS,
             ENABLE_SUGGESTIONS,
             FORCE_FULLSCREEN_CUTOUT_APPS,
@@ -6608,6 +6619,7 @@ public final class Settings {
             VALIDATORS.put(DATA_DISABLED_ICON, DATA_DISABLED_ICON_VALIDATOR);
             VALIDATORS.put(THREE_FINGER_GESTURE, THREE_FINGER_GESTURE_VALIDATOR);
             VALIDATORS.put(LOCKSCREEN_BATTERY_INFO, LOCKSCREEN_BATTERY_INFO_VALIDATOR);
+            VALIDATORS.put(LOCKSCREEN_BATTERY_INFO_FONT, LOCKSCREEN_BATTERY_INFO_FONT_VALIDATOR);
             VALIDATORS.put(ENABLE_CONDITIONS, ENABLE_CONDITIONS_VALIDATOR);
             VALIDATORS.put(ENABLE_SUGGESTIONS, ENABLE_SUGGESTIONS_VALIDATOR);
             VALIDATORS.put(FORCE_FULLSCREEN_CUTOUT_APPS, FORCE_FULLSCREEN_CUTOUT_APPS_VALIDATOR);
