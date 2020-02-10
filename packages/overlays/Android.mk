@@ -46,6 +46,7 @@ LOCAL_REQUIRED_MODULES := \
 	FontSFProOverlay \
 	FontSonySketchSourceOverlay \
 	FontSurferSourceOverlay \
+    FontAnaheim \
     FontBigNoodle \
     FontBikoHanken \
     FontComicNeue \
