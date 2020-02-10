@@ -1160,11 +1160,6 @@ public class StatusBar extends SystemUI implements DemoMode,
         boolean aodAvailable = mContext.getResources().getBoolean(
                     com.android.internal.R.bool.config_dozeAlwaysOnDisplayAvailable);
         try{
-            mOverlayManager.setEnabled("com.google.android.pixel.setupwizard.overlay",
-                true, mLockscreenUserManager.getCurrentUserId());
-        } catch (RemoteException ignored) {
-        }
-        try{
             mOverlayManager.setEnabled("com.google.android.pixel.setupwizard.overlay.aod",
                 !aodAvailable, mLockscreenUserManager.getCurrentUserId());
         } catch (RemoteException ignored) {
