@@ -6088,6 +6088,15 @@ public final class Settings {
                 new SettingsValidators.InclusiveIntegerRangeValidator(0, 2);
 
         /**
+         * Timeout for ambient pulse in seconds - 0 is no timeout
+         * @hide
+         */
+        public static final String OMNI_AOD_NOTIFICATION_PULSE_TIMEOUT = "ambient_notification_light_timeout";
+
+        private static final Validator OMNI_AOD_NOTIFICATION_PULSE_TIMEOUT_VALIDATOR =
+               ANY_INTEGER_VALIDATOR;
+
+        /**
          * FOD recognizing animation
          * @hide
          */
@@ -6327,6 +6336,7 @@ public final class Settings {
             OMNI_STATUS_BAR_CUSTOM_HEADER_PROVIDER,
             OMNI_STATUS_BAR_CUSTOM_HEADER_IMAGE,
             OMNI_STATUS_BAR_FILE_HEADER_IMAGE,
+            OMNI_AOD_NOTIFICATION_PULSE_TIMEOUT,
             OMNI_PULSE_AMBIENT_LIGHT,
             OMNI_AMBIENT_NOTIFICATION_LIGHT,
             OMNI_AMBIENT_NOTIFICATION_LIGHT_ACTIVATED,
@@ -6815,6 +6825,7 @@ public final class Settings {
                     OMNI_STATUS_BAR_CUSTOM_HEADER_IMAGE_VALIDATOR);
             VALIDATORS.put(OMNI_STATUS_BAR_FILE_HEADER_IMAGE,
                     OMNI_STATUS_BAR_FILE_HEADER_IMAGE_VALIDATOR);
+            VALIDATORS.put(OMNI_AOD_NOTIFICATION_PULSE_TIMEOUT, OMNI_AOD_NOTIFICATION_PULSE_TIMEOUT_VALIDATOR);
             VALIDATORS.put(OMNI_PULSE_AMBIENT_LIGHT, OMNI_PULSE_AMBIENT_LIGHT_VALIDATOR);
             VALIDATORS.put(OMNI_AMBIENT_NOTIFICATION_LIGHT, OMNI_AMBIENT_NOTIFICATION_LIGHT_VALIDATOR);
             VALIDATORS.put(OMNI_AMBIENT_NOTIFICATION_LIGHT_ACTIVATED, OMNI_AMBIENT_NOTIFICATION_LIGHT_ACTIVATED_VALIDATOR);
