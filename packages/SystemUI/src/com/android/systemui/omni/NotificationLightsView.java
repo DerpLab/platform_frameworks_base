@@ -47,10 +47,7 @@ import com.android.systemui.R;
 public class NotificationLightsView extends RelativeLayout {
     private static final boolean DEBUG = false;
     private static final String TAG = "NotificationLightsView";
-    private View mNotificationAnimView;
     private ValueAnimator mLightAnimator;
-    private boolean mPulsing;
-    private boolean mNotification;
     private WallpaperManager mWallManager;
 
     public NotificationLightsView(Context context) {
@@ -70,47 +67,23 @@ public class NotificationLightsView extends RelativeLayout {
         if (DEBUG) Log.d(TAG, "new");
     }
 
-    private Runnable mLightUpdate = new Runnable() {
-        @Override
-        public void run() {
-            if (DEBUG) Log.d(TAG, "run");
-            animateNotification(mNotification);
+    public void stopAnimateNotification() {
+        if (mLightAnimator != null) {
+            mLightAnimator.end();
+            mLightAnimator = null;
         }
-    };
-
-    @Override
-    public void draw(Canvas canvas) {
-        super.draw(canvas);
-        if (DEBUG) Log.d(TAG, "draw");
-        //post(mLightUpdate);
     }
 
-    public void setPulsing(boolean pulsing) {
-        if (mPulsing == pulsing) {
-            return;
-        }
-        mPulsing = pulsing;
-    }
-
-    public void animateNotification(boolean mNotification) {
+    public int getNotificationLightsColor() {
         boolean useAccent = Settings.System.getIntForUser(mContext.getContentResolver(),
                 Settings.System.OMNI_AMBIENT_NOTIFICATION_LIGHT_ACCENT,
                 0, UserHandle.USER_CURRENT) != 0;
-        int color = useAccent ?
-                Utils.getColorAccentDefaultColor(getContext()) :
-                Settings.System.getIntForUser(mContext.getContentResolver(),
-                        Settings.System.PULSE_AMBIENT_LIGHT_COLOR, 0xFF3980FF,
-                        UserHandle.USER_CURRENT);
-        int duration = Settings.System.getIntForUser(mContext.getContentResolver(),
-                Settings.System.PULSE_AMBIENT_LIGHT_DURATION, 2,
-                UserHandle.USER_CURRENT) * 1000;
-        int repeat = Settings.System.getIntForUser(mContext.getContentResolver(),
-                Settings.System.PULSE_AMBIENT_LIGHT_REPEAT_COUNT, 0,
-                UserHandle.USER_CURRENT);
-
-        if (Settings.System.getIntForUser(mContext.getContentResolver(),
+        int color = getDefaultNotificationLightsColor(); // custom color (fallback)
+        if (useAccent) {  // follow accent
+            color = Utils.getColorAccentDefaultColor(getContext());
+        } else if (Settings.System.getIntForUser(mContext.getContentResolver(),
                 Settings.System.PULSE_AMBIENT_AUTO_COLOR, 0,
-                UserHandle.USER_CURRENT) == 1) {
+                UserHandle.USER_CURRENT) == 1) { // follow wallapaper
             try {
                 WallpaperManager wallpaperManager = WallpaperManager.getInstance(mContext);
                 WallpaperInfo wallpaperInfo = wallpaperManager.getWallpaperInfo();
@@ -128,10 +101,24 @@ public class NotificationLightsView extends RelativeLayout {
                 // Nothing to do
             }
         }
-        StringBuilder sb = new StringBuilder();
-        sb.append("animateNotification color ");
-        sb.append(Integer.toHexString(color));
-        if (DEBUG) Log.d(TAG, sb.toString());
+        return color;
+    }
+
+    public int getDefaultNotificationLightsColor() {
+        int defaultColor = getResources().getInteger(
+                com.android.internal.R.integer.config_ambientNotificationDefaultColor);
+        return Settings.System.getIntForUser(mContext.getContentResolver(),
+                    Settings.System.PULSE_AMBIENT_LIGHT_COLOR, defaultColor,
+                    UserHandle.USER_CURRENT);
+    }
+
+    public void animateNotificationWithColor(int color) {
+        int duration = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.PULSE_AMBIENT_LIGHT_DURATION, 2,
+                UserHandle.USER_CURRENT) * 1000;
+        int repeat = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.PULSE_AMBIENT_LIGHT_REPEAT_COUNT, 0,
+                UserHandle.USER_CURRENT);
         ImageView leftView = (ImageView) findViewById(R.id.notification_animation_left);
         ImageView rightView = (ImageView) findViewById(R.id.notification_animation_right);
         leftView.setColorFilter(color);
@@ -139,9 +126,9 @@ public class NotificationLightsView extends RelativeLayout {
         mLightAnimator = ValueAnimator.ofFloat(new float[]{0.0f, 2.0f});
         mLightAnimator.setDuration(duration);
         //Infinite animation only on Always On Notifications
-        if (mNotification && repeat == 0) {
+        if (repeat == 0) {
             mLightAnimator.setRepeatCount(ValueAnimator.INFINITE);
-        } else if (mNotification) {
+        } else {
             mLightAnimator.setRepeatCount(repeat);
         }
         mLightAnimator.setRepeatMode(ValueAnimator.RESTART);
