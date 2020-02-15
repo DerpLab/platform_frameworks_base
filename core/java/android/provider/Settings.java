@@ -4511,11 +4511,6 @@ public final class Settings {
         /**
          * @hide
          */
-        public static final String SCREENSHOT_SHUTTER_SOUND = "screenshot_shutter_sound";
-
-        /**
-         * @hide
-         */
         public static final String FLASH_ON_CALL_WAITING = "flash_on_call_waiting";
         /** @hide */
         private static final Validator FLASH_ON_CALL_WAITING_VALIDATOR = BOOLEAN_VALIDATOR;
@@ -4532,10 +4527,6 @@ public final class Settings {
          * @hide
          */
         public static final String DEVICE_FEATURE_SETTINGS = "device_feature_settings";
-
-        /** @hide */
-        private static final Validator SCREENSHOT_SHUTTER_SOUND_VALIDATOR =
-                BOOLEAN_VALIDATOR;
 
         /**
          * The time in ms to keep the button backlight on after pressing a button.
@@ -6154,7 +6145,6 @@ public final class Settings {
             AMBIENT_WAKE_GESTURES,
             NOTIFICATION_SOUND_VIB_SCREEN_ON,
             SHOW_GENTLE_HEADER,
-            SCREENSHOT_SHUTTER_SOUND,
             BUTTON_EXTRA_KEY_MAPPING,
             DEVICE_PROXI_CHECK_ENABLED,
             ANBI_ENABLED_OPTION,
@@ -6417,7 +6407,6 @@ public final class Settings {
             PRIVATE_SETTINGS.add(LOCK_TO_APP_ENABLED);
             PRIVATE_SETTINGS.add(EGG_MODE);
             PRIVATE_SETTINGS.add(DISPLAY_COLOR_MODE);
-            PRIVATE_SETTINGS.add(SCREENSHOT_SHUTTER_SOUND);
             PRIVATE_SETTINGS.add(BUTTON_BACKLIGHT_TIMEOUT);
             PRIVATE_SETTINGS.add(BUTTON_BACKLIGHT_ONLY_WHEN_PRESSED);
             PRIVATE_SETTINGS.add(BUTTON_BRIGHTNESS);
@@ -6615,7 +6604,6 @@ public final class Settings {
             VALIDATORS.put(WIFI_STATIC_DNS1, WIFI_STATIC_DNS1_VALIDATOR);
             VALIDATORS.put(WIFI_STATIC_DNS2, WIFI_STATIC_DNS2_VALIDATOR);
             VALIDATORS.put(NOTIFICATION_LIGHT_PULSE, BOOLEAN_VALIDATOR);
-            VALIDATORS.put(SCREENSHOT_SHUTTER_SOUND, SCREENSHOT_SHUTTER_SOUND_VALIDATOR);
             VALIDATORS.put(BUTTON_BACKLIGHT_TIMEOUT, BUTTON_BACKLIGHT_TIMEOUT_VALIDATOR);
             VALIDATORS.put(BUTTON_BRIGHTNESS, BUTTON_BRIGHTNESS_VALIDATOR);
             VALIDATORS.put(AMBIENT_WAKE_GESTURES, AMBIENT_WAKE_GESTURES_VALIDATOR);
