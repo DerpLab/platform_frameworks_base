@@ -108,7 +108,10 @@ public class FODCircleView extends ImageView {
         R.drawable.fod_icon_rainbow_horn,
         R.drawable.fod_icon_shooky,
         R.drawable.fod_icon_spiral_blue,
-        R.drawable.fod_icon_sun_metro
+        R.drawable.fod_icon_sun_metro,
+        R.drawable.fod_icon_derp,
+        R.drawable.fod_icon_derp_1,
+        R.drawable.fod_icon_transparent
     };
 
     private IFingerprintInscreenCallback mFingerprintInscreenCallback =
@@ -545,13 +548,17 @@ class FODAnimation extends ImageView {
 
     private int mSelectedAnime;
     private final int[] ANIMATION_STYLES = {
-        R.drawable.fod_normal_recognizing_anim,
-        R.drawable.fod_aod_recognizing_anim,
-        R.drawable.fod_light_recognizing_anim,
-        R.drawable.fod_pop_recognizing_anim,
-        R.drawable.fod_pulse_recognizing_anim,
-        R.drawable.fod_pulse_recognizing_white_anim,
-        R.drawable.fod_rhythm_recognizing_anim
+        R.drawable.fod_miui_normal_recognizing_anim,
+        R.drawable.fod_miui_aod_recognizing_anim,
+        R.drawable.fod_miui_light_recognizing_anim,
+        R.drawable.fod_miui_pop_recognizing_anim,
+        R.drawable.fod_miui_pulse_recognizing_anim,
+        R.drawable.fod_miui_pulse_recognizing_white_anim,
+        R.drawable.fod_miui_rhythm_recognizing_anim,
+        R.drawable.fod_op_cosmos_recognizing_anim,
+        R.drawable.fod_op_mclaren_recognizing_anim,
+        R.drawable.fod_pureview_future_recognizing_anim,
+        R.drawable.fod_pureview_molecular_recognizing_anim
     };
 
     public FODAnimation(Context context, int mPositionX, int mPositionY) {
