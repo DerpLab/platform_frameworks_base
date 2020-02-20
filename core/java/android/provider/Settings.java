@@ -6186,6 +6186,14 @@ public final class Settings {
 
         private static final Validator OMNI_AUTO_BRIGHTNESS_MIN_VALUE_VALIDATOR =
                 ANY_INTEGER_VALIDATOR;
+        /**
+         * Whether to use new QS panel bg tint or not
+         * @hide
+         */
+        public static final String QS_PANEL_BG_USE_NEW_TINT = "qs_panel_bg_use_new_tint";
+
+        /** @hide */
+        private static final Validator QS_PANEL_BG_USE_NEW_TINT_VALIDATOR = BOOLEAN_VALIDATOR;
 
         /**
          * IMPORTANT: If you add a new public settings you also have to add it to
@@ -6421,6 +6429,7 @@ public final class Settings {
             TEXT_CLOCK_PADDING,
             FORCE_EXPANDED_NOTIFICATIONS,
             BACK_GESTURE_HAPTIC,
+            QS_PANEL_BG_USE_NEW_TINT,
         };
 
         /**
@@ -6919,6 +6928,7 @@ public final class Settings {
             VALIDATORS.put(TEXT_CLOCK_PADDING, TEXT_CLOCK_PADDING_VALIDATOR);
             VALIDATORS.put(FORCE_EXPANDED_NOTIFICATIONS, FORCE_EXPANDED_NOTIFICATIONS_VALIDATOR);
             VALIDATORS.put(BACK_GESTURE_HAPTIC, BACK_GESTURE_HAPTIC_VALIDATOR);
+            VALIDATORS.put(QS_PANEL_BG_USE_NEW_TINT, QS_PANEL_BG_USE_NEW_TINT_VALIDATOR);
         }
 
         /**
