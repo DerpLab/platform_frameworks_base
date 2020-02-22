@@ -132,6 +132,70 @@
         <item>Neunundfünfzig</item>
     </string-array>
 
+    <!-- Minutes displayed in words on the typographic clock face. [CHAR LIMIT=20] -->
+    <string-array name="type_clock_minutes_alt">
+        <item>Uhr</item>
+        <item>Eins</item>
+        <item>Zwei</item>
+        <item>Drei</item>
+        <item>Vier</item>
+        <item>Fünf</item>
+        <item>Sechs</item>
+        <item>Sieben</item>
+        <item>Acht</item>
+        <item>Neun</item>
+        <item>Zehn</item>
+        <item>Elf</item>
+        <item>Zwölf</item>
+        <item>Dreizehn</item>
+        <item>Vierzehn</item>
+        <item>Fünfzehn</item>
+        <item>Sechzehn</item>
+        <item>Siebzehn</item>
+        <item>Achzehn</item>
+        <item>Neunzehn</item>
+        <item>Zwanzig</item>
+        <item>Einundzwanzig</item>
+        <item>Zweiundzwanzig</item>
+        <item>Dreiundzwanzig</item>
+        <item>Vierundzwanzig</item>
+        <item>Fünfundzwanzig</item>
+        <item>Sechsundzwanzig</item>
+        <item>Siebenundzwanzig</item>
+        <item>Achtundzwanzig</item>
+        <item>Neunundzwanzig</item>
+        <item>Dreißig</item>
+        <item>Einunddreißig</item>
+        <item>Zweiunddreißig</item>
+        <item>Dreiunddreißig</item>
+        <item>Vierunddreißig</item>
+        <item>Fünfunddreißig</item>
+        <item>Sechsunddreißig</item>
+        <item>Siebenunddreißig</item>
+        <item>Achtunddreißig</item>
+        <item>Neununddreißig</item>
+        <item>Vierzig</item>
+        <item>Einundvierzig</item>
+        <item>Zweiundvierzig</item>
+        <item>Dreiundvierzig</item>
+        <item>Vierundvierzig</item>
+        <item>Fünfundvierzig</item>
+        <item>Sechsundvierzig</item>
+        <item>Siebenundvierzig</item>
+        <item>Achtundvierzig</item>
+        <item>Neunundvierzig</item>
+        <item>Fünfzig</item>
+        <item>Einundfünfzig</item>
+        <item>Zweiundfünfzig</item>
+        <item>Dreiundfünfzig</item>
+        <item>Vierundfünfzig</item>
+        <item>Fünfundfünfzig</item>
+        <item>Sechsundfünfzig</item>
+        <item>Siebenundfünfzig</item>
+        <item>Achtundfünfzig</item>
+        <item>Neunundfünfzig</item>
+    </string-array>
+
     <!-- [CHAR LIMIT=8] -->
     <string name="clock_title_default" translatable="false">Standard</string>
     <!-- [CHAR LIMIT=8] -->
