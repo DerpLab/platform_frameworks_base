@@ -51,9 +51,7 @@ public class AODTile extends QSTileImpl<BooleanState> {
 
     @Override
     public BooleanState newTileState() {
-        BooleanState state = new BooleanState();
-        state.handlesLongClick = false;
-        return state;
+        return new BooleanState();
     }
 
     @Override
