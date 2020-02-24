@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019 DerpFest
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- DerpQuest Settings Tile -->
+    <string name="quick_settings_derp_label">डर्पक्वेस्ट</string>
+
+    <string name="statusbar_items_title">स्टेटस बार आइकन्स</string>
+    <string name="lockscreen_default">डिफॉल्ट</string>
+    <string name="lockscreen_hidden">कोई नहीं</string>
+
+    <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
+    <string name="custom_hint">लॉन्च करने के लिए आइकन से स्वाइप करें</string>
+
+    <!-- Power Menu -->
+    <string name="global_action_reboot">पुनर्प्रारंभ करें</string>
+    <string name="global_action_reboot_more">पुनर्प्रारंभ\u2026</string>
+    <string name="global_action_reboot_sub">सिस्टम</string>
+    <string name="global_action_reboot_recovery">रिकवरी</string>
+    <string name="global_action_reboot_bootloader">बूटलोडर</string>
+    <string name="global_action_dismissable_dialog_text">उन्नत पुनरारंभ अक्षम है। \n क्या आप पुनः आरंभ करना चाहते हैं\u003f</string>
+    <string name="global_action_dnaa">फिर से मत दिखाना</string>
+    <string name="global_action_settings">सेटिंग्स</string>
+    <string name="global_action_restart_sysui">सिस्टमयूआई</string>
+
+    <!-- QS Config -->
+    <string name="qs_menu_item_columns">कॉलम</string>
+    <string name="qs_menu_item_columns_landscape">लैंडस्केप कॉलम</string>
+    <string name="qs_menu_item_rows">पंक्तियाँ</string>
+    <string name="qs_menu_item_rows_landscape">लैंडस्केप पंक्तियाँ</string>
+    <string name="qs_menu_item_columns_one">1</string>
+    <string name="qs_menu_item_columns_two">2</string>
+    <string name="qs_menu_item_columns_three">3</string>
+    <string name="qs_menu_item_columns_four">4</string>
+    <string name="qs_menu_item_columns_five">5</string>
+    <string name="qs_menu_item_columns_six">6</string>
+    <string name="qs_menu_item_columns_seven">7</string>
+    <string name="qs_menu_item_columns_eight">8</string>
+    <string name="qs_menu_item_columns_nine">9</string>
+    <string name="qs_menu_item_reset">रीसेट</string>
+    <string name="qs_menu_item_titles">लेबल दिखाएं</string>
+    <string name="qs_menu_item_qs_columns">क्विकबार कॉलम</string>
+    <string name="qs_menu_item_columns_auto">स्वचालित</string>
+    <string name="qs_footer_text">फूटर शब्द</string>
+
+    <string name="tuner_quick_settings">त्वरित सेटिंग्स</string>
+    <string name="tuner_show_brightness_new">चमक स्लाइडर दिखाएं</string>
+    <string name="tuner_brightness_position_bottom">नीचे वाला चमक स्लाइडर</string>
+    <string name="tuner_show_secure_title">सुरक्षा फुटर दिखाएं</string>
+
+    <!-- LTE QS Tile -->
+    <string name="qs_lte_label">एलटीई</string>
+    <string name="lte_on">LTE चालू</string>
+    <string name="lte_off">LTE बंद</string>
+
+    <!-- Sound QS Tile -->
+    <string name="quick_settings_sound_label">ध्वनि</string>
+    <string name="quick_settings_sound_ring">रिंग</string>
+    <string name="quick_settings_sound_vibrate">कंपन</string>
+    <string name="quick_settings_sound_dnd">परेशान न करें</string>
+
+    <!-- Caffeine QS Tile -->
+    <string name="quick_settings_caffeine_label">कैफीन</string>
+    <string name="accessibility_quick_settings_caffeine_off">कैफीन बंद</string>
+    <string name="accessibility_quick_settings_caffeine_on">कैफीन चालू</string>
+
+    <!-- Screenshot QS tile -->
+    <string name="quick_settings_screenshot_label">स्क्रीनशॉट</string>
+    <string name="quick_settings_full_screenshot_label">पूर्ण</string>
+    <string name="quick_settings_region_screenshot_label">आंशिक</string>
+    <string name="delete_screenshot_toast">स्क्रीनशॉट हटा दिया गया</string>
+
+    <!-- HW Keys Tile -->
+    <string name="accessibility_quick_settings_hwkeys_on">HW कुंजी चालू</string>
+    <string name="accessibility_quick_settings_hwkeys_off">HW कुंजी बंद</string>
+    <string name="quick_settings_hwkeys_label">HW कुंजी</string>
+
+    <!-- Screenrecord Powermenu / QS tile -->
+    <string name="quick_settings_screenrecord_label">ओमनी रिकॉर्ड</string>
+    <string name="global_action_screenrecord">स्क्रीनरिकॉर्ड</string>
+
+    <!-- 4G LTE switch -->
+    <string name="show_fourg_title">LTE के बजाय 4G दिखाएं</string>
+    <string name="show_fourg_summary">4G के साथ LTE स्थिति पट्टी संकेतक बदलता है</string>
+
+    <!-- Old MobileType style switch -->
+    <string name="use_old_mobiletype_title">पुरानी मोबाइल टाइप शैली का उपयोग करें</string>
+    <string name="use_old_mobiletype_summary">सिग्नल और टाइप आइकन मिलाएं</string>
+
+    <!-- VoLTE switch -->
+    <string name="volte_switch_title">वोLTE</string>
+
+    <!-- Name of the nfc status bar icon. -->
+    <string name="status_bar_nfc">एनएफसी</string>
+    <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
+    <string name="accessibility_status_bar_nfc">एनएफसी</string>
+
+    <string name="status_bar_data_saver">डेटा सेवर</string>
+    <string name="status_bar_vpn">वीपीएन</string>
+    <string name="status_bar_roaming">रोमिंग</string>
+
+    <!-- Language toggle tile -->
+    <string name="quick_settings_locale_label">भाषा</string>
+    <string name="quick_settings_locale_more_locales_toast">कार्यक्षमता को शुरू करने के लिए कृपया कई भाषाओं का भाषा सेटिंग्स में  चयन करें</string>
+
+    <!-- Data disabled icon -->
+    <string name="data_disabled_icon_title">डेटा अक्षम आइकन</string>
+    <string name="data_disabled_icon_summary">जब डेटा अक्षम हो जाए तो सिग्नल बार के बगल में एक क्रॉस साइन प्रदर्शित करें</string>
+
+    <!-- Caffeine tile -->
+    <string name="caffeine_info_title">यह क्या है?</string>
+    <string name="caffeine_info_message">कैफीन टाइल एक साधारण टाइल है जिसे आप अपनी स्क्रीन चालू रखने के लिए स्विच कर सकते हैं।\n\n कृपया ध्यान दें कि स्क्रीन बंद होने के बाद टाइल की स्थिति अपने आप रीसेट हो जाएगी।</string>
+
+    <!-- Heads Up QS Tile -->
+    <string name="quick_settings_heads_up_label">पीक सूचनाएँ</string>
+    <string name="accessibility_quick_settings_heads_up_off">पीक नोटिफिकेशन अक्षम।</string>
+    <string name="accessibility_quick_settings_heads_up_on">पीक नोटिफिकेशन की अनुमति दी।</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">पीक नोटिफिकेशन बंद हो गए।</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">पीक नोटिफिकेशन चालू किया।</string>
+
+    <!-- AOD QS tile states -->
+    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_on_charge_label">चार्ज पर AOD</string>
+    <string name="quick_settings_aod_off_label">AOD बंद</string>
+
+    <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_dash_charging_time">डैश चार्जिंग (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> पूर्ण होने में)</string>
+    <string name="keyguard_plugged_in_dash_charging">डैश चार्जिंग</string>
+
+    <!-- CPUInfo tile -->
+    <string name="quick_settings_cpuinfo_label">सीपीयू जानकारी</string>
+
+    <!-- Sound Search tile -->
+    <string name="quick_settings_sound_search">ध्वनि खोज</string>
+    <string name="quick_settings_sound_search_no_app">क्षमा करें, लेकिन अगर आपके पास ध्वनि खोज ऐप नहीं है तो यह काम नहीं करता है।</string>
+
+    <!-- Compass QS Tile -->
+    <string name="quick_settings_compass_label">दिक्सूचक</string>
+    <string name="quick_settings_compass_value"><xliff:g id="degrees">%1$.0f</xliff:g>\u00b0 <xliff:g id="direction">%2$s</xliff:g></string>
+    <string name="quick_settings_compass_init">शुरु कर रहा है\u2026</string>
+    <string name="accessibility_quick_settings_compass_off">दिक्सूचक बंद</string>
+    <string name="accessibility_quick_settings_compass_on">दिक्सूचक चालू</string>
+    <string name="accessibility_quick_settings_compass_changed_off">दिक्सूचक बंद </string>
+    <string name="accessibility_quick_settings_compass_changed_on">दिक्सूचक चालू </string>
+    <string name="quick_settings_compass_N">उत्तर</string>
+    <string name="quick_settings_compass_NE">उत्तर पूर्व</string>
+    <string name="quick_settings_compass_E">पूर्व</string>
+    <string name="quick_settings_compass_SE">दक्षिण पूर्व</string>
+    <string name="quick_settings_compass_S">दक्षिण</string>
+    <string name="quick_settings_compass_SW">दक्षिण पश्चिम</string>
+    <string name="quick_settings_compass_W">पश्चिम</string>
+    <string name="quick_settings_compass_NW">उत्तर पश्चिम</string>
+
+    <!-- StatusBar tuner categories -->
+    <string name="status_bar_icons_category">आइकन टॉगल</string>
+    <string name="status_bar_signal_category">सिग्नल आइकन ट्वीक</string>
+    <string name="status_bar_volte_category">वोLTE</string>
+    <string name="status_bar_etc_category">आदि</string>
+
+    <!-- DataSwitch Tile -->
+    <string name="qs_data_switch_label">डेटा कार्ड स्विच करें</string>
+    <string name="qs_data_switch_toast_0">वर्तमान में कोई सिम कार्ड नहीं डाला गया है</string>
+    <string name="qs_data_switch_toast_1">वर्तमान में केवल एक सिम कार्ड डाला गया है</string>
+    <string name="qs_data_switch_changed_1">सिम 1 पर डेटा कार्ड स्विच करें।</string>
+    <string name="qs_data_switch_changed_2">डेटा कार्ड को सिम 2 पर स्विच करें।</string>
+
+    <!-- Show VoLTE icon on statusbar -->
+    <string name="volte_icon_asus">Asus VoLTE आइकन </string>
+    <string name="volte_icon_title">VoLTE आइकन</string>
+    <string name="volte_icon_summary">VoLTE आइकन प्रदर्शित करें</string>
+    <string name="volte_icon_style_title">VoLTE आइकन का चयन करें</string>
+    <string name="volte_icon_vo">Vo केवल चिह्न</string>
+    <string name="volte_icon_volte">VoLTE आइकन</string>
+    <string name="volte_icon_oos">VoLTE OOS आइकन</string>
+    <string name="volte_icon_hd">HD आइकन</string>
+    <string name="volte_icon_volit">VoLIT आइकन</string>
+
+    <!-- Navbar editor -->
+    <string name="preview">पूर्वावलोकन</string>
+    <string name="keycode">कुंजी कोड</string>
+    <string name="no_home_title">कोई होम बटन नहीं मिला</string>
+    <string name="no_home_message">इस उपकरण को नेविगेट करने में सक्षम होने के लिए एक होम बटन की आवश्यकता होती है। कृपया सहेजने से पहले एक होम बटन जोड़ें।</string>
+    <string name="clipboard_description">क्लिपबोर्ड आइटम को सीधे क्लिपबोर्ड पर खींचने की अनुमति देता है। मौजूद होने पर आइटम को सीधे क्लिपबोर्ड से बाहर भी खींचा जा सकता है।</string>
+    <string name="keycode_description">कुंजी बटन कीबोर्ड कुंजियों को नेविगेशन बार में जोड़ने की अनुमति देता है। दबाए जाने पर वे चयनित कीबोर्ड कुंजी का अनुकरण करते हैं। पहले कुंजी को बटन के लिए चुना जाना चाहिए, उसके बाद एक छवि बटन पर दिखाई जाएगी।</string>
+    <string name="start">शुरू</string>
+    <string name="center">केंद्र</string>
+    <string name="end">अंत</string>
+    <string name="space">स्पेसर</string>
+    <string name="menu_ime">मेनू/कीबोर्ड स्विचर</string>
+    <string name="select_button">जोड़ने के लिए बटन का चयन करें</string>
+    <string name="add_button">बटन जोड़ें</string>
+    <string name="save">सहेजें</string>
+    <string name="reset">रीसेट</string>
+    <string name="select_keycode">कीबोर्ड बटन का चयन करें</string>
+    <string name="left">बाएं</string>
+    <string name="right">दाएं</string>
+    <string name="navbar_editor_title">संपादक</string>
+    <string name="navbar_editor_summary">नविगेशन बार को कॉन्फ़िगर करें</string>
+
+    <!-- Sync QS Tile -->
+    <string name="quick_settings_sync_label">सिंक</string>
+    <string name="accessibility_quick_settings_sync_off">सिंक बंद</string>
+    <string name="accessibility_quick_settings_sync_on">सिंक चालू</string>
+    <string name="accessibility_quick_settings_sync_changed_off">सिंक बंद हो गया</string>
+    <string name="accessibility_quick_settings_sync_changed_on">सिंक चालू हुआ</string>
+
+    <!-- Gaming Mode -->
+    <string name="gaming_mode_tile_title">गेमिंग मोड</string>
+    <string name="gaming_mode_tile_toast">गेमिंग मोड सक्षम किया गया</string>
+    <string name="gaming_mode_tile_toast_disabled">गेमिंग मोड अक्षम किया गया</string>
+    <string name="gaming_mode_dialog_title">गेमिंग मोड</string>
+    <string name="gaming_mode_dialog_message">जब गेमिंग मोड सक्षम हो जाता है, तो सभी हेड-अप संदेश अक्षम हो जाएंगे और हार्डवेयर कुंजी बंद हो जाएगी। गेमिंग मोड से बाहर निकलने के बाद सभी अक्षम सेटिंग्स को डिफ़ॉल्ट पर रीसेट कर दिया जाएगा।</string>
+    <string name="accessibility_quick_settings_gaming_mode_on">गेमिंग मोड चालू</string>
+    <string name="accessibility_quick_settings_gaming_mode_off">गेमिंग मोड बंद</string>
+
+    <!-- Running service button -->
+    <string name="accessibility_quick_settings_running_services">रनिंग सर्विसेज स्क्रीन खोलें।</string>
+
+    <!-- Reboot/Recovery/PowerOff QS tile -->
+    <string name="quick_settings_reboot_label">रीबूट</string>
+    <string name="quick_settings_reboot_recovery_label">रिकवरी</string>
+    <string name="quick_settings_poweroff_label">बंद करें</string>
+
+    <!-- Immersive tile -->
+    <string name="quick_settings_immersive_tile">इमर्सिव मोड</string>
+    <string name="quick_settings_immersive_tile_statusbar">इमर्सिव स्टेटसबार</string>
+    <string name="quick_settings_immersive_tile_navbar">इमर्सिव नावबार</string>
+    <string name="quick_settings_immersive_tile_full">इमर्सिव फुल</string>
+
+    <!-- QuickSettings: ScreenStabilization tile [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_stabilization_label">स्क्रीन स्थिरीकरण</string>
+    <!-- QuickSettings: ScreenStabilization (off) [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_stabilization_off">स्क्रीन स्थिरीकरण अक्षम है</string>
+    <!-- QuickSettings: ScreenStabilization (on) [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_stabilization_on">स्क्रीन स्थिरीकरण सक्षम है</string>
+    <string name="low_label">कम</string>
+    <string name="high_label">उच्च</string>
+    <string name="stabilization_velocity_friction">वेग घर्षण</string>
+    <string name="stabilization_velocity_amplitude">वेग आयाम</string>
+    <string name="stabilization_position_friction">स्थिति घर्षण</string>
+
+</resources>
