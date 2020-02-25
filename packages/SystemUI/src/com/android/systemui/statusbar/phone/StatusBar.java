@@ -843,6 +843,7 @@ public class StatusBar extends SystemUI implements DemoMode,
                     uri.equals(Settings.Secure.getUriFor(Settings.Secure.LOCKSCREEN_DATE_SELECTION))) {
                 updateKeyguardStatusSettings();
             }
+            update();
         }
 
         public void update() {
