@@ -426,7 +426,6 @@ final class UiModeManagerService extends SystemService {
         return oldNightMode != mNightMode;
     }
 
-
     private void registerScreenOffEvent() {
         mWaitForScreenOff = true;
         final IntentFilter intentFilter =
