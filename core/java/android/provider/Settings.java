@@ -10991,11 +10991,17 @@ public final class Settings {
          */
         public static final String LOCKSCREEN_CLOCK_SELECTION = "lockscreen_clock_selection";
 
+        private static final Validator LOCKSCREEN_CLOCK_SELECTION_VALIDATOR =
+                new SettingsValidators.InclusiveIntegerRangeValidator(0, 10);
+
         /**
          * Select which lockscreen date style to display
          * @hide
          */
         public static final String LOCKSCREEN_DATE_SELECTION = "lockscreen_date_selection";
+
+        private static final Validator LOCKSCREEN_DATE_SELECTION_VALIDATOR =
+                new SettingsValidators.InclusiveIntegerRangeValidator(0, 8);
 
         /**
          * Whether the Lockdown button should be shown in the power menu.
@@ -11526,6 +11532,8 @@ public final class Settings {
             LOCKSCREEN_SOLID_UNITS_COUNT,
             LOCKSCREEN_SOLID_FUDGE_FACTOR,
             LOCKSCREEN_SOLID_UNITS_OPACITY,
+            LOCKSCREEN_CLOCK_SELECTION,
+            LOCKSCREEN_DATE_SELECTION,
             VOLUME_LINK_NOTIFICATION,
             SYSUI_ROUNDED_FWVALS,
             SYSUI_ROUNDED_SIZE,
@@ -11741,6 +11749,8 @@ public final class Settings {
             VALIDATORS.put(LOCKSCREEN_SOLID_UNITS_COUNT, LOCKSCREEN_SOLID_UNITS_COUNT_VALIDATOR);
             VALIDATORS.put(LOCKSCREEN_SOLID_FUDGE_FACTOR, LOCKSCREEN_SOLID_FUDGE_FACTOR_VALIDATOR);
             VALIDATORS.put(LOCKSCREEN_SOLID_UNITS_OPACITY, LOCKSCREEN_SOLID_UNITS_OPACITY_VALIDATOR);
+            VALIDATORS.put(LOCKSCREEN_CLOCK_SELECTION, LOCKSCREEN_CLOCK_SELECTION_VALIDATOR);
+            VALIDATORS.put(LOCKSCREEN_DATE_SELECTION,LOCKSCREEN_DATE_SELECTION_VALIDATOR);
             VALIDATORS.put(VOLUME_LINK_NOTIFICATION, VOLUME_LINK_NOTIFICATION_VALIDATOR);
             VALIDATORS.put(QUICK_SETTINGS_TILES_VIBRATE, QUICK_SETTINGS_TILES_VIBRATE_VALIDATOR);
             VALIDATORS.put(SYSUI_ROUNDED_FWVALS, SYSUI_ROUNDED_FWVALS_VALIDATOR);
