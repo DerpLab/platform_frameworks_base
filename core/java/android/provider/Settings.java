@@ -5265,7 +5265,8 @@ public final class Settings {
          */
         public static final String LOCKSCREEN_MEDIA_BLUR = "lockscreen_media_blur";
 
-        private static final Validator LOCKSCREEN_MEDIA_BLUR_VALIDATOR = ANY_INTEGER_VALIDATOR;
+        private static final Validator LOCKSCREEN_MEDIA_BLUR_VALIDATOR =
+                new SettingsValidators.InclusiveIntegerRangeValidator(5, 100);
 
         /**
          * Whether to display cross sign for a data disabled connection
