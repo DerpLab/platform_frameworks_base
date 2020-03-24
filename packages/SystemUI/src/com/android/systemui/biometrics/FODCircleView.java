@@ -16,9 +16,12 @@
 
 package com.android.systemui.biometrics;
 
+import static com.android.internal.widget.LockPatternUtils.StrongAuthTracker.STRONG_AUTH_NOT_REQUIRED;
+
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
+import android.app.ActivityManager;
 import android.app.admin.DevicePolicyManager;
 import android.content.ContentResolver;
 import android.content.Context;
@@ -115,6 +118,7 @@ public class FODCircleView extends ImageView implements ConfigurationListener, T
     private boolean mIsCircleShowing;
     private boolean mIsAnimating = false;
     private boolean mPressedViewDisplayed = false;
+    private boolean mCanUnlockWithFp;
 
     private Handler mHandler;
 
@@ -215,7 +219,28 @@ public class FODCircleView extends ImageView implements ConfigurationListener, T
         public void onScreenTurnedOff() {
             hideCircle();
         }
+
+        @Override
+        public void onStrongAuthStateChanged(int userId) {
+            mCanUnlockWithFp = canUnlockWithFp();
+            if (mIsShowing && !mCanUnlockWithFp){
+                hide();
+            }
+        }
     };
+
+    private boolean canUnlockWithFp() {
+        int currentUser = ActivityManager.getCurrentUser();
+        boolean biometrics = mUpdateMonitor.isUnlockingWithBiometricsPossible(currentUser);
+        KeyguardUpdateMonitor.StrongAuthTracker strongAuthTracker =
+                mUpdateMonitor.getStrongAuthTracker();
+        int strongAuth = strongAuthTracker.getStrongAuthForUser(currentUser);
+        if (biometrics && (!strongAuthTracker.hasUserAuthenticatedSinceBoot()
+                || strongAuth != STRONG_AUTH_NOT_REQUIRED)) {
+            return false;
+        }
+        return true;
+    }
 
     private boolean mCutoutMasked;
     private int mStatusbarHeight;
@@ -306,6 +331,8 @@ public class FODCircleView extends ImageView implements ConfigurationListener, T
 
         mUpdateMonitor = KeyguardUpdateMonitor.getInstance(context);
         mUpdateMonitor.registerCallback(mMonitorCallback);
+
+        mCanUnlockWithFp = canUnlockWithFp();
 
         updateCutoutFlags();
 
@@ -542,6 +569,11 @@ public class FODCircleView extends ImageView implements ConfigurationListener, T
     public void show() {
         if (mIsBouncer && !isPinOrPattern(mUpdateMonitor.getCurrentUser())) {
             // Ignore show calls when Keyguard password screen is being shown
+            return;
+        }
+
+        if (!mCanUnlockWithFp){
+            // Ignore when unlocking with fp is not possible
             return;
         }
 
