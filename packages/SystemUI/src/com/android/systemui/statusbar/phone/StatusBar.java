@@ -825,6 +825,9 @@ public class StatusBar extends SystemUI implements DemoMode,
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.SWITCH_STYLE),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.SHOW_MEDIA_HEADS_UP),
+                    false, this, UserHandle.USER_ALL);
         }
 
         @Override
@@ -893,6 +896,7 @@ public class StatusBar extends SystemUI implements DemoMode,
             setHeadsUpStoplist();
             setHeadsUpBlacklist();
             handleCutout(null);
+            setMediaHeadsup();
         }
     }
 
@@ -5741,6 +5745,12 @@ public class StatusBar extends SystemUI implements DemoMode,
 
     public @TransitionMode int getStatusBarMode() {
         return mStatusBarMode;
+    }
+
+    private void setMediaHeadsup() {
+        if (mMediaManager != null) {
+            mMediaManager.setMediaHeadsup();
+        }
     }
 
 }

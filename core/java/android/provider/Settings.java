@@ -6679,6 +6679,15 @@ public final class Settings {
                 new SettingsValidators.InclusiveIntegerRangeValidator(0, 7);
 
         /**
+         * Whether to show heads up on new music tracks
+         * @hide
+         */
+        public static final String SHOW_MEDIA_HEADS_UP = "show_media_heads_up";
+        /** @hide */
+        private static final Validator SHOW_MEDIA_HEADS_UP_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -6952,6 +6961,7 @@ public final class Settings {
             PULSE_SOLID_UNITS_OPACITY,
             PULSE_SMOOTHING_ENABLED,
             SWITCH_STYLE,
+            SHOW_MEDIA_HEADS_UP,
         };
 
         /**
@@ -7509,6 +7519,7 @@ public final class Settings {
             VALIDATORS.put(PULSE_SOLID_UNITS_OPACITY, PULSE_SOLID_UNITS_OPACITY_VALIDATOR);
             VALIDATORS.put(PULSE_SMOOTHING_ENABLED, PULSE_SMOOTHING_ENABLED_VALIDATOR);
             VALIDATORS.put(SWITCH_STYLE, SWITCH_STYLE_VALIDATOR);
+            VALIDATORS.put(SHOW_MEDIA_HEADS_UP, SHOW_MEDIA_HEADS_UP_VALIDATOR);
         }
 
         /**
