@@ -852,6 +852,9 @@ public final class DefaultPermissionGrantPolicy {
         // Google Recorder
         grantSystemFixedPermissionsToSystemPackage("com.google.android.apps.recorder", userId, MICROPHONE_PERMISSIONS);
 
+        // GBoard
+        grantSystemFixedPermissionsToSystemPackage("com.google.android.inputmethod.latin", userId, STORAGE_PERMISSIONS);
+
         // ThemePicker
         String themePickerPackage = "com.android.wallpaper";
         PackageInfo pkg = getPackageInfo(themePickerPackage);
