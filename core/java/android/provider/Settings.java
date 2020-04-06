@@ -5393,6 +5393,50 @@ public final class Settings {
         private static final Validator SHOW_QS_CLOCK_VALIDATOR = BOOLEAN_VALIDATOR;
 
         /**
+         * Whether to display QS brightness slider
+         * @hide
+         */
+        public static final String QS_SHOW_BRIGHTNESS = "qs_show_brightness";
+        /** @hide */
+        private static final Validator QS_SHOW_BRIGHTNESS_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
+        /**
+         * Whether to display QS brightness slider on bottom
+         * @hide
+         */
+        public static final String QS_BRIGHTNESS_POSITION_BOTTOM = "qs_brightness_position_bottom";
+        /** @hide */
+        private static final Validator QS_BRIGHTNESS_POSITION_BOTTOM_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
+        /**
+         * Whether to display QS auto brightness button near brightness slider
+         * @hide
+         */
+        public static final String QS_SHOW_AUTO_BRIGHTNESS = "qs_show_auto_brightness";
+        /** @hide */
+        private static final Validator QS_SHOW_AUTO_BRIGHTNESS_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
+        /**
+         * Whether to display QS min-max brightness button near brightness slider
+         * @hide
+         */
+        public static final String QS_SHOW_MINMAX_BRIGHTNESS = "qs_show_minmax_brightness";
+        /** @hide */
+        private static final Validator QS_SHOW_MINMAX_BRIGHTNESS_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
+        /**
+         * Whether to display QS security footer
+         * @hide
+         */
+        public static final String QS_SHOW_SECURITY = "qs_show_security";
+        /** @hide */
+        private static final Validator QS_SHOW_SECURITY_VALIDATOR = BOOLEAN_VALIDATOR;
+
+        /**
          * Whether to allow one finger quick settings expansion on the right side of the statusbar.
          * @hide
          */
@@ -6319,6 +6363,11 @@ public final class Settings {
             DERP_FOOTER_TEXT_SHOW,
             DERP_FOOTER_TEXT_STRING,
             SHOW_QS_CLOCK,
+            QS_SHOW_BRIGHTNESS,
+            QS_BRIGHTNESS_POSITION_BOTTOM,
+            QS_SHOW_AUTO_BRIGHTNESS,
+            QS_SHOW_MINMAX_BRIGHTNESS,
+            QS_SHOW_SECURITY,
             LOCK_POWER_MENU_DISABLED,
             DOUBLE_TAP_SLEEP_GESTURE,
             DOUBLE_TAP_SLEEP_LOCKSCREEN,
@@ -6804,6 +6853,11 @@ public final class Settings {
             VALIDATORS.put(DERP_FOOTER_TEXT_SHOW, DERP_FOOTER_TEXT_SHOW_VALIDATOR);
             VALIDATORS.put(DERP_FOOTER_TEXT_STRING, DERP_FOOTER_TEXT_STRING_VALIDATOR);
             VALIDATORS.put(SHOW_QS_CLOCK, SHOW_QS_CLOCK_VALIDATOR);
+            VALIDATORS.put(QS_SHOW_BRIGHTNESS, QS_SHOW_BRIGHTNESS_VALIDATOR);
+            VALIDATORS.put(QS_BRIGHTNESS_POSITION_BOTTOM, QS_BRIGHTNESS_POSITION_BOTTOM_VALIDATOR);
+            VALIDATORS.put(QS_SHOW_AUTO_BRIGHTNESS, QS_SHOW_AUTO_BRIGHTNESS_VALIDATOR);
+            VALIDATORS.put(QS_SHOW_MINMAX_BRIGHTNESS, QS_SHOW_MINMAX_BRIGHTNESS_VALIDATOR);
+            VALIDATORS.put(QS_SHOW_SECURITY, QS_SHOW_SECURITY_VALIDATOR);
             VALIDATORS.put(LOCK_POWER_MENU_DISABLED, LOCK_POWER_MENU_DISABLED_VALIDATOR);
             VALIDATORS.put(DOUBLE_TAP_SLEEP_GESTURE, DOUBLE_TAP_SLEEP_GESTURE_VALIDATOR);
             VALIDATORS.put(DOUBLE_TAP_SLEEP_LOCKSCREEN, DOUBLE_TAP_SLEEP_LOCKSCREEN_VALIDATOR);
