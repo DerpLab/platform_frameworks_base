@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019 DerpFest
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- DerpQuest Settings Tile -->
+    <string name="quick_settings_derp_label">DerpQuest</string>
+
+    <string name="statusbar_items_title">Icona barra di stato</string>
+    <string name="lockscreen_default">Default</string>
+    <string name="lockscreen_hidden">Nessuna</string>
+
+    <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
+    <string name="custom_hint">Swipe sull\'icona per avviare</string>
+
+    <!-- Power Menu -->
+    <string name="global_action_reboot">Riavvia</string>
+    <string name="global_action_reboot_more">Riavvia\u2026</string>
+    <string name="global_action_reboot_sub">System</string>
+    <string name="global_action_reboot_recovery">Recovery</string>
+    <string name="global_action_reboot_bootloader">Bootloader</string>
+    <string name="global_action_dismissable_dialog_text">Riavvio avanzato disabilitato.\nVuoi riavviare\u003f</string>
+    <string name="global_action_dnaa">Non mostrare ancora</string>
+    <string name="global_action_settings">Impostazioni</string>
+    <string name="global_action_restart_sysui">SystemUI</string>
+
+    <!-- QS Config -->
+    <string name="qs_menu_item_columns">Colonne</string>
+    <string name="qs_menu_item_columns_landscape">Colonne orizzontali</string>
+    <string name="qs_menu_item_rows">Righe</string>
+    <string name="qs_menu_item_rows_landscape">Righe orizzontali</string>
+    <string name="qs_menu_item_columns_one">1</string>
+    <string name="qs_menu_item_columns_two">2</string>
+    <string name="qs_menu_item_columns_three">3</string>
+    <string name="qs_menu_item_columns_four">4</string>
+    <string name="qs_menu_item_columns_five">5</string>
+    <string name="qs_menu_item_columns_six">6</string>
+    <string name="qs_menu_item_columns_seven">7</string>
+    <string name="qs_menu_item_columns_eight">8</string>
+    <string name="qs_menu_item_columns_nine">9</string>
+    <string name="qs_menu_item_reset">Reset</string>
+    <string name="qs_menu_item_titles">Mostra etichette</string>
+    <string name="qs_menu_item_qs_columns">Colonne Quickbar</string>
+    <string name="qs_menu_item_columns_auto">Automatico</string>
+    <string name="qs_footer_text">Testo piè di pagina</string>
+
+    <!-- LTE QS Tile -->
+    <string name="qs_lte_label">LTE</string>
+    <string name="lte_on">LTE ON </string>
+    <string name="lte_off">LTE OFF</string>
+
+    <!-- Sound QS Tile -->
+    <string name="quick_settings_sound_label">Suono</string>
+    <string name="quick_settings_sound_ring">Suoneria</string>
+    <string name="quick_settings_sound_vibrate">Vibrazione</string>
+    <string name="quick_settings_sound_dnd">Non disturbare</string>
+
+    <!-- Caffeine QS tile -->
+    <string name="quick_settings_caffeine_label">Caffeine</string>
+    <string name="quick_settings_caffeine_label_off">Off</string>
+    <string name="accessibility_quick_settings_caffeine_off">Caffeine off</string>
+    <string name="accessibility_quick_settings_caffeine_on">Caffeine on</string>
+
+    <!-- Screenshot QS tile -->
+    <string name="quick_settings_screenshot_label">Screenshot</string>
+    <string name="quick_settings_full_screenshot_label">Full</string>
+    <string name="quick_settings_region_screenshot_label">Parziale</string>
+    <string name="delete_screenshot_toast">Screenshot eliminato</string>
+
+    <!-- HW Keys Tile -->
+    <string name="accessibility_quick_settings_hwkeys_on">HW keys on</string>
+    <string name="accessibility_quick_settings_hwkeys_off">HW keys off</string>
+    <string name="quick_settings_hwkeys_label">HW keys</string>
+
+    <!-- Screenrecord Powermenu / QS tile -->
+    <string name="quick_settings_screenrecord_label">OmniRecord</string>
+    <string name="global_action_screenrecord">Screenrecord</string>
+
+    <!-- 4G LTE switch -->
+    <string name="show_fourg_title">Mostra 4G invece di LTE</string>
+    <string name="show_fourg_summary">Sostiuisci indicatore LTE nella barra di stato con 4G</string>
+
+    <!-- Old MobileType style switch -->
+    <string name="use_old_mobiletype_title">Use old mobile type style</string>
+    <string name="use_old_mobiletype_summary">Merge signal and type icons</string>
+
+    <!-- VoLTE switch -->
+    <string name="volte_switch_title">VoLTE</string>
+
+    <!-- Name of the nfc status bar icon. -->
+    <string name="status_bar_nfc">NFC</string>
+    <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
+    <string name="accessibility_status_bar_nfc">Nfc</string>
+
+    <string name="status_bar_data_saver">Data saver</string>
+    <string name="status_bar_vpn">VPN</string>
+    <string name="status_bar_roaming">Roaming</string>
+
+    <!-- Language toggle tile -->
+    <string name="quick_settings_locale_label">Lingua</string>
+    <string name="quick_settings_locale_more_locales_toast">Abilita più di una lingua per abilitare la funzionalità di toggle</string>
+
+    <!-- Data disabled icon -->
+    <string name="data_disabled_icon_title">Data disabled icon</string>
+    <string name="data_disabled_icon_summary">Display a cross sign next to signal bar when data is disabled</string>
+
+    <!-- Heads Up QS Tile -->
+    <string name="quick_settings_heads_up_label">Peek notifications</string>
+    <string name="accessibility_quick_settings_heads_up_off">Peek notifications disabled.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Peek notifications allowed.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Peek notifications turned off.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Peek notifications turned on.</string>
+
+    <!-- AOD QS tile states -->
+    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_on_charge_label">AOD on charge</string>
+    <string name="quick_settings_aod_off_label">AOD off</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD off\nBattery saver</string>
+
+    <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_dash_charging_time">Dash Charging (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> until full)</string>
+    <string name="keyguard_plugged_in_dash_charging">Dash Charging</string>
+
+    <!-- CPUInfo tile -->
+    <string name="quick_settings_cpuinfo_label">CPU Info</string>
+
+    <!-- Sound Search tile -->
+    <string name="quick_settings_sound_search">Sound search</string>
+    <string name="quick_settings_sound_search_no_app">Sorry, but this doesn\'t work if you don\'t have a Sound search app.</string>
+
+    <!-- Compass QS Tile -->
+    <string name="quick_settings_compass_label">Bussola</string>
+    <string name="quick_settings_compass_value"><xliff:g id="degrees">%1$.0f</xliff:g>\u00b0 <xliff:g id="direction">%2$s</xliff:g></string>
+    <string name="quick_settings_compass_init">Inizializzazione\u2026</string>
+    <string name="accessibility_quick_settings_compass_off">Bussola off</string>
+    <string name="accessibility_quick_settings_compass_on">Bussola on</string>
+    <string name="accessibility_quick_settings_compass_changed_off">Bussola spenta</string>
+    <string name="accessibility_quick_settings_compass_changed_on">Bussola accesa</string>
+    <string name="quick_settings_compass_N">N</string>
+    <string name="quick_settings_compass_NE">NE</string>
+    <string name="quick_settings_compass_E">E</string>
+    <string name="quick_settings_compass_SE">SE</string>
+    <string name="quick_settings_compass_S">S</string>
+    <string name="quick_settings_compass_SW">SW</string>
+    <string name="quick_settings_compass_W">W</string>
+    <string name="quick_settings_compass_NW">NW</string>
+
+    <!-- StatusBar tuner categories -->
+    <string name="status_bar_icons_category">Toggles icone</string>
+    <string name="status_bar_signal_category">Signal Icon Tweaks</string>
+    <string name="status_bar_volte_category">VoLTE</string>
+    <string name="status_bar_etc_category">ETC</string>
+
+    <!-- DataSwitch Tile -->
+    <string name="qs_data_switch_label">Cambia SIM card dati</string>
+    <string name="qs_data_switch_toast_0">Nessuna SIM card inserita</string>
+    <string name="qs_data_switch_toast_1">Attualmente solo una SIM card è inserita</string>
+    <string name="qs_data_switch_changed_1">Cambio card dati in SIM 1.</string>
+    <string name="qs_data_switch_changed_2">Cambio card dati in SIM 2.</string>
+
+    <!-- Show VoLTE icon on statusbar -->
+    <string name="volte_icon_asus">Icona VoLTE Asus</string>
+    <string name="volte_icon_title">Icona VoLTE</string>
+    <string name="volte_icon_summary">Mostra icona VoLTE</string>
+    <string name="volte_icon_style_title">Seleziona icona VoLTE</string>
+    <string name="volte_icon_vo">Vo Only Icon</string>
+    <string name="volte_icon_volte">VoLTE Icon</string>
+    <string name="volte_icon_oos">VoLTE OOS Icon</string>
+    <string name="volte_icon_hd">HD Icon</string>
+    <string name="volte_icon_volit">VoLIT Icon</string>
+
+    <!-- Navbar editor -->
+    <string name="preview">Preview</string>
+    <string name="keycode">Keycode</string>
+    <string name="no_home_title">No home button found</string>
+    <string name="no_home_message">A home button is required to be able to navigate this device. Please add a home button before saving.</string>
+    <string name="clipboard_description">The Clipboard allows items to be dragged directly to the clipboard. Items can also be dragged directly out of the clipboard when present.</string>
+    <string name="keycode_description">Keycode buttons allow keyboard keys to be added to the Navigation Bar. When pressed they emulate the selected keyboard key. First the key must be selected for the button, followed by an image to be shown on the button.</string>
+    <string name="start">Start</string>
+    <string name="center">Center</string>
+    <string name="end">End</string>
+    <string name="space">Spacer</string>
+    <string name="menu_ime">Menu / Keyboard Switcher</string>
+    <string name="select_button">Select button to add</string>
+    <string name="add_button">Add button</string>
+    <string name="save">Save</string>
+    <string name="reset">Reset</string>
+    <string name="select_keycode">Select Keyboard Button</string>
+    <string name="left">Left</string>
+    <string name="right">Right</string>
+    <string name="navbar_editor_title">Editor</string>
+    <string name="navbar_editor_summary">Configure navigaton bar</string>
+
+    <!-- Sync QS Tile -->
+    <string name="quick_settings_sync_label">Sync</string>
+    <string name="accessibility_quick_settings_sync_off">Sync off</string>
+    <string name="accessibility_quick_settings_sync_on">Sync on</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Sync turned off</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Sync turned on</string>
+
+    <!-- Gaming Mode -->
+    <string name="gaming_mode_tile_title">Gaming Mode</string>
+    <string name="gaming_mode_tile_toast">Gaming mode enabled</string>
+    <string name="gaming_mode_tile_toast_disabled">Gaming mode disabled</string>
+    <string name="gaming_mode_dialog_title">Gaming Mode</string>
+    <string name="gaming_mode_dialog_message">When gaming mode is enabled, all heads-up messages will be disabled and hardware keys will be turned off. All the disabled settings will be reset to default once you exit Gaming Mode.</string>
+    <string name="accessibility_quick_settings_gaming_mode_on">Gaming mode on</string>
+    <string name="accessibility_quick_settings_gaming_mode_off">Gaming mode off</string>
+
+    <!-- Running service button -->
+    <string name="accessibility_quick_settings_running_services">Open Running Services screen.</string>
+
+    <!-- Reboot/Recovery/PowerOff QS tile -->
+    <string name="quick_settings_reboot_label">Riavvia</string>
+    <string name="quick_settings_reboot_recovery_label">Recovery</string>
+    <string name="quick_settings_poweroff_label">Power off</string>
+
+    <!-- Immersive tile -->
+    <string name="quick_settings_immersive_tile">Immersive mode</string>
+    <string name="quick_settings_immersive_tile_statusbar">Immersive statusbar</string>
+    <string name="quick_settings_immersive_tile_navbar">Immersive navbar</string>
+    <string name="quick_settings_immersive_tile_full">Immersive full</string>
+
+    <!-- QuickSettings: ScreenStabilization tile [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_stabilization_label">Screen Stabilization</string>
+    <!-- QuickSettings: ScreenStabilization (off) [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_stabilization_off">ScreenStabilization is disabled</string>
+    <!-- QuickSettings: ScreenStabilization (on) [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_stabilization_on">ScreenStabilization is enabled</string>
+    <string name="low_label">Low</string>
+    <string name="high_label">High</string>
+    <string name="stabilization_velocity_friction">Velocity Friction</string>
+    <string name="stabilization_velocity_amplitude">Velocity Amplitude</string>
+    <string name="stabilization_position_friction">Position Friction</string>
+
+    <!-- Location Tile -->
+    <string name="accessibility_quick_settings_location_battery_saving">Segnalazione posizione: modalità risparmio batteria.</string>
+    <string name="accessibility_quick_settings_location_gps_only">Segnalazione posizione: modalità solo sensori.</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Segnalazione posizione: modalità alta precisione.</string>
+    <string name="quick_settings_location_battery_saving_label">Risparmio batteria</string>
+    <string name="quick_settings_location_battery_saving_label_twoline">Risparmio\nbatteria</string>
+    <string name="quick_settings_location_gps_only_label">Solo GPS</string>
+    <string name="quick_settings_location_gps_only_label_twoline">Solo GPS</string>
+    <string name="quick_settings_location_high_accuracy_label">Alta precisione</string>
+    <string name="quick_settings_location_high_accuracy_label_twoline">Alta\nprecisione</string>
+    <string name="quick_settings_location_detail_title">Location</string>
+    <string name="quick_settings_location_detail_menu_title">Seleziona modalità:</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_title">Alta precisione</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_title">Battery saving</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_title">Solo dispositivo</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_description">Usa GPS, Wi\u2011Fi, Bluetooth, o reti cellulari per determinare la posizione </string>
+    <string name="quick_settings_location_detail_mode_battery_saving_description">Usa Wi\u2011Fi, Bluetooth, o reti cellulari per determinare la posizione</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_description">Usa GPS per determinare la posizione</string>
+
+</resources>
