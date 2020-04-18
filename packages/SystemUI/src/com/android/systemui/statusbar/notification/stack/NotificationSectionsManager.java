@@ -20,8 +20,6 @@ import static com.android.systemui.statusbar.notification.stack.NotificationStac
 
 import android.annotation.Nullable;
 import android.content.Intent;
-import android.os.Handler;
-import android.os.UserHandle;
 import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -54,7 +52,7 @@ class NotificationSectionsManager implements StackScrollAlgorithm.SectionProvide
     private boolean mGentleHeaderVisible = false;
     @Nullable private ExpandableNotificationRow mFirstGentleNotif;
     @Nullable private View.OnClickListener mOnClearGentleNotifsClickListener;
-    private boolean mShowGentleHeader;
+    private final boolean mShowGentleHeader;
 
     NotificationSectionsManager(
             NotificationStackScrollLayout parent,
@@ -68,9 +66,7 @@ class NotificationSectionsManager implements StackScrollAlgorithm.SectionProvide
         mStatusBarStateController = statusBarStateController;
         mConfigurationController = configurationController;
         mUseMultipleSections = useMultipleSections;
-        mShowGentleHeader = Settings.System.getIntForUser(
-                mParent.getContext().getContentResolver(), Settings.System.SHOW_GENTLE_HEADER,
-                0, UserHandle.USER_CURRENT) == 1;
+        mShowGentleHeader = showGentleHeader;
     }
 
     /** Must be called before use. */
@@ -78,9 +74,6 @@ class NotificationSectionsManager implements StackScrollAlgorithm.SectionProvide
         if (mInitialized) {
             throw new IllegalStateException("NotificationSectionsManager already initialized");
         }
-        mShowGentleHeader = Settings.System.getIntForUser(
-                mParent.getContext().getContentResolver(), Settings.System.SHOW_GENTLE_HEADER,
-                0, UserHandle.USER_CURRENT) == 1;
         mInitialized = true;
         reinflateViews(layoutInflater);
         mConfigurationController.addCallback(mConfigurationListener);
