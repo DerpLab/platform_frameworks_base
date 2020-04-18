@@ -52,21 +52,18 @@ class NotificationSectionsManager implements StackScrollAlgorithm.SectionProvide
     private boolean mGentleHeaderVisible = false;
     @Nullable private ExpandableNotificationRow mFirstGentleNotif;
     @Nullable private View.OnClickListener mOnClearGentleNotifsClickListener;
-    private final boolean mShowGentleHeader;
 
     NotificationSectionsManager(
             NotificationStackScrollLayout parent,
             ActivityStarter activityStarter,
             StatusBarStateController statusBarStateController,
             ConfigurationController configurationController,
-            boolean useMultipleSections,
-            boolean showGentleHeader) {
+            boolean useMultipleSections) {
         mParent = parent;
         mActivityStarter = activityStarter;
         mStatusBarStateController = statusBarStateController;
         mConfigurationController = configurationController;
         mUseMultipleSections = useMultipleSections;
-        mShowGentleHeader = showGentleHeader;
     }
 
     /** Must be called before use. */
@@ -123,7 +120,7 @@ class NotificationSectionsManager implements StackScrollAlgorithm.SectionProvide
      * bookkeeping and adds/moves/removes section headers if appropriate.
      */
     void updateSectionBoundaries() {
-        if (!mUseMultipleSections || !mShowGentleHeader) {
+        if (!mUseMultipleSections) {
             return;
         }
 
