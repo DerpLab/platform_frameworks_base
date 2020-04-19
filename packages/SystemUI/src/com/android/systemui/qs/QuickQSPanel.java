@@ -106,7 +106,7 @@ public class QuickQSPanel extends QSPanel {
 
     @Override
     protected boolean shouldShowDetail() {
-        return !mExpanded;
+        return !mFullPanel.getShowQSPanels();
     }
 
     @Override
