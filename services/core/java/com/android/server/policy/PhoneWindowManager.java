@@ -707,8 +707,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
 
     private boolean mHasPermanentMenuKey;
 
-    private boolean mGlobalActionsOnLockDisable;
-
     private SwipeToScreenshotListener mSwipeToScreenshot;
 
     // omni additions start
@@ -733,7 +731,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     showRecentApps(false);
                     break;
                 case MSG_DISPATCH_SHOW_GLOBAL_ACTIONS:
-                    showGlobalActionsInternal(false);
+                    showGlobalActionsInternal();
                     break;
                 case MSG_KEYGUARD_DRAWN_COMPLETE:
                     if (DEBUG_WAKEUP) Slog.w(TAG, "Setting mKeyguardDrawComplete");
@@ -897,9 +895,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.TORCH_LONG_PRESS_POWER_TIMEOUT), false, this,
-                    UserHandle.USER_ALL);
-            resolver.registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.LOCK_POWER_MENU_DISABLED), false, this,
                     UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.THREE_FINGER_GESTURE), false, this,
@@ -1391,7 +1386,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 break;
             case LONG_PRESS_POWER_GLOBAL_ACTIONS:
                 mPowerKeyHandled = true;
-                showGlobalActionsInternal(true);
+                performHapticFeedback(HapticFeedbackConstants.LONG_PRESS, false,
+                        "Power - Long Press - Global Actions");
+                showGlobalActionsInternal();
                 break;
             case LONG_PRESS_POWER_SHUT_OFF:
             case LONG_PRESS_POWER_SHUT_OFF_NO_CONFIRM:
@@ -1435,7 +1432,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             break;
         case VERY_LONG_PRESS_POWER_GLOBAL_ACTIONS:
             mPowerKeyHandled = true;
-            showGlobalActionsInternal(true);
+            performHapticFeedback(HapticFeedbackConstants.LONG_PRESS, false,
+                    "Power - Very Long Press - Show Global Actions");
+            showGlobalActionsInternal();
             break;
         }
     }
@@ -1581,7 +1580,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         @Override
         public void run() {
             mEndCallKeyHandled = true;
-            showGlobalActionsInternal(true);
+            performHapticFeedback(HapticFeedbackConstants.LONG_PRESS, false,
+                    "End Call - Long Press - Show Global Actions");
+            showGlobalActionsInternal();
         }
     };
 
@@ -1607,11 +1608,12 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         mHandler.sendEmptyMessage(MSG_DISPATCH_SHOW_GLOBAL_ACTIONS);
     }
 
-    void showGlobalActionsInternal(boolean hapticFeedback) {
+    void showGlobalActionsInternal() {
         stopLongshot();
-        if (hapticFeedback) {
-		performHapticFeedback(HapticFeedbackConstants.LONG_PRESS, false,
-                    "Power - Very Long Press - Show Global Actions");
+        final boolean keyguardShowing = isKeyguardShowingAndNotOccluded();
+        if (keyguardShowing && isKeyguardSecure(mCurrentUserId) &&
+                !mGlobalActionsOnLockDisable) {
+            return;
         }
         if (mGlobalActions == null) {
             mGlobalActions = new GlobalActions(mContext, mWindowManagerFuncs);
@@ -2366,9 +2368,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     Settings.Global.POWER_BUTTON_VERY_LONG_PRESS,
                     mContext.getResources().getInteger(
                             com.android.internal.R.integer.config_veryLongPressOnPowerBehavior));
-            mGlobalActionsOnLockDisable = Settings.System.getIntForUser(resolver,
-                    Settings.System.LOCK_POWER_MENU_DISABLED, 0,
-                    UserHandle.USER_CURRENT) != 0;
             mProxiWakeupCheckEnabled = Settings.System.getIntForUser(resolver,
                     Settings.System.OMNI_SYSTEM_PROXI_CHECK_ENABLED, 0,
                     UserHandle.USER_CURRENT) != 0;
@@ -6399,13 +6398,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         Message msg = mHandler.obtainMessage(MSG_DISPATCH_VOLKEY_SKIP_TRACK, keyCode, 0);
         msg.setAsynchronous(true);
         mHandler.sendMessageDelayed(msg, ViewConfiguration.getLongPressTimeout());
-    }
-
-    private boolean isGlobalActionEnabled() {
-        if (isKeyguardSecure(mCurrentUserId) && mGlobalActionsOnLockDisable) {
-            return false;
-        }
-        return true;
     }
 
     // omni additions start

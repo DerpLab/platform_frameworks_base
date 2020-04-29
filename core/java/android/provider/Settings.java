@@ -5188,13 +5188,6 @@ public final class Settings {
         private static final Validator QS_QUICKBAR_COLUMNS_VALIDATOR =
                 ANY_INTEGER_VALIDATOR;
 
-        /** @hide */
-        public static final String LOCK_POWER_MENU_DISABLED = "lockscreen_power_menu_disabled";
-
-        /** @hide */
-        private static final Validator LOCK_POWER_MENU_DISABLED_VALIDATOR =
-                BOOLEAN_VALIDATOR;
-
         /**
          *  Enable statusbar double tap gesture on to put device to sleep
          * @hide
@@ -6533,7 +6526,6 @@ public final class Settings {
             QS_SHOW_AUTO_BRIGHTNESS,
             QS_SHOW_MINMAX_BRIGHTNESS,
             QS_SHOW_SECURITY,
-            LOCK_POWER_MENU_DISABLED,
             DOUBLE_TAP_SLEEP_GESTURE,
             DOUBLE_TAP_SLEEP_LOCKSCREEN,
             SHOW_VOLTE_ICON,
@@ -6819,7 +6811,6 @@ public final class Settings {
             PRIVATE_SETTINGS.add(QS_LAYOUT_ROWS);
             PRIVATE_SETTINGS.add(QS_TILE_TITLE_VISIBILITY);
             PRIVATE_SETTINGS.add(QS_QUICKBAR_COLUMNS);
-            PRIVATE_SETTINGS.add(LOCK_POWER_MENU_DISABLED);
             PRIVATE_SETTINGS.add(DOUBLE_TAP_SLEEP_GESTURE);
             PRIVATE_SETTINGS.add(DOUBLE_TAP_SLEEP_LOCKSCREEN);
             PRIVATE_SETTINGS.add(FORCE_SHOW_NAVBAR);
@@ -7047,7 +7038,6 @@ public final class Settings {
             VALIDATORS.put(QS_SHOW_AUTO_BRIGHTNESS, QS_SHOW_AUTO_BRIGHTNESS_VALIDATOR);
             VALIDATORS.put(QS_SHOW_MINMAX_BRIGHTNESS, QS_SHOW_MINMAX_BRIGHTNESS_VALIDATOR);
             VALIDATORS.put(QS_SHOW_SECURITY, QS_SHOW_SECURITY_VALIDATOR);
-            VALIDATORS.put(LOCK_POWER_MENU_DISABLED, LOCK_POWER_MENU_DISABLED_VALIDATOR);
             VALIDATORS.put(DOUBLE_TAP_SLEEP_GESTURE, DOUBLE_TAP_SLEEP_GESTURE_VALIDATOR);
             VALIDATORS.put(DOUBLE_TAP_SLEEP_LOCKSCREEN, DOUBLE_TAP_SLEEP_LOCKSCREEN_VALIDATOR);
             VALIDATORS.put(SHOW_FOURG, SHOW_FOURG_VALIDATOR);
