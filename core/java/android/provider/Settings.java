@@ -5353,6 +5353,15 @@ public final class Settings {
                 BOOLEAN_VALIDATOR;
 
         /**
+         * Whether to show charging bolt on battery text while charging
+         * @hide
+         */
+        public static final String STATUS_BAR_BATTERY_CHARGING_BOLT = "status_bar_battery_charging_bolt";
+        /** @hide */
+        private static final Validator STATUS_BAR_BATTERY_CHARGING_BOLT_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
+        /**
          * Disable dashboard conditions in settings
          * @hide
          */
@@ -6544,6 +6553,7 @@ public final class Settings {
             STATUS_BAR_BATTERY_STYLE,
             STATUS_BAR_SHOW_BATTERY_PERCENT,
             STATUS_BAR_BATTERY_TEXT_CHARGING,
+            STATUS_BAR_BATTERY_CHARGING_BOLT,
             STATUS_BAR_LOGO,
             STATUS_BAR_LOGO_STYLE,
             STATUS_BAR_SHOW_CARRIER,
@@ -7055,6 +7065,7 @@ public final class Settings {
             VALIDATORS.put(STATUS_BAR_QUICK_QS_PULLDOWN, STATUS_BAR_QUICK_QS_PULLDOWN_VALIDATOR);
             VALIDATORS.put(STATUS_BAR_BATTERY_STYLE, STATUS_BAR_BATTERY_STYLE_VALIDATOR);
             VALIDATORS.put(STATUS_BAR_BATTERY_TEXT_CHARGING, STATUS_BAR_BATTERY_TEXT_CHARGING_VALIDATOR);
+            VALIDATORS.put(STATUS_BAR_BATTERY_CHARGING_BOLT, STATUS_BAR_BATTERY_CHARGING_BOLT_VALIDATOR);
             VALIDATORS.put(STATUS_BAR_LOGO, STATUS_BAR_LOGO_VALIDATOR);
             VALIDATORS.put(STATUS_BAR_LOGO_STYLE, STATUS_BAR_LOGO_STYLE_VALIDATOR);
             VALIDATORS.put(STATUS_BAR_SHOW_CARRIER, STATUS_BAR_SHOW_CARRIER_VALIDATOR);

@@ -107,6 +107,7 @@ public class BatteryMeterView extends LinearLayout implements
     private int mBatteryStyle;
     private int mShowBatteryPercent;
     private boolean mBatteryPercentCharging;
+    private boolean mShowBolt;
     private final Handler mHandler = new Handler();
 
     private DualToneHandler mDualToneHandler;
@@ -137,7 +138,10 @@ public class BatteryMeterView extends LinearLayout implements
             resolver.registerContentObserver(Settings.System
                     .getUriFor(Settings.System.STATUS_BAR_BATTERY_TEXT_CHARGING), false,
                     this, UserHandle.USER_ALL);
-            }
+            resolver.registerContentObserver(Settings.System
+                    .getUriFor(Settings.System.STATUS_BAR_BATTERY_CHARGING_BOLT), false,
+                    this, UserHandle.USER_ALL);
+        }
 
         @Override
         public void onChange(boolean selfChange) {
@@ -320,6 +324,7 @@ public class BatteryMeterView extends LinearLayout implements
         updateSBBarBatteryStyle();
         updateSBBarShowBatteryPercent();
         updateSBBarBatteryTextCharging();
+        updateSBBarBatteryShowBolt();
     }
 
     private void updateSBBarBatteryStyle() {
@@ -348,6 +353,12 @@ public class BatteryMeterView extends LinearLayout implements
         mBatteryPercentCharging = Settings.System.getInt(mContext.getContentResolver(),
             Settings.System.STATUS_BAR_BATTERY_TEXT_CHARGING, 0) == 1;
         updatePercentView();
+    }
+
+    private void updateSBBarBatteryShowBolt() {
+        mShowBolt = Settings.System.getInt(mContext.getContentResolver(),
+            Settings.System.STATUS_BAR_BATTERY_CHARGING_BOLT, 1) == 1;
+        updatePercentText();
     }
 
     @Override
@@ -457,10 +468,11 @@ public class BatteryMeterView extends LinearLayout implements
             // Use the high voltage symbol ⚡ (u26A1 unicode) but prevent the system
             // to load its emoji colored variant with the uFE0E flag
             String bolt = "\u26A1\uFE0E";
-            CharSequence mChargeIndicator = mCharging && (mBatteryStyle == BATTERY_STYLE_HIDDEN)
-                ? (bolt + " ") : "";
+            CharSequence mChargeIndicator = mCharging && mShowBolt &&
+                    (mBatteryStyle == BATTERY_STYLE_HIDDEN || mBatteryStyle == BATTERY_STYLE_TEXT)
+                    ? (" " + bolt + " ") : "";
             mBatteryPercentView.setText(mChargeIndicator +
-                NumberFormat.getPercentInstance().format(mLevel / 100f));
+                    NumberFormat.getPercentInstance().format(mLevel / 100f));
             setContentDescription(
                     getContext().getString(mCharging ? R.string.accessibility_battery_level_charging
                             : R.string.accessibility_battery_level, mLevel));
