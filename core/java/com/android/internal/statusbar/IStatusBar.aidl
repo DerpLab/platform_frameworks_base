@@ -185,4 +185,6 @@ oneway interface IStatusBar
     void toggleCameraFlashOn();
     void toggleCameraFlashOff();
     void setPartialScreenshot(boolean active);
+    void screenPinningStateChanged(boolean enabled);
+    void leftInLandscapeChanged(boolean isLeft);
 }
