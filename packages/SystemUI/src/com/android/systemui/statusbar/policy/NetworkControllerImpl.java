@@ -1146,6 +1146,7 @@ public class NetworkControllerImpl extends BroadcastReceiver
         boolean hspaDataDistinguishable;
         boolean inflateSignalStrengths = false;
         boolean alwaysShowDataRatIcon = false;
+        boolean showVowifiIcon = false;
         public String patternOfCarrierSpecificDataIcon = "";
         public long nrIconDisplayGracePeriodMs;
 
@@ -1204,6 +1205,8 @@ public class NetworkControllerImpl extends BroadcastReceiver
                         b.getInt(CarrierConfigManager.KEY_5G_ICON_DISPLAY_GRACE_PERIOD_SEC_INT),
                         config);
             }
+            config.showVowifiIcon = res.getBoolean(R.bool.config_display_vowifi);
+
             return config;
         }
 
