@@ -196,7 +196,6 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
         Resources res = context.getResources();
 
         mPaintFingerprint.setAntiAlias(true);
-        mPaintFingerprint.setColor(res.getColor(R.color.config_fodColor));
 
         mWindowManager = context.getSystemService(WindowManager.class);
 
@@ -259,9 +258,16 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
                 //canvas.drawCircle(mSize / 2, mSize / 2, mSize / 2.0f, mPaintFingerprint);
                 setImageResource(R.drawable.fod_icon_pressed_white);
             } else if (getFODPressedState() == 2) {
+                mPaintFingerprint.setColor(getFODSolidColor());
                 canvas.drawCircle(mSize / 2, mSize / 2, mSize / 2.0f, mPaintFingerprint);
             }
         }
+    }
+
+    private int getFODSolidColor() {
+        int defaultColor = mContext.getResources().getColor(R.color.config_fodColor);
+        return Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.FOD_SOLID_COLOR, defaultColor);
     }
 
     private int getFODPressedState() {

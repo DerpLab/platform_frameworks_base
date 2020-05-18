@@ -6142,6 +6142,16 @@ public final class Settings {
                 new SettingsValidators.InclusiveIntegerRangeValidator(0, 2);
 
         /**
+         * FOD pressed icon color
+         * @hide
+         */
+        public static final String FOD_SOLID_COLOR = "fod_solid_color";
+
+        /** @hide */
+        private static final Validator FOD_SOLID_COLOR_VALIDATOR =
+                ANY_INTEGER_VALIDATOR;
+
+        /**
          * Timeout for ambient pulse in seconds - 0 is no timeout
          * @hide
          */
@@ -6640,6 +6650,7 @@ public final class Settings {
             SCREENSHOT_SOUND,
             FOD_ICON,
             FOD_PRESSED_STATE,
+            FOD_SOLID_COLOR,
             FOD_RECOGNIZING_ANIMATION,
             FOD_ANIM,
             TEXT_CLOCK_ALIGNMENT,
@@ -7166,6 +7177,7 @@ public final class Settings {
             VALIDATORS.put(SCREENSHOT_SOUND, SCREENSHOT_SOUND_VALIDATOR);
             VALIDATORS.put(FOD_ICON, FOD_ICON_VALIDATOR);
             VALIDATORS.put(FOD_PRESSED_STATE, FOD_PRESSED_STATE_VALIDATOR);
+            VALIDATORS.put(FOD_SOLID_COLOR, FOD_SOLID_COLOR_VALIDATOR);
             VALIDATORS.put(FOD_RECOGNIZING_ANIMATION, FOD_RECOGNIZING_ANIMATION_VALIDATOR);
             VALIDATORS.put(FOD_ANIM, FOD_ANIM_VALIDATOR);
             VALIDATORS.put(TEXT_CLOCK_ALIGNMENT, TEXT_CLOCK_ALIGNMENT_VALIDATOR);
