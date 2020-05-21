@@ -126,6 +126,11 @@ public class DndTile extends QSTileImpl<BooleanState> {
     }
 
     @Override
+    public boolean isDetailViewOnly() {
+        return true;
+    }
+
+    @Override
     public DetailAdapter getDetailAdapter() {
         return mDetailAdapter;
     }

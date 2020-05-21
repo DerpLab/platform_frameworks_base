@@ -894,7 +894,7 @@ public class QSPanel extends LinearLayout implements Callback,
     private void configureTile(QSTile t, QSTileView v) {
         if (mTileLayout != null) {
             v.setHideLabel(!mTileLayout.isShowTitles());
-            if (t.isDualTarget()) {
+            if (t.isDualTarget() && !t.isDetailViewOnly()) {
                 if (mShowQSPanels) {
                     v.setOnLongClickListener(view -> {
                         t.longClick();

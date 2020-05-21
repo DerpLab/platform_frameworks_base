@@ -51,7 +51,7 @@ public interface QSTile {
     void removeCallbacks();
 
     QSIconView createTileView(Context context);
-    
+
     void click();
     void secondaryClick();
     void longClick();
@@ -68,6 +68,7 @@ public interface QSTile {
 
     State getState();
     boolean isDualTarget();
+    boolean isDetailViewOnly();
 
     default LogMaker populate(LogMaker logMaker) {
         return logMaker;

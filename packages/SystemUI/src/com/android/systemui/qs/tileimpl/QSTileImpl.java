@@ -123,6 +123,11 @@ public abstract class QSTileImpl<TState extends State> implements QSTile, Lifecy
         return false;
     }
 
+    @Override
+    public boolean isDetailViewOnly() {
+        return false;
+    }
+
     protected Vibrator mVibrator;
 
     /**
