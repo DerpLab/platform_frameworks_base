@@ -686,7 +686,8 @@ public class QSPanel extends LinearLayout implements Callback,
                     if (!mCustomizePanel.isCustomizing()) {
                         int[] loc = v.getLocationOnScreen();
                         int x = loc[0] + v.getWidth() / 2;
-                        int y = loc[1] + v.getHeight() / 2;
+                        // we subtract getTop, because Pie clipper starts after black area
+                        int y = loc[1] + v.getHeight() / 2 - getTop();
                         mCustomizePanel.show(x, y);
                     }
                 }
@@ -731,7 +732,7 @@ public class QSPanel extends LinearLayout implements Callback,
         }
         r.tile.setDetailListening(show);
         int x = r.tileView.getLeft() + r.tileView.getWidth() / 2;
-        int y = r.tileView.getDetailY() + mTileLayout.getOffsetTop(r) + getTop();
+        int y = r.tileView.getDetailY() + mTileLayout.getOffsetTop(r);
         handleShowDetailImpl(r, show, x, y);
     }
 
