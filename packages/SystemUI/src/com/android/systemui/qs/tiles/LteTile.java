@@ -42,10 +42,6 @@ import javax.inject.Inject;
  */
 public class LteTile extends QSTileImpl<BooleanState> {
 
-    private static final Intent MOBILE_NETWORK_SETTINGS = new Intent(Intent.ACTION_MAIN)
-            .setComponent(new ComponentName("com.android.phone",
-                    "com.android.phone.MobileNetworkSettings"));
-
     private final Icon mIcon = ResourceIcon.get(R.drawable.ic_qs_lte);
 
     @Inject
@@ -60,7 +56,7 @@ public class LteTile extends QSTileImpl<BooleanState> {
 
     @Override
     public Intent getLongClickIntent() {
-        return MOBILE_NETWORK_SETTINGS;
+        return new Intent(Settings.ACTION_NETWORK_OPERATOR_SETTINGS);
     }
 
     @Override
@@ -127,5 +123,3 @@ public class LteTile extends QSTileImpl<BooleanState> {
                 Settings.Global.PREFERRED_NETWORK_MODE + subId, -1);
     }
 }
-
-
