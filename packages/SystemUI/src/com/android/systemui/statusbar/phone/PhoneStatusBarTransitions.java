@@ -35,10 +35,13 @@ public final class PhoneStatusBarTransitions extends BarTransitions {
     private View mLeftSide, mStatusIcons, mBattery, mLogoIconRight, mCenterClock;
     private Animator mCurrentAnimation;
 
-    public PhoneStatusBarTransitions(PhoneStatusBarView view) {
-        super(view, R.drawable.status_background);
-        mView = view;
-        final Resources res = mView.getContext().getResources();
+    /**
+     * @param backgroundView view to apply the background drawable
+     */
+    public PhoneStatusBarTransitions(PhoneStatusBarView statusBarView, View backgroundView) {
+        super(backgroundView, R.drawable.status_background);
+        final Resources res = statusBarView.getContext().getResources();
+        mView = statusBarView;
         mIconAlphaWhenOpaque = res.getFraction(R.dimen.status_bar_icon_drawing_alpha, 1, 1);
     }
 
