@@ -140,4 +140,7 @@
     <!-- Default value for Ambiant Pulse light color -->
     <integer name="config_ambientNotificationDefaultColor">0x3980FF</integer>
 
+    <!-- Whether device supports variable refresh rate -->
+    <bool name="config_hasVariableRefreshRate">false</bool>
+
 </resources>
