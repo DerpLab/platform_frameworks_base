@@ -6452,13 +6452,14 @@ public final class Settings {
          * 0 = Disabled (Default)
          * 1 = Blink flashlight only in Ringer mode
          * 2 = Blink flashlight only when ringer is not audible
-         * 3 = Blink flashlight always regardless of ringer mode
+         * 3 = Blink flahslight only when entirely silent
+         * 4 = Blink flashlight always regardless of ringer mode
          * @hide
          */
         public static final String FLASHLIGHT_ON_CALL = "flashlight_on_call";
         /** @hide */
-        public static final Validator FLASHLIGHT_ON_CALL_VALIDATOR =
-                new SettingsValidators.InclusiveIntegerRangeValidator(0, 3);
+        private static final Validator FLASHLIGHT_ON_CALL_VALIDATOR =
+                new SettingsValidators.InclusiveIntegerRangeValidator(0, 4);
 
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
