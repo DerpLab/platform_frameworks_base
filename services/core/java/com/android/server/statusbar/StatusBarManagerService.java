@@ -768,25 +768,6 @@ public class StatusBarManagerService extends IStatusBarService.Stub implements D
         }
     }
 
-    public void toggleCameraFlashOn() {
-        if (mBar != null) {
-            try {
-                mBar.toggleCameraFlashOn();
-            } catch (RemoteException ex) {
-            }
-        }
-    }
-
-    @Override
-    public void toggleCameraFlashOff() {
-        if (mBar != null) {
-            try {
-                mBar.toggleCameraFlashOff();
-            } catch (RemoteException ex) {
-            }
-        }
-    }
-
     @Override
     public void setPartialScreenshot(boolean active) {
         if (mBar != null) {

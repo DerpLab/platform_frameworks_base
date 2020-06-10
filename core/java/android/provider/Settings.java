@@ -4527,21 +4527,6 @@ public final class Settings {
         /**
          * @hide
          */
-        public static final String FLASH_ON_CALL_WAITING = "flash_on_call_waiting";
-        /** @hide */
-        private static final Validator FLASH_ON_CALL_WAITING_VALIDATOR = BOOLEAN_VALIDATOR;
-
-        /**
-         * @hide
-         */
-        public static final String FLASH_ON_CALLWAITING_DELAY = "flash_on_call_waiting_delay";
-        /** @hide */
-        private static final Validator FLASH_ON_CALLWAITING_DELAY_VALIDATOR =
-                ANY_INTEGER_VALIDATOR;
-
-        /**
-         * @hide
-         */
         public static final String DEVICE_FEATURE_SETTINGS = "device_feature_settings";
 
         /**
@@ -6652,8 +6637,6 @@ public final class Settings {
             PULSE_BRIGHTNESS,
             QS_PANEL_BG_ALPHA,
             DOZE_BRIGHTNESS,
-            FLASH_ON_CALL_WAITING,
-            FLASH_ON_CALLWAITING_DELAY,
             NETWORK_TRAFFIC_STATE,
             NETWORK_TRAFFIC_VIEW_LOCATION,
             NETWORK_TRAFFIC_TYPE,
@@ -7179,8 +7162,6 @@ public final class Settings {
             VALIDATORS.put(QS_PANEL_BG_ALPHA, QS_PANEL_BG_ALPHA_VALIDATOR);
             VALIDATORS.put(PULSE_BRIGHTNESS, PULSE_BRIGHTNESS_VALIDATOR);
             VALIDATORS.put(DOZE_BRIGHTNESS, DOZE_BRIGHTNESS_VALIDATOR);
-            VALIDATORS.put(FLASH_ON_CALL_WAITING, FLASH_ON_CALL_WAITING_VALIDATOR);
-            VALIDATORS.put(FLASH_ON_CALLWAITING_DELAY, FLASH_ON_CALLWAITING_DELAY_VALIDATOR);
             VALIDATORS.put(NETWORK_TRAFFIC_STATE, NETWORK_TRAFFIC_STATE_VALIDATOR);
             VALIDATORS.put(NETWORK_TRAFFIC_TYPE, NETWORK_TRAFFIC_TYPE_VALIDATOR);
             VALIDATORS.put(NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD, NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD_VALIDATOR);
