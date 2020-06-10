@@ -4617,6 +4617,16 @@ public final class Settings {
                 BOOLEAN_VALIDATOR;
 
         /**
+         * The amount of time in milliseconds before the device goes to sleep or begins
+         * to dream after a period of inactivity in the keyguard.
+         * @hide
+         */
+        public static final String LOCKSCREEN_TIMEOUT = "lockscreen_timeout";
+
+        /** @hide */
+        private static Validator LOCKSCREEN_TIMEOUT_VALIDATOR = ANY_INTEGER_VALIDATOR;
+
+        /**
          * Whether the phone vibrates on call waiting
          * @hide
          */
@@ -6728,6 +6738,7 @@ public final class Settings {
             VIBRATE_ON_CONNECT,
             VIBRATE_ON_CALLWAITING,
             VIBRATE_ON_DISCONNECT,
+            LOCKSCREEN_TIMEOUT,
             RINGTONE_VIBRATION_PATTERN,
             CUSTOM_RINGTONE_VIBRATION_PATTERN,
             DOZE_ON_CHARGE,
@@ -7265,6 +7276,7 @@ public final class Settings {
             VALIDATORS.put(VIBRATE_ON_CONNECT, VIBRATE_ON_CONNECT_VALIDATOR);
             VALIDATORS.put(VIBRATE_ON_CALLWAITING, VIBRATE_ON_CALLWAITING_VALIDATOR);
             VALIDATORS.put(VIBRATE_ON_DISCONNECT, VIBRATE_ON_DISCONNECT_VALIDATOR);
+            VALIDATORS.put(LOCKSCREEN_TIMEOUT, LOCKSCREEN_TIMEOUT_VALIDATOR);
             VALIDATORS.put(RINGTONE_VIBRATION_PATTERN, RINGTONE_VIBRATION_PATTERN_VALIDATOR);
             VALIDATORS.put(CUSTOM_RINGTONE_VIBRATION_PATTERN, CUSTOM_RINGTONE_VIBRATION_PATTERN_VALIDATOR);
             VALIDATORS.put(DOZE_ON_CHARGE, DOZE_ON_CHARGE_VALIDATOR);
