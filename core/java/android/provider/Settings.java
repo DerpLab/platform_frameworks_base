@@ -6462,6 +6462,24 @@ public final class Settings {
                 new SettingsValidators.InclusiveIntegerRangeValidator(0, 4);
 
         /**
+         * Whether flashlight_on_call ignores DND (Zen Mode)
+         * @hide
+         */
+        public static final String FLASHLIGHT_ON_CALL_IGNORE_DND = "flashlight_on_call_ignore_dnd";
+        /** @hide */
+        private static final Validator FLASHLIGHT_ON_CALL_IGNORE_DND_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
+        /**
+         * Rate in Hz in which to blink flashlight_on_call
+         * @hide
+         */
+        public static final String FLASHLIGHT_ON_CALL_RATE = "flashlight_on_call_rate";
+        /** @hide */
+        private static final Validator FLASHLIGHT_ON_CALL_RATE_VALIDATOR =
+                new SettingsValidators.InclusiveIntegerRangeValidator(1, 5);
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -6713,6 +6731,8 @@ public final class Settings {
             BATTERY_BAR_LOW_COLOR,
             BATTERY_BAR_USE_GRADIENT_COLOR,
             FLASHLIGHT_ON_CALL,
+            FLASHLIGHT_ON_CALL_IGNORE_DND,
+            FLASHLIGHT_ON_CALL_RATE,
         };
 
         /**
@@ -6948,6 +6968,8 @@ public final class Settings {
             PRIVATE_SETTINGS.add(STOCK_STATUSBAR_IN_HIDE);
             PRIVATE_SETTINGS.add(REFRESH_RATE_SETTING);
             PRIVATE_SETTINGS.add(FLASHLIGHT_ON_CALL);
+            PRIVATE_SETTINGS.add(FLASHLIGHT_ON_CALL_IGNORE_DND);
+            PRIVATE_SETTINGS.add(FLASHLIGHT_ON_CALL_RATE);
         }
 
         /**
@@ -7244,6 +7266,8 @@ public final class Settings {
             VALIDATORS.put(BATTERY_BAR_USE_GRADIENT_COLOR, BATTERY_BAR_USE_GRADIENT_COLOR_VALIDATOR);
             VALIDATORS.put(REFRESH_RATE_SETTING, REFRESH_RATE_SETTING_VALIDATOR);
             VALIDATORS.put(FLASHLIGHT_ON_CALL, FLASHLIGHT_ON_CALL_VALIDATOR);
+            VALIDATORS.put(FLASHLIGHT_ON_CALL_IGNORE_DND, FLASHLIGHT_ON_CALL_IGNORE_DND_VALIDATOR);
+            VALIDATORS.put(FLASHLIGHT_ON_CALL_RATE, FLASHLIGHT_ON_CALL_RATE_VALIDATOR);
         }
 
         /**
