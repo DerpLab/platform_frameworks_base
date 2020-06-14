@@ -6481,12 +6481,15 @@ public final class Settings {
 
         /**
          * Show data usage in QS header
+         * 0 = Disabled
+         * 1 = Show daily usage
+         * 2 = Show monthly usage
          * @hide
          */
         public static final String QS_DATAUSAGE = "qs_datausage";
-
         /** @hide */
-        private static final Validator QS_DATAUSAGE_VALIDATOR = ANY_INTEGER_VALIDATOR;
+        private static final Validator QS_DATAUSAGE_VALIDATOR =
+                new SettingsValidators.InclusiveIntegerRangeValidator(0, 2);
 
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
