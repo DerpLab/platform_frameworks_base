@@ -485,7 +485,6 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
             mShowClock = Settings.System.getIntForUser(mContentResolver,
                     Settings.System.STATUS_BAR_CLOCK, 1,
                     UserHandle.USER_CURRENT) == 1;
-            mHasCarrierLabel = (mShowCarrierLabel == 2 || mShowCarrierLabel == 3);
             if (!mShowClock) {
                 mClockStyle = 1; // internally switch to centered clock layout because
                                 // left & right will show up again after QS pulldown
@@ -496,6 +495,7 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
             }
             mShowCarrierLabel = Settings.System.getIntForUser(mContentResolver,
                     Settings.System.STATUS_BAR_SHOW_CARRIER, 0, UserHandle.USER_CURRENT);
+            mHasCarrierLabel = (mShowCarrierLabel == 2 || mShowCarrierLabel == 3);
             mTickerEnabled = Settings.System.getIntForUser(getContext().getContentResolver(),
                     Settings.System.STATUS_BAR_SHOW_TICKER, 0, UserHandle.USER_CURRENT);
             updateClockStyle(animate);
