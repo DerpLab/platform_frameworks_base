@@ -6692,6 +6692,18 @@ public final class Settings {
         private static final Validator SWITCH_STYLE_VALIDATOR =
                 new SettingsValidators.InclusiveIntegerRangeValidator(0, 7);
 
+       /**
+        * Powermenu Background
+        * @hide
+        */
+        public static final String POWER_MENU_BG = "power_menu_bg";
+
+        /**
+        * Powermenu Background Style
+        * @hide
+        */
+        public static final String POWER_MENU_BG_STYLE = "power_menu_bg_style";
+
         /**
          * Whether to show heads up on new music tracks
          * @hide
