@@ -180,15 +180,23 @@
     <string name="qs_data_switch_changed_2">Switch data card to SIM 2.</string>
 
     <!-- Show VoLTE icon on statusbar -->
-    <string name="volte_icon_asus">VoLTE Asus Icon</string>
-    <string name="volte_icon_title">VoLTE icon</string>
+    <string name="volte_icon_asus">Asus Icon</string>
+    <string name="volte_icon_title">VoLTE Icon</string>
     <string name="volte_icon_summary">Display VoLTE icon</string>
     <string name="volte_icon_style_title">Select VoLTE Icon</string>
     <string name="volte_icon_vo">Vo Only Icon</string>
     <string name="volte_icon_volte">VoLTE Icon</string>
-    <string name="volte_icon_oos">VoLTE OOS Icon</string>
+    <string name="volte_icon_oos">OOS Icon</string>
     <string name="volte_icon_hd">HD Icon</string>
     <string name="volte_icon_volit">VoLIT Icon</string>
+
+    <!-- Show VoWiFi icon on statusbar -->
+    <string name="vowifi_icon_style_title">Select VoWiFi Icon</string>
+    <string name="vowifi_icon_default">Default Icon</string>
+    <string name="vowifi_icon_oneplus">OnePlus Icon</string>
+    <string name="vowifi_icon_moto">Motorola Icon</string>
+    <string name="vowifi_icon_asus">Asus Icon</string>
+    <string name="vowifi_icon_emui">EMUI Icon</string>
 
     <!-- Navbar editor -->
     <string name="preview">Preview</string>
