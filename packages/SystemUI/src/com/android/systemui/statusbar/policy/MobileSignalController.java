@@ -116,6 +116,7 @@ public class MobileSignalController extends SignalController<
     private int mVoLTEstyle;
     // Vowifi Icon
     private boolean mVoWiFiIcon;
+    private boolean mVoWiFiIconShowing = false;
 
     // Data disabled icon
     private boolean mDataDisabledIcon;
@@ -432,7 +433,7 @@ public class MobileSignalController extends SignalController<
     private int getVolteResId() {
         int resId = 0;
 
-        if (mCurrentState.imsRegistered && mVoLTEicon) {
+        if (mCurrentState.imsRegistered && mVoLTEicon && !mVoWiFiIconShowing) {
             switch(mVoLTEstyle) {
                 // VoLTE
                 case 1:
@@ -555,8 +556,8 @@ public class MobileSignalController extends SignalController<
                 && !mCurrentState.carrierNetworkChangeMode
                 && mCurrentState.activityOut;
         showDataIcon &= mCurrentState.isDefault || dataDisabled;
+
         int typeIcon = (showDataIcon || mConfig.alwaysShowDataRatIcon) ? icons.mDataType : 0;
-        int volteIcon = isVolteSwitchOn() ? getVolteResId() : 0;
 
         MobileIconGroup vowifiIconGroup = getVowifiIconGroup();
         if (mConfig.showVowifiIcon && mVoWiFiIcon && vowifiIconGroup != null) {
@@ -564,7 +565,11 @@ public class MobileSignalController extends SignalController<
             statusIcon = new IconState(true,
                     mCurrentState.enabled && !mCurrentState.airplaneMode? statusIcon.icon : 0,
                     statusIcon.contentDescription);
+            mVoWiFiIconShowing = true;
+        } else {
+            mVoWiFiIconShowing = false;
         }
+        int volteIcon = isVolteSwitchOn() ? getVolteResId() : 0;
 
         callback.setMobileDataIndicators(statusIcon, qsIcon, typeIcon, qsTypeIcon,
                 activityIn, activityOut, volteIcon, dataContentDescription, dataContentDescriptionHtml,
