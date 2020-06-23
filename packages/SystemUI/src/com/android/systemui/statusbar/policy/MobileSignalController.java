@@ -114,6 +114,8 @@ public class MobileSignalController extends SignalController<
     private boolean mVoLTEicon;
     // Volte Icon Style
     private int mVoLTEstyle;
+    // Vowifi Icon
+    private boolean mVoWiFiIcon;
 
     // Data disabled icon
     private boolean mDataDisabledIcon;
@@ -196,19 +198,22 @@ public class MobileSignalController extends SignalController<
 
         void observe() {
            ContentResolver resolver = mContext.getContentResolver();
-           resolver.registerContentObserver(Settings.System.getUriFor(
-                  Settings.System.SHOW_FOURG),
-                  false, this, UserHandle.USER_ALL);
-           resolver.registerContentObserver(Settings.System.getUriFor(
-                  Settings.System.SHOW_VOLTE_ICON),
-                  false,this, UserHandle.USER_ALL);
-           resolver.registerContentObserver(
-	            Settings.System.getUriFor(Settings.System.VOLTE_ICON_STYLE),
-                  false,this, UserHandle.USER_ALL);
-           resolver.registerContentObserver(
-                  Settings.System.getUriFor(Settings.System.DATA_DISABLED_ICON),
-                  false, this, UserHandle.USER_ALL);
-           updateSettings();
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.SHOW_FOURG),
+                    false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.SHOW_VOLTE_ICON),
+                    false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.SHOW_VOWIFI_ICON),
+                    false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(
+                    Settings.System.getUriFor(Settings.System.VOLTE_ICON_STYLE),
+                    false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(
+                    Settings.System.getUriFor(Settings.System.DATA_DISABLED_ICON),
+                    false, this, UserHandle.USER_ALL);
+            updateSettings();
         }
 
         /*
@@ -227,6 +232,9 @@ public class MobileSignalController extends SignalController<
 
         mVoLTEicon = Settings.System.getIntForUser(resolver,
                 Settings.System.SHOW_VOLTE_ICON, 0,
+                UserHandle.USER_CURRENT) == 1;
+        mVoWiFiIcon = Settings.System.getIntForUser(resolver,
+                Settings.System.SHOW_VOWIFI_ICON, 0,
                 UserHandle.USER_CURRENT) == 1;
         mVoLTEstyle = Settings.System.getIntForUser(resolver,
                 Settings.System.VOLTE_ICON_STYLE, 0,
@@ -551,7 +559,7 @@ public class MobileSignalController extends SignalController<
         int volteIcon = isVolteSwitchOn() ? getVolteResId() : 0;
 
         MobileIconGroup vowifiIconGroup = getVowifiIconGroup();
-        if ( mConfig.showVowifiIcon && vowifiIconGroup != null ) {
+        if (mConfig.showVowifiIcon && mVoWiFiIcon && vowifiIconGroup != null) {
             typeIcon = vowifiIconGroup.mDataType;
             statusIcon = new IconState(true,
                     mCurrentState.enabled && !mCurrentState.airplaneMode? statusIcon.icon : 0,

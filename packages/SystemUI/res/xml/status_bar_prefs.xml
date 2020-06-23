@@ -131,6 +131,11 @@
             android:summary="%s"
             android:defaultValue="0" />
 
+        <SwitchPreference
+            android:key="show_vowifi"
+            android:title="@string/vowifi_switch_title"
+            android:defaultValue="false" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
