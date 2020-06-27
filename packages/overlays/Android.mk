@@ -47,28 +47,10 @@ LOCAL_REQUIRED_MODULES := \
 	FontSonySketchSourceOverlay \
 	FontSurferSourceOverlay \
     FontAnaheim \
-    FontBigNoodle \
-    FontBikoHanken \
-    FontComicNeue \
-    FontExo2 \
-    FontFinlandica \
-    FontGoodlight \
-    FontGravity \
-    FontInter \
-    FontLeagueMonoNarrow \
-    FontLeonSans \
-    FontMescla \
-    FontMittelschrift \
-    FontOdibee \
-    FontPanamericana \
     FontPissel \
-    FontPTSansMono \
-    FontReemKufi \
     FontRoboto \
     FontRouterGothicNarrow \
     FontRoutedGothicRobotoCondensed \
-    FontSofiaSans \
-    FontSofiaSansSemiCondensed \
     FontTinkerbell \
 	IconPackCircularAndroidOverlay \
 	IconPackCircularLauncherOverlay \
