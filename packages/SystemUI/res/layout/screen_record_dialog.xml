@@ -48,19 +48,7 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="?android:attr/textColorPrimary"
                 android:textStyle="bold"
-                android:text="@string/screenrecord_dialog_title" />
-
-            <TextView
-                android:id="@+id/summary"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp"
-                android:paddingStart="?android:attr/dialogPreferredPadding"
-                android:paddingEnd="?android:attr/dialogPreferredPadding"
-                android:gravity="start"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="?android:attr/textColorSecondary"
-                android:text="@string/screenrecord_dialog_summary" />
+                android:text="@string/global_action_screenrecord" />
 
             <!-- Force low quality -->
             <FrameLayout
@@ -75,7 +63,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="50dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginBottom="24dp">
+                    android:layout_marginBottom="12dp">
 
                     <TextView
                         android:id="@android:id/title"
@@ -92,7 +80,7 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@android:id/title"
                         android:layout_alignStart="@android:id/title"
-                        android:layout_marginEnd="90dp"
+                        android:layout_marginEnd="140dp"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textColor="?android:attr/textColorSecondary"
                         android:text="@string/screenrecord_video_bitrate_summary" />
@@ -108,10 +96,10 @@
 
                 <Spinner
                     android:id="@+id/spinner_video_bitrate"
-                    android:layout_width="wrap_content"
+                    android:layout_width="130dp"
                     android:layout_height="48dp"
                     android:entries="@array/screen_video_quality_entries"
-                    android:layout_gravity="top|end" />
+                    android:layout_gravity="center|end" />
 
             </FrameLayout>
             <!-- Audio Recording -->
@@ -144,7 +132,7 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@android:id/title"
                         android:layout_alignStart="@android:id/title"
-                        android:layout_marginEnd="90dp"
+                        android:layout_marginEnd="140dp"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textColor="?android:attr/textColorSecondary"
                         android:text="@string/screenrecord_audio_summary" />
@@ -160,9 +148,9 @@
 
                 <Spinner
                     android:id="@+id/spinner_audio_source"
-                    android:layout_width="wrap_content"
+                    android:layout_width="130dp"
                     android:layout_height="48dp"
-                    android:layout_gravity="top|end" />
+                    android:layout_gravity="center|end" />
 
             </FrameLayout>
             <!-- Show taps in screen -->
@@ -195,7 +183,6 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@android:id/title"
                         android:layout_alignStart="@android:id/title"
-                        android:layout_marginEnd="90dp"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textColor="?android:attr/textColorSecondary"
                         android:text="@string/screenrecord_taps_summary" />
@@ -213,7 +200,7 @@
                     android:id="@+id/switch_taps"
                     android:layout_width="wrap_content"
                     android:layout_height="48dp"
-                    android:layout_gravity="top|end" />
+                    android:layout_gravity="center|end" />
 
             </FrameLayout>
             <!-- Show dot for stop -->
@@ -264,7 +251,7 @@
                     android:id="@+id/switch_stopdot"
                     android:layout_width="wrap_content"
                     android:layout_height="48dp"
-                    android:layout_gravity="top|end" />
+                    android:layout_gravity="center|end" />
 
             </FrameLayout>
 
