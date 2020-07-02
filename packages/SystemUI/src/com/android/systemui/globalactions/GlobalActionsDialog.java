@@ -1265,12 +1265,10 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
 
     private void takeScreenrecord() {
        synchronized (mScreenrecordLock) {
-            if (mScreenrecordConnection != null) {
+            if (mScreenrecordConnection != null || mScreenRecordHelper == null) {
                 return;
             }
-            final Intent intent = new Intent("org.omnirom.omnirecord.ACTION_START");
-            intent.setPackage("org.omnirom.omnirecord");
-            mContext.sendBroadcastAsUser(intent, UserHandle.CURRENT);
+            mScreenRecordHelper.launchRecordPrompt();
         }
     }
 
