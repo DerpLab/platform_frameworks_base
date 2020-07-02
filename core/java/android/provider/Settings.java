@@ -6658,8 +6658,6 @@ public final class Settings {
         private static final Validator QS_DATAUSAGE_VALIDATOR =
                 new SettingsValidators.InclusiveIntegerRangeValidator(0, 2);
 
-
-
         /**
          * Screenrecord: audio source
          * @hide
@@ -6683,6 +6681,22 @@ public final class Settings {
          * @hide
          */
         public static final String SCREENRECORD_VIDEO_BITRATE = "screenrecord_video_bitrate";
+
+        /**
+         * System-wide switch style
+         * 0 = Default
+         * 1 = OnePlus
+         * 2 = Narrow
+         * 3 = Contained
+         * 4 = Telegram
+         * 5 = Md2
+         * 6 = Retro
+         * @hide
+         */
+        public static final String SWITCH_STYLE = "switch_style";
+        /** @hide */
+        private static final Validator SWITCH_STYLE_VALIDATOR =
+                new SettingsValidators.InclusiveIntegerRangeValidator(0, 6);
 
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
@@ -6957,6 +6971,7 @@ public final class Settings {
             PULSE_SOLID_UNITS_COUNT,
             PULSE_SOLID_UNITS_OPACITY,
             PULSE_SMOOTHING_ENABLED,
+            SWITCH_STYLE,
         };
 
         /**
@@ -7515,6 +7530,7 @@ public final class Settings {
             VALIDATORS.put(PULSE_SOLID_UNITS_COUNT, PULSE_SOLID_UNITS_COUNT_VALIDATOR);
             VALIDATORS.put(PULSE_SOLID_UNITS_OPACITY, PULSE_SOLID_UNITS_OPACITY_VALIDATOR);
             VALIDATORS.put(PULSE_SMOOTHING_ENABLED, PULSE_SMOOTHING_ENABLED_VALIDATOR);
+            VALIDATORS.put(SWITCH_STYLE, SWITCH_STYLE_VALIDATOR);
         }
 
         /**
