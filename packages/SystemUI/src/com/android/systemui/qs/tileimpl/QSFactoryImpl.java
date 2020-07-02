@@ -53,7 +53,6 @@ import com.android.systemui.qs.tiles.NfcTile;
 import com.android.systemui.qs.tiles.NightDisplayTile;
 import com.android.systemui.qs.tiles.RebootTile;
 import com.android.systemui.qs.tiles.RotationLockTile;
-import com.android.systemui.qs.tiles.ScreenrecordTile;
 import com.android.systemui.qs.tiles.ScreenRecordTile;
 import com.android.systemui.qs.tiles.ScreenStabilizationTile;
 import com.android.systemui.qs.tiles.UiModeNightTile;
@@ -100,7 +99,6 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<CaffeineTile> mCaffeineTileProvider;
     private final Provider<ScreenshotTile> mScreenshotTileProvider;
     private final Provider<HWKeysTile> mHWKeysTileProvider;
-    private final Provider<ScreenrecordTile> mScrTileProvider;
     private final Provider<LocaleTile> mLocaleTileProvider;
     private final Provider<HeadsUpTile> mHeadsUpTileProvider;
     private final Provider<AODTile> mAODTileProvider;
@@ -140,7 +138,6 @@ public class QSFactoryImpl implements QSFactory {
             Provider<CaffeineTile> caffeineTileProvider,
             Provider<ScreenshotTile> screenshotTileProvider,
             Provider<HWKeysTile> hWKeysTileProvider,
-            Provider<ScreenrecordTile> scrTileProvider,
             Provider<LocaleTile> localeTileProvider,
             Provider<HeadsUpTile> headsupTileProvider,
             Provider<AODTile> aodTileProvider,
@@ -176,7 +173,6 @@ public class QSFactoryImpl implements QSFactory {
         mCaffeineTileProvider = caffeineTileProvider;
         mScreenshotTileProvider = screenshotTileProvider;
         mHWKeysTileProvider = hWKeysTileProvider;
-        mScrTileProvider = scrTileProvider;
         mLocaleTileProvider = localeTileProvider;
         mHeadsUpTileProvider = headsupTileProvider;
         mAODTileProvider = aodTileProvider;
@@ -253,8 +249,6 @@ public class QSFactoryImpl implements QSFactory {
                 return mScreenshotTileProvider.get();
             case "hwkeys":
                 return mHWKeysTileProvider.get();
-            case "scr":
-                return mScrTileProvider.get();
             case "locale":
                 return mLocaleTileProvider.get();
             case "heads_up":
