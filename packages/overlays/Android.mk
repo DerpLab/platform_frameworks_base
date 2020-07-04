@@ -52,6 +52,7 @@ LOCAL_REQUIRED_MODULES := \
     FontRouterGothicNarrow \
     FontRoutedGothicRobotoCondensed \
     FontTinkerbell \
+	FontEvolveSans \
 	IconPackCircularAndroidOverlay \
 	IconPackCircularLauncherOverlay \
 	IconPackCircularSettingsOverlay \
