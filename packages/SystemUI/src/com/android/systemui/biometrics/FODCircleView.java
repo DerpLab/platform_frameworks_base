@@ -50,6 +50,7 @@ import com.android.internal.widget.LockPatternUtils;
 import com.android.keyguard.KeyguardSecurityModel.SecurityMode;
 import com.android.keyguard.KeyguardUpdateMonitor;
 import com.android.keyguard.KeyguardUpdateMonitorCallback;
+import com.android.settingslib.utils.ThreadUtils;
 import com.android.systemui.R;
 import com.android.systemui.Dependency;
 import com.android.systemui.statusbar.policy.ConfigurationController;
@@ -512,7 +513,9 @@ public class FODCircleView extends ImageView implements ConfigurationListener, T
         }
 
         setDim(true);
-        dispatchPress();
+        ThreadUtils.postOnBackgroundThread(() -> {
+            dispatchPress();
+        });
 
         setFODPressedState();
         setImageDrawable(null);
@@ -526,7 +529,9 @@ public class FODCircleView extends ImageView implements ConfigurationListener, T
         setImageResource(ICON_STYLES[mSelectedIcon]);
         invalidate();
 
-        dispatchRelease();
+        ThreadUtils.postOnBackgroundThread(() -> {
+            dispatchRelease();
+        });
         setDim(false);
 
         setKeepScreenOn(false);
@@ -543,7 +548,9 @@ public class FODCircleView extends ImageView implements ConfigurationListener, T
         updatePosition();
 
         Dependency.get(TunerService.class).addTunable(this, SCREEN_BRIGHTNESS);
-        dispatchShow();
+        ThreadUtils.postOnBackgroundThread(() -> {
+            dispatchShow();
+        });
         setVisibility(View.VISIBLE);
     }
 
@@ -552,7 +559,9 @@ public class FODCircleView extends ImageView implements ConfigurationListener, T
         setVisibility(View.GONE);
         Dependency.get(TunerService.class).removeTunable(this);
         hideCircle();
-        dispatchHide();
+        ThreadUtils.postOnBackgroundThread(() -> {
+            dispatchHide();
+        });
     }
 
     private void updateAlpha() {
