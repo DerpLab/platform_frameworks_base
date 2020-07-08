@@ -490,7 +490,7 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
                 break;
             case Surface.ROTATION_270:
                 x = size.x - mPositionY - mSize - mNavigationBarSize - cutoutMaskedExtra;
-                y = mPositionX;
+                y = mPositionX - cutoutMaskedExtra;
                 break;
             default:
                 throw new IllegalArgumentException("Unknown rotation: " + rotation);
@@ -579,7 +579,9 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
                 com.android.internal.R.bool.config_maskMainBuiltInDisplayCutout);
         if (mCutoutMasked != cutoutMasked){
             mCutoutMasked = cutoutMasked;
-            updatePosition();
+            if (mIsCircleShowing) {
+                updatePosition();
+            }
         }
     }
 }
