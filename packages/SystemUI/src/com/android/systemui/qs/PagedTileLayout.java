@@ -195,6 +195,7 @@ public class PagedTileLayout extends ViewPager implements QSTileLayout {
     public void removeTile(TileRecord tile) {
         if (mTiles.remove(tile)) {
             mDistributeTiles = true;
+            updateResources(); // to make sure we're not displaying an empty row
             requestLayout();
         }
     }
@@ -319,7 +320,7 @@ public class PagedTileLayout extends ViewPager implements QSTileLayout {
                 distributeTiles();
             }
 
-            final int nRows = mPages.get(0).mRows;
+            final int nRows = mPages.get(0).getRows();
             for (int i = 0; i < mPages.size(); i++) {
                 TilePage t = mPages.get(i);
                 t.mRows = nRows;
@@ -431,7 +432,6 @@ public class PagedTileLayout extends ViewPager implements QSTileLayout {
             };
 
     public static class TilePage extends TileLayout {
-        private int mRows;
         public TilePage(Context context, AttributeSet attrs) {
             super(context, attrs);
             mRows = getRows();
@@ -473,8 +473,8 @@ public class PagedTileLayout extends ViewPager implements QSTileLayout {
             }
 
             return Settings.System.getIntForUser(resolver,
-                        Settings.System.QS_LAYOUT_ROWS_LANDSCAPE, 2,
-                        UserHandle.USER_CURRENT);
+                    Settings.System.QS_LAYOUT_ROWS_LANDSCAPE, 2,
+                    UserHandle.USER_CURRENT);
         }
     }
 
