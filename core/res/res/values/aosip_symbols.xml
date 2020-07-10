@@ -157,8 +157,6 @@
   <java-symbol type="anim" name="ethans_launch_task_behind_source" />
   <java-symbol type="anim" name="ethans_launch_task_behind_target" />
 
-  <java-symbol type="integer" name="config_screenBrightnessPulse" />
-
   <!-- Custom default wallpaper -->
   <java-symbol type="drawable" name="custom_default_wallpaper" />
 

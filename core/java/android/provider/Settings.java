@@ -5830,28 +5830,6 @@ public final class Settings {
                 ANY_INTEGER_VALIDATOR;
 
         /**
-         * User definable value of pulse notification screen brightness
-         *
-         * @hide
-         */
-        public static final String PULSE_BRIGHTNESS = "pulse_brightness";
-
-        /** @hide */
-        private static final Validator PULSE_BRIGHTNESS_VALIDATOR =
-                ANY_INTEGER_VALIDATOR;
-
-        /**
-         * User definable value of aod screen brightness
-         *
-         * @hide
-         */
-        public static final String DOZE_BRIGHTNESS = "doze_brightness";
-
-        /** @hide */
-        private static final Validator DOZE_BRIGHTNESS_VALIDATOR =
-                ANY_INTEGER_VALIDATOR;
-
-        /**
          * Use doubletap as doze pulse triggers
          * @hide
          */
@@ -6750,9 +6728,7 @@ public final class Settings {
             CUSTOM_RINGTONE_VIBRATION_PATTERN,
             DOZE_ON_CHARGE,
             USE_OLD_MOBILETYPE,
-            PULSE_BRIGHTNESS,
             QS_PANEL_BG_ALPHA,
-            DOZE_BRIGHTNESS,
             NETWORK_TRAFFIC_STATE,
             NETWORK_TRAFFIC_VIEW_LOCATION,
             NETWORK_TRAFFIC_TYPE,
@@ -7029,8 +7005,6 @@ public final class Settings {
             PRIVATE_SETTINGS.add(NOTIFICATION_SOUND_VIB_SCREEN_ON);
             PRIVATE_SETTINGS.add(USE_OLD_MOBILETYPE);
             PRIVATE_SETTINGS.add(QS_PANEL_BG_ALPHA);
-            PRIVATE_SETTINGS.add(PULSE_BRIGHTNESS);
-            PRIVATE_SETTINGS.add(DOZE_BRIGHTNESS);
             PRIVATE_SETTINGS.add(OMNI_SYSTEM_PROXI_CHECK_ENABLED);
             PRIVATE_SETTINGS.add(LOCK_SHOW_STATUS_BAR);
             PRIVATE_SETTINGS.add(GESTURE_PILL_TOGGLE);
@@ -7293,8 +7267,6 @@ public final class Settings {
                     NOTIFICATION_SOUND_VIB_SCREEN_ON_VALIDATOR);
             VALIDATORS.put(USE_OLD_MOBILETYPE, USE_OLD_MOBILETYPE_VALIDATOR);
             VALIDATORS.put(QS_PANEL_BG_ALPHA, QS_PANEL_BG_ALPHA_VALIDATOR);
-            VALIDATORS.put(PULSE_BRIGHTNESS, PULSE_BRIGHTNESS_VALIDATOR);
-            VALIDATORS.put(DOZE_BRIGHTNESS, DOZE_BRIGHTNESS_VALIDATOR);
             VALIDATORS.put(NETWORK_TRAFFIC_STATE, NETWORK_TRAFFIC_STATE_VALIDATOR);
             VALIDATORS.put(NETWORK_TRAFFIC_TYPE, NETWORK_TRAFFIC_TYPE_VALIDATOR);
             VALIDATORS.put(NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD, NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD_VALIDATOR);
