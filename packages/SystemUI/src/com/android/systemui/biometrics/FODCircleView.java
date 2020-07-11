@@ -112,6 +112,7 @@ public class FODCircleView extends ImageView implements ConfigurationListener, T
     private boolean mIsShowing;
     private boolean mIsCircleShowing;
     private boolean mIsAnimating = false;
+    private boolean mPressedViewDisplayed = false;
 
     private Handler mHandler;
 
@@ -540,6 +541,8 @@ public class FODCircleView extends ImageView implements ConfigurationListener, T
             return;
         }
 
+        mIsShowing = true;
+
         updatePosition();
 
         Dependency.get(TunerService.class).addTunable(this, SCREEN_BRIGHTNESS);
@@ -548,6 +551,7 @@ public class FODCircleView extends ImageView implements ConfigurationListener, T
     }
 
     public void hide() {
+        mIsShowing = false;
         setVisibility(View.GONE);
         Dependency.get(TunerService.class).removeTunable(this);
         hideCircle();
@@ -635,15 +639,17 @@ public class FODCircleView extends ImageView implements ConfigurationListener, T
             }
 
             mPressedParams.dimAmount = dimAmount / 255.0f;
-            if (mPressedView.getParent() == null) {
+            if (!mPressedViewDisplayed && mIsShowing) {
+                mPressedViewDisplayed = true;
                 mWindowManager.addView(mPressedView, mPressedParams);
-            } else {
+            } else if (mPressedViewDisplayed) {
                 mWindowManager.updateViewLayout(mPressedView, mPressedParams);
             }
         } else {
             mPressedParams.screenBrightness = 0.0f;
             mPressedParams.dimAmount = 0.0f;
-            if (mPressedView.getParent() != null) {
+            if (mPressedViewDisplayed) {
+                mPressedViewDisplayed = false;
                 mWindowManager.removeView(mPressedView);
             }
             updateIconDim(true);
