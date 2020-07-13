@@ -5564,6 +5564,9 @@ public final class Settings {
          * @hide
          */
         public static final String LOCKSCREEN_ALBUM_ART_FILTER = "lockscreen_album_art_filter";
+        /** @hide */
+        private static final Validator LOCKSCREEN_ALBUM_ART_FILTER_VALIDATOR =
+                new SettingsValidators.InclusiveIntegerRangeValidator(0, 5);
 
         /**
          * IMPORTANT: If you add a new public settings you also have to add it to
@@ -6712,6 +6715,7 @@ public final class Settings {
             OMNI_AMBIENT_NOTIFICATION_LIGHT_ACCENT,
             OMNI_NOTIFICATION_PULSE_COLOR_AUTOMATIC,
             OMNI_AUTO_BRIGHTNESS_MIN_VALUE,
+            LOCKSCREEN_ALBUM_ART_FILTER,
             PULSE_AMBIENT_LIGHT_COLOR,
             PULSE_AMBIENT_AUTO_COLOR,
             PULSE_AMBIENT_LIGHT_DURATION,
@@ -7246,6 +7250,7 @@ public final class Settings {
             VALIDATORS.put(OMNI_NOTIFICATION_PULSE_COLOR_AUTOMATIC,
                     OMNI_NOTIFICATION_PULSE_COLOR_AUTOMATIC_VALIDATOR);
             VALIDATORS.put(OMNI_AUTO_BRIGHTNESS_MIN_VALUE, OMNI_AUTO_BRIGHTNESS_MIN_VALUE_VALIDATOR);
+            VALIDATORS.put(LOCKSCREEN_ALBUM_ART_FILTER, LOCKSCREEN_ALBUM_ART_FILTER_VALIDATOR);
             VALIDATORS.put(PULSE_AMBIENT_LIGHT_COLOR, PULSE_AMBIENT_LIGHT_COLOR_VALIDATOR);
             VALIDATORS.put(PULSE_AMBIENT_AUTO_COLOR, PULSE_AMBIENT_AUTO_COLOR_VALIDATOR);
             VALIDATORS.put(PULSE_AMBIENT_LIGHT_DURATION, PULSE_AMBIENT_LIGHT_DURATION_VALIDATOR);
