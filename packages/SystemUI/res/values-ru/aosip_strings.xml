@@ -63,7 +63,6 @@
     <string name="quick_settings_sound_label">Звук</string>
     <string name="quick_settings_sound_ring">Со звуком</string>
     <string name="quick_settings_sound_vibrate">Вибрация</string>
-    <string name="quick_settings_sound_dnd">Не беспокоить</string>
     <!-- Caffeine QS tile -->
     <string name="quick_settings_caffeine_label">Запрет сна</string>
     <string name="quick_settings_caffeine_label_off">Выкл.</string>

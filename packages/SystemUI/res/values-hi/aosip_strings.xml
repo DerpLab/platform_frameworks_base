@@ -71,7 +71,6 @@
     <string name="quick_settings_sound_label">ध्वनि</string>
     <string name="quick_settings_sound_ring">रिंग</string>
     <string name="quick_settings_sound_vibrate">कंपन</string>
-    <string name="quick_settings_sound_dnd">परेशान न करें</string>
 
     <!-- Caffeine QS Tile -->
     <string name="quick_settings_caffeine_label">कैफीन</string>

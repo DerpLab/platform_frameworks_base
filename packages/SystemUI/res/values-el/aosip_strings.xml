@@ -26,7 +26,7 @@
     <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
     <string name="custom_hint">Σύρε από εικονίδιο για έναρξη</string>
 
-    <!-- Power Menu -->       
+    <!-- Power Menu -->
    <string name="global_action_dismissable_dialog_text">"Η ειδική επανεκκ. είναι ανενεργή!
 Θέλετε να επανεκκινήσετε?"</string>
     <string name="global_action_dnaa">Να μην εμφανιστεί ξανά</string>
@@ -74,13 +74,12 @@
     <string name="quick_settings_sound_label">Ήχοι</string>
     <string name="quick_settings_sound_ring">Ήχος</string>
     <string name="quick_settings_sound_vibrate">Δόνηση</string>
-    <string name="quick_settings_sound_dnd">Μην ενοχλείτε</string>
 
     <!-- Caffeine QS Tile -->
     <string name="quick_settings_caffeine_label">Καφείνη</string>
     <string name="accessibility_quick_settings_caffeine_off">Καφείνη κλειστή</string>
     <string name="accessibility_quick_settings_caffeine_on">Καφείνη ανοιχτή</string>
-	
+
     <!-- Screenshot QS tile -->
      <string name="quick_settings_screenshot_label">Απόσπ.Οθόνης</string>
     <string name="quick_settings_full_screenshot_label">Πλήρες</string>
@@ -102,7 +101,7 @@
     <!-- Old MobileType style switch -->
     <string name="use_old_mobiletype_summary">Συγχώνευση εικονιδίων τύπου και σήματος</string>
     <string name="use_old_mobiletype_title">Χρήση στυλ παλαιού τύπου</string>
-	
+
     <!-- VoLTE switch -->
     <string name="volte_switch_title">VoLTE</string>
 
@@ -246,10 +245,10 @@
 
     <!-- QuickSettings: ScreenStabilization tile [CHAR LIMIT=NONE] -->
     <string name="quick_settings_stabilization_label">Σταθεροποίηση οθόνης</string>
-	
+
     <!-- QuickSettings: ScreenStabilization (off) [CHAR LIMIT=NONE] -->
     <string name="quick_settings_stabilization_off">Η σταθεροποίηση οθόνης είναι ανενεργή</string>
-	
+
     <!-- QuickSettings: ScreenStabilization (on) [CHAR LIMIT=NONE] -->
     <string name="quick_settings_stabilization_on">Η σταθεροποίηση οθόνης είναι ενεργή</string>
     <string name="low_label">Χαμηλή</string>
