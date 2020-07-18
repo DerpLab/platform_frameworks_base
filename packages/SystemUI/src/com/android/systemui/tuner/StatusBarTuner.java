@@ -40,19 +40,15 @@ public class StatusBarTuner extends PreferenceFragment implements
 
     private static final String SHOW_FOURG = "show_fourg";
     private static final String SHOW_VOLTE = "show_volte";
-    private static final String SHOW_VOWIFI = "show_vowifi";
     private static final String DATA_DISABLED_ICON = "data_disabled_icon";
     private static final String USE_OLD_MOBILETYPE = "use_old_mobiletype";
     private static final String VOLTE_ICON = "volte_icon_style";
-    private static final String VOWIFI_ICON = "vowifi_icon_style";
 
     private SwitchPreference mShowFourG;
     private SwitchPreference mShowVoLTE;
-    private SwitchPreference mShowVoWiFi;
     private SwitchPreference mShowDataDisabled;
     private SwitchPreference mUseOldMobileType;
     private ListPreference mVoLTEIcon;
-    private ListPreference mVoWiFiIcon;
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -61,28 +57,21 @@ public class StatusBarTuner extends PreferenceFragment implements
         getActivity().getActionBar().setDisplayHomeAsUpEnabled(true);
         mShowFourG = (SwitchPreference) findPreference(SHOW_FOURG);
         mShowVoLTE = (SwitchPreference) findPreference(SHOW_VOLTE);
-        mShowVoWiFi = (SwitchPreference) findPreference(SHOW_VOWIFI);
         mShowDataDisabled = (SwitchPreference) findPreference(DATA_DISABLED_ICON);
         mUseOldMobileType = (SwitchPreference) findPreference(USE_OLD_MOBILETYPE);
         mVoLTEIcon = (ListPreference) findPreference(VOLTE_ICON);
-        mVoWiFiIcon = (ListPreference) findPreference(VOWIFI_ICON);
         if (isWifiOnly()) {
             getPreferenceScreen().removePreference(mShowFourG);
             getPreferenceScreen().removePreference(mShowVoLTE);
-            getPreferenceScreen().removePreference(mShowVoWiFi);
             getPreferenceScreen().removePreference(mShowDataDisabled);
             getPreferenceScreen().removePreference(mUseOldMobileType);
             getPreferenceScreen().removePreference(mVoLTEIcon);
-            getPreferenceScreen().removePreference(mVoWiFiIcon);
         } else {
             mShowFourG.setChecked(Settings.System.getIntForUser(getActivity().getContentResolver(),
                 Settings.System.SHOW_FOURG, get4gForLTEDefaultBool() ? 1 : 0,
                 UserHandle.USER_CURRENT) == 1);
             mShowVoLTE.setChecked(Settings.System.getIntForUser(getActivity().getContentResolver(),
                 Settings.System.SHOW_VOLTE_ICON, 0,
-                UserHandle.USER_CURRENT) == 1);
-            mShowVoWiFi.setChecked(Settings.System.getIntForUser(getActivity().getContentResolver(),
-                Settings.System.SHOW_VOWIFI_ICON, 0,
                 UserHandle.USER_CURRENT) == 1);
             mShowDataDisabled.setChecked(Settings.System.getIntForUser(getActivity().getContentResolver(),
                 Settings.System.DATA_DISABLED_ICON, 1,
@@ -93,9 +82,6 @@ public class StatusBarTuner extends PreferenceFragment implements
             mVoLTEIcon.setValue(Settings.System.getStringForUser(getActivity().getContentResolver(),
                 Settings.System.VOLTE_ICON_STYLE, UserHandle.USER_CURRENT));
             mVoLTEIcon.setOnPreferenceChangeListener(this);
-            mVoWiFiIcon.setValue(Settings.System.getStringForUser(getActivity().getContentResolver(),
-                Settings.System.VOWIFI_ICON_STYLE, UserHandle.USER_CURRENT));
-            mVoWiFiIcon.setOnPreferenceChangeListener(this);
         }
     }
 
@@ -137,11 +123,6 @@ public class StatusBarTuner extends PreferenceFragment implements
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.SHOW_VOLTE_ICON, checked ? 1 : 0);
             return true;
-        } else if (preference == mShowVoWiFi) {
-            boolean checked = ((SwitchPreference)preference).isChecked();
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.SHOW_VOWIFI_ICON, checked ? 1 : 0);
-            return true;
         } else if (preference == mShowDataDisabled) {
             boolean checked = ((SwitchPreference)preference).isChecked();
             Settings.System.putInt(getActivity().getContentResolver(),
@@ -159,15 +140,10 @@ public class StatusBarTuner extends PreferenceFragment implements
     @Override
     public boolean onPreferenceChange(Preference preference, Object objValue) {
         if (preference == mVoLTEIcon) {
-            int value = Integer.parseInt((String) objValue);
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.VOLTE_ICON_STYLE, value);
-            return true;
-        } else if (preference == mVoWiFiIcon) {
-            int value = Integer.parseInt((String) objValue);
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.VOWIFI_ICON_STYLE, value);
-            return true;
+          int value = Integer.parseInt((String) objValue);
+          Settings.System.putInt(getActivity().getContentResolver(),
+                  Settings.System.VOLTE_ICON_STYLE, value);
+          return true;
         }
         return false;
     }

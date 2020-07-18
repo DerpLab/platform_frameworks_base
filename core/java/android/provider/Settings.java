@@ -5388,30 +5388,6 @@ public final class Settings {
         public static final Validator VOLTE_ICON_STYLE_VALIDATOR = ANY_INTEGER_VALIDATOR;
 
         /**
-         * Whether to show VoWiFi icon or not
-         * @hide
-         */
-        public static final String SHOW_VOWIFI_ICON = "show_vowifi_icon";
-
-        /** @hide */
-        public static final Validator SHOW_VOWIFI_ICON_VALIDATOR = BOOLEAN_VALIDATOR;
-
-        /**
-         * VoWiFi icon style
-         * 0 = Default
-         * 1 = OnePlus
-         * 2 = Moto
-         * 3 = Asus
-         * 4 = Emui
-         * @hide
-         */
-        public static final String VOWIFI_ICON_STYLE = "vowifi_icon_style";
-
-        /** @hide */
-        private static final Validator VOWIFI_ICON_STYLE_VALIDATOR =
-                new SettingsValidators.InclusiveIntegerRangeValidator(0, 4);
-
-        /**
          * Show 4G instead of LTE
          * @hide
          */
@@ -6814,8 +6790,6 @@ public final class Settings {
             DOUBLE_TAP_SLEEP_LOCKSCREEN,
             SHOW_VOLTE_ICON,
             VOLTE_ICON_STYLE,
-            SHOW_VOWIFI_ICON,
-            VOWIFI_ICON_STYLE,
             SHOW_FOURG,
             STATUS_BAR_CLOCK,
             STATUSBAR_CLOCK_STYLE,
@@ -7126,8 +7100,6 @@ public final class Settings {
             PRIVATE_SETTINGS.add(SHOW_FOURG);
             PRIVATE_SETTINGS.add(SHOW_VOLTE_ICON);
             PRIVATE_SETTINGS.add(VOLTE_ICON_STYLE);
-            PRIVATE_SETTINGS.add(SHOW_VOWIFI_ICON);
-            PRIVATE_SETTINGS.add(VOWIFI_ICON_STYLE);
             PRIVATE_SETTINGS.add(STATUS_BAR_CLOCK);
             PRIVATE_SETTINGS.add(STATUSBAR_CLOCK_STYLE);
             PRIVATE_SETTINGS.add(STATUS_BAR_CLOCK_SECONDS);
@@ -7358,8 +7330,6 @@ public final class Settings {
             VALIDATORS.put(SHOW_FOURG, SHOW_FOURG_VALIDATOR);
             VALIDATORS.put(SHOW_VOLTE_ICON, SHOW_VOLTE_ICON_VALIDATOR);
             VALIDATORS.put(VOLTE_ICON_STYLE, VOLTE_ICON_STYLE_VALIDATOR);
-            VALIDATORS.put(SHOW_VOWIFI_ICON, SHOW_VOWIFI_ICON_VALIDATOR);
-            VALIDATORS.put(VOWIFI_ICON_STYLE, VOWIFI_ICON_STYLE_VALIDATOR);
             VALIDATORS.put(STATUS_BAR_CLOCK, STATUS_BAR_CLOCK_VALIDATOR);
             VALIDATORS.put(STATUSBAR_CLOCK_STYLE, STATUSBAR_CLOCK_STYLE_VALIDATOR);
             VALIDATORS.put(STATUS_BAR_CLOCK_SECONDS, STATUS_BAR_CLOCK_SECONDS_VALIDATOR);
