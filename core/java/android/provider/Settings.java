@@ -4706,15 +4706,6 @@ public final class Settings {
         public static final Validator BUTTON_BRIGHTNESS_VALIDATOR = NON_NEGATIVE_INTEGER_VALIDATOR;
 
         /**
-         * Whether to show ambient or lockscreen if AoD is disabled
-         * and we do a wake gesture like lift to wake or double tap
-         * @hide
-         */
-        public static final String AMBIENT_WAKE_GESTURES = "ambient_wake_gestures";
-        /** @hide */
-        private static final Validator AMBIENT_WAKE_GESTURES_VALIDATOR = BOOLEAN_VALIDATOR;
-
-        /**
          * Whether to pulse ambient on new music tracks
          * @hide
          */
@@ -6768,7 +6759,6 @@ public final class Settings {
             BUTTON_BACKLIGHT_TIMEOUT,
             BUTTON_BACKLIGHT_ONLY_WHEN_PRESSED,
             BUTTON_BRIGHTNESS,
-            AMBIENT_WAKE_GESTURES,
             NOTIFICATION_SOUND_VIB_SCREEN_ON,
             BUTTON_EXTRA_KEY_MAPPING,
             DEVICE_PROXI_CHECK_ENABLED,
@@ -7309,7 +7299,6 @@ public final class Settings {
             VALIDATORS.put(NOTIFICATION_LIGHT_PULSE, BOOLEAN_VALIDATOR);
             VALIDATORS.put(BUTTON_BACKLIGHT_TIMEOUT, BUTTON_BACKLIGHT_TIMEOUT_VALIDATOR);
             VALIDATORS.put(BUTTON_BRIGHTNESS, BUTTON_BRIGHTNESS_VALIDATOR);
-            VALIDATORS.put(AMBIENT_WAKE_GESTURES, AMBIENT_WAKE_GESTURES_VALIDATOR);
             VALIDATORS.put(PULSE_ON_NEW_TRACKS, PULSE_ON_NEW_TRACKS_VALIDATOR);
             VALIDATORS.put(BUTTON_BACKLIGHT_ONLY_WHEN_PRESSED, BUTTON_BACKLIGHT_ONLY_WHEN_PRESSED_VALIDATOR);
             VALIDATORS.put(BUTTON_EXTRA_KEY_MAPPING, BUTTON_EXTRA_KEY_MAPPING_VALIDATOR);
