@@ -16,6 +16,8 @@
 
 package com.android.internal.util.aosip;
 
+import static android.view.WindowManagerPolicyConstants.NAV_BAR_MODE_GESTURAL;
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -375,5 +377,19 @@ public class aosipUtils {
         DisplayMetrics metrics = Resources.getSystem().getDisplayMetrics();
         float px = 24 * (metrics.densityDpi / 160f);
         return result > Math.round(px);
+    }
+
+    /**
+     * Checks if the current navigation method is set to gestures
+     * @param context context for resources
+     * @return true if gestural navigation, false otherwise
+     **/
+    public static boolean isGesturalNav(Context context) {
+        Resources resources = context.getResources();
+        int resourceId = resources.getIdentifier("config_navBarInteractionMode", "integer", "android");
+        if (resourceId > 0) {
+            return resources.getInteger(resourceId) == NAV_BAR_MODE_GESTURAL;
+        }
+        return false;
     }
 }
