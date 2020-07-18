@@ -65,6 +65,7 @@ import androidx.slice.widget.SliceLiveData;
 
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.internal.graphics.ColorUtils;
+import com.android.internal.util.aosip.ThemeConstants;
 import com.android.settingslib.Utils;
 import com.android.systemui.Dependency;
 import com.android.systemui.Interpolators;
@@ -119,7 +120,7 @@ public class KeyguardSliceView extends LinearLayout implements View.OnClickListe
     private boolean mHasHeader;
     private final int mRowWithHeaderPadding;
     private final int mRowPadding;
-    private int mRowTextSize;
+    private float mRowTextSize;
     private float mRowWithHeaderTextSize;
 
     @Inject
@@ -156,10 +157,9 @@ public class KeyguardSliceView extends LinearLayout implements View.OnClickListe
         mRowContainer = findViewById(R.id.row_maincenter);
         mRow = findViewById(R.id.row);
         mTextColor = Utils.getColorAttrDefaultColor(mContext, R.attr.wallpaperTextColor);
-        mIconSize = mRowTextSize;
+        mIconSize = (int) mRowTextSize;
         mIconSizeWithHeader = (int) mContext.getResources().getDimension(R.dimen.header_icon_size);
-        mRowTextSize = mContext.getResources().getDimensionPixelSize(
-                R.dimen.lock_date_font_size_18);
+        mRowTextSize = (float) 18;
         mRowWithHeaderTextSize = mContext.getResources().getDimensionPixelSize(
                 R.dimen.header_row_font_size);
         mTitle.setOnClickListener(this);
@@ -466,10 +466,9 @@ public class KeyguardSliceView extends LinearLayout implements View.OnClickListe
 
     @Override
     public void onDensityOrFontScaleChanged() {
-        mIconSize = mRowTextSize;
+        mIconSize = (int) mRowTextSize;
         mIconSizeWithHeader = (int) mContext.getResources().getDimension(R.dimen.header_icon_size);
-        mRowTextSize = mContext.getResources().getDimensionPixelSize(
-                R.dimen.lock_date_font_size_18);
+        mRowTextSize = (float) 18;
         mRowWithHeaderTextSize = mContext.getResources().getDimensionPixelSize(
                 R.dimen.header_row_font_size);
     }
@@ -495,224 +494,34 @@ public class KeyguardSliceView extends LinearLayout implements View.OnClickListe
     }
 
     public void refreshdatesize() {
-        final Resources res = getContext().getResources();
         boolean isPrimary = UserHandle.getCallingUserId() == UserHandle.USER_OWNER;
         int lockDateSize = isPrimary ? getLockDateSize() : 18;
-
-        switch (lockDateSize) {
-            case 10:
-                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_10);
-                break;
-            case 11:
-                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_11);
-                break;
-            case 12:
-                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_12);
-                break;
-            case 13:
-                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_13);
-                break;
-            case 14:
-                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_14);
-                break;
-            case 15:
-                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_15);
-                break;
-            case 16:
-                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_16);
-                break;
-            case 17:
-                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_17);
-                break;
-            case 18:
-                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_18);
-                break;
-            case 19:
-                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_19);
-                break;
-            case 20:
-                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_20);
-                break;
-            case 21:
-                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_21);
-                break;
-            case 22:
-                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_22);
-                break;
-            case 23:
-                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_23);
-                break;
-            case 24:
-                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_24);
-                break;
-            case 25:
-                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_25);
-                break;
-            case 26:
-                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_26);
-                break;
-            case 27:
-                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_27);
-                break;
-            case 28:
-                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_28);
-                break;
-            case 29:
-                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_29);
-                break;
-            case 30:
-                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_30);
-                break;
-            case 31:
-                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_31);
-                break;
-            case 32:
-                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_32);
-                break;
-            case 33:
-                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_33);
-                break;
-            case 34:
-                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_34);
-                break;
-            case 35:
-                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_35);
-                break;
-            case 36:
-                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_36);
-                break;
-            case 37:
-                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_37);
-                break;
-            case 38:
-                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_38);
-                break;
-            case 39:
-                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_39);
-                break;
-            case 40:
-                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_40);
-                break;
-        }
+        mRowTextSize = Math.round(TypedValue.applyDimension(
+                TypedValue.COMPLEX_UNIT_DIP, lockDateSize,
+                getResources().getDisplayMetrics()));
     }
 
     private void refreshLockDateFont(KeyguardSliceButton button) {
-        final Resources res = getContext().getResources();
+        String[][] fontsArray = ThemeConstants.FONTS;
         boolean isPrimary = UserHandle.getCallingUserId() == UserHandle.USER_OWNER;
-        int lockDateFont = isPrimary ? getLockDateFont() : -1;
-        switch (lockDateFont) {
-            case 0:
-                button.setTypeface(Typeface.create("sans-serif", Typeface.NORMAL));
+        int lockDateFont = isPrimary ? getLockDateFont() : 28;
+
+        int fontType = Typeface.NORMAL;
+        switch (fontsArray[lockDateFont][1]) {
+            case "BOLD":
+                fontType = Typeface.BOLD;
                 break;
-            case 1:
-                button.setTypeface(Typeface.create("sans-serif", Typeface.BOLD));
+            case "ITALIC":
+                fontType = Typeface.ITALIC;
                 break;
-            case 2:
-                button.setTypeface(Typeface.create("sans-serif", Typeface.ITALIC));
+            case "BOLD_ITALIC":
+                fontType = Typeface.BOLD_ITALIC;
                 break;
-            case 3:
-                button.setTypeface(Typeface.create("sans-serif", Typeface.BOLD_ITALIC));
-                break;
-            case 4:
-                button.setTypeface(Typeface.create("sans-serif-light", Typeface.ITALIC));
-                break;
-            case 5:
-                button.setTypeface(Typeface.create("sans-serif-light", Typeface.NORMAL));
-                break;
-            case 6:
-                button.setTypeface(Typeface.create("sans-serif-thin", Typeface.ITALIC));
-                break;
-            case 7:
-                button.setTypeface(Typeface.create("sans-serif-thin", Typeface.NORMAL));
-                break;
-            case 8:
-                button.setTypeface(Typeface.create("sans-serif-condensed", Typeface.NORMAL));
-                break;
-            case 9:
-                button.setTypeface(Typeface.create("sans-serif-condensed", Typeface.ITALIC));
-                break;
-            case 10:
-                button.setTypeface(Typeface.create("sans-serif-condensed", Typeface.BOLD));
-                break;
-            case 11:
-                button.setTypeface(Typeface.create("sans-serif-condensed", Typeface.BOLD_ITALIC));
-                break;
-            case 12:
-                button.setTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL));
-                break;
-            case 13:
-                button.setTypeface(Typeface.create("sans-serif-medium", Typeface.ITALIC));
-                break;
-            case 14:
-                button.setTypeface(Typeface.create("sans-serif-condensed-light", Typeface.NORMAL));
-                break;
-            case 15:
-                button.setTypeface(Typeface.create("sans-serif-condensed-light", Typeface.ITALIC));
-                break;
-            case 16:
-                button.setTypeface(Typeface.create("sans-serif-black", Typeface.NORMAL));
-                break;
-            case 17:
-                button.setTypeface(Typeface.create("sans-serif-black", Typeface.ITALIC));
-                break;
-            case 18:
-                button.setTypeface(Typeface.create("cursive", Typeface.NORMAL));
-                break;
-            case 19:
-                button.setTypeface(Typeface.create("cursive", Typeface.BOLD));
-                break;
-            case 20:
-                button.setTypeface(Typeface.create("casual", Typeface.NORMAL));
-                break;
-            case 21:
-                button.setTypeface(Typeface.create("serif", Typeface.NORMAL));
-                break;
-            case 22:
-                button.setTypeface(Typeface.create("serif", Typeface.ITALIC));
-                break;
-            case 23:
-                button.setTypeface(Typeface.create("serif", Typeface.BOLD));
-                break;
-            case 24:
-                button.setTypeface(Typeface.create("serif", Typeface.BOLD_ITALIC));
-                break;
-            case 25:
-                button.setTypeface(Typeface.create("gobold-light-sys", Typeface.NORMAL));
-                break;
-            case 26:
-                button.setTypeface(Typeface.create("roadrage-sys", Typeface.NORMAL));
-                break;
-            case 27:
-                button.setTypeface(Typeface.create("snowstorm-sys", Typeface.NORMAL));
-                break;
-            case 28:
-                button.setTypeface(Typeface.create("googlesans-sys", Typeface.NORMAL));
-                break;
-            case 29:
-                button.setTypeface(Typeface.create("neoneon-sys", Typeface.NORMAL));
-                break;
-            case 30:
-                button.setTypeface(Typeface.create("themeable-sys", Typeface.NORMAL));
-                break;
-            case 31:
-                button.setTypeface(Typeface.create("samsung-sys", Typeface.NORMAL));
-                break;
-            case 32:
-                button.setTypeface(Typeface.create("mexcellent-sys", Typeface.NORMAL));
-                break;
-            case 33:
-                button.setTypeface(Typeface.create("burnstown-sys", Typeface.NORMAL));
-                break;
-            case 34:
-                button.setTypeface(Typeface.create("dumbledor-sys", Typeface.NORMAL));
-                break;
-            case 35:
-                button.setTypeface(Typeface.create("phantombold-sys", Typeface.NORMAL));
-                break;
-            default: // set desired default font here
-                button.setTypeface(Typeface.create("googlesans-sys", Typeface.NORMAL));
+            default:
                 break;
         }
+
+        button.setTypeface(Typeface.create(fontsArray[lockDateFont][0], fontType));
     }
 
     public void dump(FileDescriptor fd, PrintWriter pw, String[] args) {
