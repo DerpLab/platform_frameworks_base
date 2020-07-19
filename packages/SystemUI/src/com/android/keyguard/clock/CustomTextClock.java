@@ -56,7 +56,6 @@ public class CustomTextClock extends TextView {
     private boolean h24;
     private int mAccentColor;
     private int hours;
-    private int mClockSize = 54;
     private SettingsObserver mSettingsObserver;
 
     private final BroadcastReceiver mTimeZoneChangedReceiver = new BroadcastReceiver() {
@@ -196,10 +195,9 @@ public class CustomTextClock extends TextView {
     }
 
     public void updateClockSize() {
-        mClockSize = Settings.System.getIntForUser(mContext.getContentResolver(),
-                Settings.System.LOCKCLOCK_FONT_SIZE, 54,
-                UserHandle.USER_CURRENT);
-        setTextSize(mClockSize);
+        int clockSize = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.LOCKCLOCK_FONT_SIZE, 54, UserHandle.USER_CURRENT);
+        setTextSize(clockSize);
         onTimeChanged();
     }
 

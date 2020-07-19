@@ -146,20 +146,10 @@ public class TypographicClock extends TextView {
         return false;
     }
 
-    private int getLockClockFont() {
-        return Settings.System.getInt(mContext.getContentResolver(),
-                Settings.System.LOCK_CLOCK_FONTS, 28);
-    }
-
-    private int getLockClockSize() {
-        return Settings.System.getInt(mContext.getContentResolver(),
-                Settings.System.LOCKCLOCK_FONT_SIZE, 54);
-    }
-
     private void refreshLockFont() {
         String[][] fontsArray = ThemeConstants.FONTS;
-        boolean isPrimary = UserHandle.getCallingUserId() == UserHandle.USER_OWNER;
-        int lockClockFont = isPrimary ? getLockClockFont() : 28;
+        int lockClockFont = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.LOCK_CLOCK_FONTS, 28, UserHandle.USER_CURRENT);
 
         int fontType = Typeface.NORMAL;
         switch (fontsArray[lockClockFont][1]) {
@@ -181,8 +171,8 @@ public class TypographicClock extends TextView {
 
     public void refreshclocksize() {
         final Resources res = getContext().getResources();
-        boolean isPrimary = UserHandle.getCallingUserId() == UserHandle.USER_OWNER;
-        int lockClockSize = isPrimary ? getLockClockSize() : 54;
+        int lockClockSize = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.LOCKCLOCK_FONT_SIZE, 54, UserHandle.USER_CURRENT);
         setTextSize(lockClockSize);
     }
 }

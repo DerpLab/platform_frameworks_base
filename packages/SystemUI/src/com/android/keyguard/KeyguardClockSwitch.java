@@ -75,8 +75,6 @@ public class KeyguardClockSwitch extends RelativeLayout {
 
     private static final String TAG = "KeyguardClockSwitch";
 
-    private static final boolean CUSTOM_CLOCKS_ENABLED = true;
-
     /**
      * Animation fraction when text is transitioned to/from bold.
      */
@@ -153,7 +151,6 @@ public class KeyguardClockSwitch extends RelativeLayout {
     private boolean mShowingHeader;
     private boolean mSupportsDarkText;
     private int[] mColorPalette;
-    private boolean mShowCurrentUserTime;
 
     /**
      * Track the state of the status bar to know when to hide the big_clock_container.
@@ -247,16 +244,6 @@ public class KeyguardClockSwitch extends RelativeLayout {
     private boolean showLockClockInfo() {
         return Settings.System.getInt(mContext.getContentResolver(),
                 Settings.System.LOCKSCREEN_INFO, 1) == 1;
-    }
-
-    private int getLockClockFont() {
-        return Settings.System.getInt(mContext.getContentResolver(),
-                Settings.System.LOCK_CLOCK_FONTS, 28);
-    }
-
-    private int getLockClockSize() {
-        return Settings.System.getInt(mContext.getContentResolver(),
-                Settings.System.LOCKCLOCK_FONT_SIZE, 54);
     }
 
     private void setClockPlugin(ClockPlugin plugin) {
@@ -369,7 +356,6 @@ public class KeyguardClockSwitch extends RelativeLayout {
     public void setShowCurrentUserTime(boolean showCurrentUserTime) {
         mClockView.setShowCurrentUserTime(showCurrentUserTime);
         mClockViewBold.setShowCurrentUserTime(showCurrentUserTime);
-        mShowCurrentUserTime = showCurrentUserTime;
     }
 
     public void setTextSize(int unit, float size) {
@@ -504,8 +490,8 @@ public class KeyguardClockSwitch extends RelativeLayout {
 
     public void refreshLockFont() {
         String[][] fontsArray = ThemeConstants.FONTS;
-        boolean isPrimary = UserHandle.getCallingUserId() == UserHandle.USER_OWNER;
-        int lockClockFont = isPrimary ? getLockClockFont() : 28;
+        int lockClockFont = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.LOCK_CLOCK_FONTS, 28, UserHandle.USER_CURRENT);
 
         int fontType = Typeface.NORMAL;
         switch (fontsArray[lockClockFont][1]) {
@@ -527,8 +513,8 @@ public class KeyguardClockSwitch extends RelativeLayout {
     }
 
     public void refreshclocksize() {
-        boolean isPrimary = UserHandle.getCallingUserId() == UserHandle.USER_OWNER;
-        int lockClockSize = isPrimary ? getLockClockSize() : 54;
+        int lockClockSize = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.LOCKCLOCK_FONT_SIZE, 54, UserHandle.USER_CURRENT);
         mClockView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, lockClockSize);
         mClockViewBold.setTextSize(TypedValue.COMPLEX_UNIT_DIP, lockClockSize);
     }

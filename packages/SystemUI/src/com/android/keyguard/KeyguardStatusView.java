@@ -92,8 +92,6 @@ public class KeyguardStatusView extends GridLayout implements
     private boolean mShowingHeader;
 
     private int mClockSelection;
-    private int mDateSelection;
-    private int mTextClockAlignment;
 
     // Date styles paddings
     private int mDateVerPadding;
@@ -354,21 +352,6 @@ public class KeyguardStatusView extends GridLayout implements
         mClockView.onTimeZoneChanged(timeZone);
     }
 
-    private int getLockDateFont() {
-        return Settings.System.getInt(mContext.getContentResolver(),
-                Settings.System.LOCK_DATE_FONTS, 28);
-    }
-
-    private int getOwnerInfoFont() {
-        return Settings.System.getInt(mContext.getContentResolver(),
-                Settings.System.LOCK_OWNERINFO_FONTS, 28);
-    }
-
-    private int getOwnerInfoSize() {
-        return Settings.System.getInt(mContext.getContentResolver(),
-                Settings.System.LOCKOWNER_FONT_SIZE, 18);
-    }
-
     private void refreshFormat() {
         Patterns.update(mContext);
         mClockView.setFormat12Hour(Patterns.clockView12);
@@ -385,10 +368,10 @@ public class KeyguardStatusView extends GridLayout implements
     private void updateDateStyles() {
         final ContentResolver resolver = getContext().getContentResolver();
 
-        mDateSelection = Settings.Secure.getIntForUser(resolver,
+        int dateSelection = Settings.Secure.getIntForUser(resolver,
                 Settings.Secure.LOCKSCREEN_DATE_SELECTION, 0, UserHandle.USER_CURRENT);
 
-        switch (mDateSelection) {
+        switch (dateSelection) {
             case 0: // default
             default:
                 mKeyguardSlice.setViewBackgroundResource(0);
@@ -459,8 +442,8 @@ public class KeyguardStatusView extends GridLayout implements
 
     private void refreshLockDateFont() {
         String[][] fontsArray = ThemeConstants.FONTS;
-        boolean isPrimary = UserHandle.getCallingUserId() == UserHandle.USER_OWNER;
-        int lockDateFont = isPrimary ? getLockDateFont() : 28;
+        int lockDateFont = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.LOCK_DATE_FONTS, 28, UserHandle.USER_CURRENT);
 
         int fontType = Typeface.NORMAL;
         switch (fontsArray[lockDateFont][1]) {
@@ -595,15 +578,15 @@ public class KeyguardStatusView extends GridLayout implements
 
     public void refreshOwnerInfoSize() {
         final Resources res = getContext().getResources();
-        boolean isPrimary = UserHandle.getCallingUserId() == UserHandle.USER_OWNER;
-        int ownerInfoSize = isPrimary ? getOwnerInfoSize() : 18;
+        int ownerInfoSize = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.LOCKOWNER_FONT_SIZE, 18, UserHandle.USER_CURRENT);
         mOwnerInfo.setTextSize(TypedValue.COMPLEX_UNIT_DIP, ownerInfoSize);
     }
 
     private void refreshOwnerInfoFont() {
         String[][] fontsArray = ThemeConstants.FONTS;
-        boolean isPrimary = UserHandle.getCallingUserId() == UserHandle.USER_OWNER;
-        int ownerinfoFont = isPrimary ? getOwnerInfoFont() : 28;
+        int ownerinfoFont = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.LOCK_OWNERINFO_FONTS, 28, UserHandle.USER_CURRENT);
 
         int fontType = Typeface.NORMAL;
         switch (fontsArray[ownerinfoFont][1]) {
@@ -638,7 +621,6 @@ public class KeyguardStatusView extends GridLayout implements
         mClockView.setVisibility(mDarkAmount != 1
                 ? (mShowClock ? View.VISIBLE : View.GONE) : View.VISIBLE);
         mSmallClockView = findViewById(R.id.clock_view);
-        mTextClock = findViewById(R.id.custom_text_clock_view);
 
         if (mClockSelection >= 5 && mClockSelection <= 9)
             mDefaultClockView.setLineSpacing(0, 0.8f);
@@ -662,13 +644,11 @@ public class KeyguardStatusView extends GridLayout implements
     private void updateClockAlignment() {
         final ContentResolver resolver = getContext().getContentResolver();
 
-        mTextClockAlignment = Settings.System.getIntForUser(resolver,
+        int textClockAlignment = Settings.System.getIntForUser(resolver,
                 Settings.System.TEXT_CLOCK_ALIGNMENT, 0, UserHandle.USER_CURRENT);
 
-        mTextClock = findViewById(R.id.custom_text_clock_view);
-
         if (mClockSelection == 10 || mClockSelection == 11) {
-            switch (mTextClockAlignment) {
+            switch (textClockAlignment) {
                 case 0:
                 default:
                     mTextClock.setGravity(Gravity.START);

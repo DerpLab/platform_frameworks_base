@@ -55,8 +55,6 @@ public class CarrierLabel extends TextView implements DarkReceiver {
     private Context mContext;
     private boolean mAttached;
     private static boolean isCN;
-    private int mCarrierLabelFontStyle = 28;
-    private int mCarrierFontSize = 11;
     private int mCarrierColor = 0xffffffff;
     private int mTintColor = Color.WHITE;
 
@@ -232,14 +230,14 @@ public class CarrierLabel extends TextView implements DarkReceiver {
     }
 
     private void updateSize() {
-        mCarrierFontSize = Settings.System.getInt(mContext.getContentResolver(),
+        int carrierFontSize = Settings.System.getInt(mContext.getContentResolver(),
                 Settings.System.STATUS_BAR_CARRIER_FONT_SIZE, 11);
-        setTextSize(mCarrierFontSize);
+        setTextSize(carrierFontSize);
     }
 
     private void updateStyle() {
-        mCarrierLabelFontStyle = Settings.System.getInt(mContext.getContentResolver(),
+        int carrierLabelFontStyle = Settings.System.getInt(mContext.getContentResolver(),
                 Settings.System.STATUS_BAR_CARRIER_FONT_STYLE, 28);
-        getFontStyle(mCarrierLabelFontStyle);
+        getFontStyle(carrierLabelFontStyle);
     }
 }
