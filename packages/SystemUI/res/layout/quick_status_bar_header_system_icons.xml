@@ -35,8 +35,8 @@
         android:layout_height="match_parent"
         android:minWidth="48dp"
         android:gravity="center_vertical|start"
-        android:paddingStart="@dimen/status_bar_left_clock_starting_padding"
-        android:paddingEnd="@dimen/status_bar_left_clock_end_padding"
+        android:paddingStart="@dimen/status_bar_start_padding"
+        android:paddingEnd="@dimen/status_bar_end_padding"
         android:singleLine="true"
         android:textAppearance="@style/TextAppearance.StatusBar.Clock"
         systemui:showDark="false" />
@@ -50,7 +50,7 @@
 
     <com.android.systemui.statusbar.policy.NetworkTraffic
         android:id="@+id/networkTraffic"
-        android:paddingEnd="@dimen/status_bar_left_clock_end_padding"
+        android:paddingEnd="@dimen/status_bar_end_padding"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_marginStart="2dp"
@@ -63,7 +63,10 @@
         android:id="@+id/battery"
         android:layout_height="match_parent"
         android:layout_width="wrap_content"
-        android:gravity="center_vertical|end" />
+        android:gravity="center_vertical|end"
+        android:textAppearance="@style/TextAppearance.StatusBar.Clock"
+        android:paddingStart="@dimen/status_bar_start_padding"
+        systemui:showDark="false" />
 
     <com.android.systemui.statusbar.info.DataUsageView
         android:id="@+id/data_sim_usage"
@@ -76,27 +79,27 @@
         android:visibility="gone" />
 
     <LinearLayout
-        android:id="@+id/daily_data_usage_layout" 
+        android:id="@+id/daily_data_usage_layout"
         android:layout_height="match_parent"
-        android:layout_width="wrap_content" 
+        android:layout_width="wrap_content"
         android:layout_marginStart="4dp"
-        android:orientation="horizontal" 
+        android:orientation="horizontal"
         android:gravity="center_vertical|end"
         android:clipChildren="false" >
 
         <ImageView
-            android:id="@+id/daily_data_usage_icon" 
+            android:id="@+id/daily_data_usage_icon"
             android:layout_height="@dimen/qs_datausage_icon_size"
             android:layout_width="wrap_content"
             android:src="@drawable/ic_data_saver_off"
             android:visibility="gone" />
 
-        <com.android.systemui.statusbar.info.DataUsageView 
+        <com.android.systemui.statusbar.info.DataUsageView
             android:id="@+id/data_sim_usage"
-            android:layout_width="wrap_content" 
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:gravity="center_vertical|end" 
-            android:textAppearance="@style/TextAppearance.StatusBar.Clock" 
+            android:gravity="center_vertical|end"
+            android:textAppearance="@style/TextAppearance.StatusBar.Clock"
             android:singleLine="true"
             android:visibility="gone" />
     </LinearLayout>
