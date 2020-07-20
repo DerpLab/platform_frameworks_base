@@ -25,6 +25,7 @@ import android.database.ContentObserver;
 import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Handler;
 import android.os.UserHandle;
 import android.provider.Settings;
@@ -76,10 +77,17 @@ public class CarrierLabel extends TextView implements DarkReceiver {
         }
 
         @Override
-        public void onChange(boolean selfChange) {
-             updateColor();
-             updateSize();
-             updateStyle();
+        public void onChange(boolean selfChange, Uri uri) {
+            if (uri.equals(Settings.System.getUriFor(
+                    Settings.System.STATUS_BAR_CARRIER_COLOR))) {
+                updateColor();
+            } else if (uri.equals(Settings.System.getUriFor(
+                    Settings.System.STATUS_BAR_CARRIER_FONT_SIZE))) {
+                updateSize();
+            } else if (uri.equals(Settings.System.getUriFor(
+                    Settings.System.STATUS_BAR_CARRIER_FONT_STYLE))) {
+                updateStyle();
+            }
         }
     }
 
