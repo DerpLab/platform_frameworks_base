@@ -5137,13 +5137,11 @@ public final class Settings {
          * @hide
          */
         public static final String STATUSBAR_CLOCK_DATE_FORMAT = "statusbar_clock_date_format";
-
         /** @hide */
         public static final Validator STATUSBAR_CLOCK_DATE_FORMAT_VALIDATOR = ANY_STRING_VALIDATOR;
 
         /** @hide */
         public static final String OMNI_BACK_GESTURE_BLOCK_IME = "back_gesture_block_ime";
-
         /** @hide */
         private static final Validator OMNI_BACK_GESTURE_BLOCK_IME_VALIDATOR =
                 BOOLEAN_VALIDATOR;
@@ -5155,7 +5153,6 @@ public final class Settings {
          * @hide
          */
         public static final String STATUSBAR_CLOCK_DATE_POSITION = "statusbar_clock_date_position";
-
         /** @hide */
         public static final Validator STATUSBAR_CLOCK_DATE_POSITION_VALIDATOR =
                 new SettingsValidators.InclusiveIntegerRangeValidator(0, 1);
@@ -5165,12 +5162,27 @@ public final class Settings {
          * @hide
          */
         public static final String STATUS_BAR_CLOCK_SIZE = "status_bar_clock_size";
+        /** @hide */
+        private static final Validator STATUS_BAR_CLOCK_SIZE_VALIDATOR =
+                ANY_INTEGER_VALIDATOR;
+
+        /**
+         * QS Font size
+         * @hide
+         */
+        public static final String QS_CLOCK_SIZE = "qs_clock_size";
+        /** @hide */
+        private static final Validator QS_CLOCK_SIZE_VALIDATOR =
+                ANY_INTEGER_VALIDATOR;
 
         /**
          * Clock font style
          * @hide
          */
         public static final String STATUS_BAR_CLOCK_FONT_STYLE = "status_bar_clock_font_style";
+        /** @hide */
+        private static final Validator STATUS_BAR_CLOCK_FONT_STYLE_VALIDATOR =
+                ANY_INTEGER_VALIDATOR;
 
         /**
          * Whether to display sound panel in the power menu
@@ -6812,6 +6824,9 @@ public final class Settings {
             STATUS_BAR_CARRIER_COLOR,
             STATUS_BAR_CARRIER_FONT_SIZE,
             STATUS_BAR_CARRIER_FONT_STYLE,
+            STATUS_BAR_CLOCK_SIZE,
+            QS_CLOCK_SIZE,
+            STATUS_BAR_CLOCK_FONT_STYLE,
             LOCKSCREEN_MEDIA_METADATA,
             LOCKSCREEN_MEDIA_BLUR,
             DATA_DISABLED_ICON,
@@ -7350,6 +7365,9 @@ public final class Settings {
             VALIDATORS.put(STATUS_BAR_CARRIER_COLOR, STATUS_BAR_CARRIER_COLOR_VALIDATOR);
             VALIDATORS.put(STATUS_BAR_CARRIER_FONT_SIZE, STATUS_BAR_CARRIER_FONT_SIZE_VALIDATOR);
             VALIDATORS.put(STATUS_BAR_CARRIER_FONT_STYLE, STATUS_BAR_CARRIER_FONT_STYLE_VALIDATOR);
+            VALIDATORS.put(STATUS_BAR_CLOCK_SIZE, STATUS_BAR_CLOCK_SIZE_VALIDATOR);
+            VALIDATORS.put(QS_CLOCK_SIZE, QS_CLOCK_SIZE_VALIDATOR);
+            VALIDATORS.put(STATUS_BAR_CLOCK_FONT_STYLE, STATUS_BAR_CLOCK_FONT_STYLE_VALIDATOR);
             VALIDATORS.put(LOCKSCREEN_MEDIA_METADATA, LOCKSCREEN_MEDIA_METADATA_VALIDATOR);
             VALIDATORS.put(LOCKSCREEN_MEDIA_BLUR, LOCKSCREEN_MEDIA_BLUR_VALIDATOR);
             VALIDATORS.put(DATA_DISABLED_ICON, DATA_DISABLED_ICON_VALIDATOR);

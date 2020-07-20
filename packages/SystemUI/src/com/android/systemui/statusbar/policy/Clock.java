@@ -26,6 +26,7 @@ import android.content.res.TypedArray;
 import android.database.ContentObserver;
 import android.graphics.Rect;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Parcelable;
@@ -121,7 +122,6 @@ public class Clock extends TextView implements DemoMode, CommandQueue.Callbacks,
     protected String mClockDateFormat = null;
     protected int mClockDatePosition;
     protected boolean mShowClock = true;
-    private int mClockSize = 14;
     private int mAmPmStyle;
     private final boolean mShowDark;
     protected boolean mQsHeader;
@@ -175,16 +175,27 @@ public class Clock extends TextView implements DemoMode, CommandQueue.Callbacks,
                     Settings.System.STATUS_BAR_CLOCK_SIZE),
                     false, this, UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.QS_CLOCK_SIZE),
+                    false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.STATUS_BAR_CLOCK_FONT_STYLE),
                     false, this, UserHandle.USER_ALL);
             updateSettings();
         }
 
         @Override
-        public void onChange(boolean selfChange) {
-            updateSettings();
-            updateClockSize();
-            updateClockFontStyle();
+        public void onChange(boolean selfChange, Uri uri) {
+            if (uri.equals(Settings.System.getUriFor(
+                    Settings.System.STATUS_BAR_CLOCK_SIZE)) ||
+                uri.equals(Settings.System.getUriFor(
+                    Settings.System.QS_CLOCK_SIZE))) {
+                updateClockSize();
+            } else if (uri.equals(Settings.System.getUriFor(
+                    Settings.System.STATUS_BAR_CLOCK_FONT_STYLE))) {
+                updateClockFontStyle();
+            } else {
+                updateSettings();
+            }
         }
     }
 
@@ -708,8 +719,6 @@ public class Clock extends TextView implements DemoMode, CommandQueue.Callbacks,
             updateClockVisibility();
             updateClock();
             updateShowSeconds();
-            updateClockSize();
-            updateClockFontStyle();
         }
     }
 
@@ -722,10 +731,17 @@ public class Clock extends TextView implements DemoMode, CommandQueue.Callbacks,
     }
 
     public void updateClockSize() {
-        mClockSize = Settings.System.getIntForUser(mContext.getContentResolver(),
-                Settings.System.STATUS_BAR_CLOCK_SIZE, DEFAULT_CLOCK_SIZE,
-                UserHandle.USER_CURRENT);
-        setTextSize(mClockSize);
+        int clockSize;
+        if (!mQsHeader) {
+            clockSize = Settings.System.getIntForUser(mContext.getContentResolver(),
+                    Settings.System.STATUS_BAR_CLOCK_SIZE, DEFAULT_CLOCK_SIZE,
+                    UserHandle.USER_CURRENT);
+        } else {
+            clockSize = Settings.System.getIntForUser(mContext.getContentResolver(),
+                    Settings.System.QS_CLOCK_SIZE, DEFAULT_CLOCK_SIZE,
+                    UserHandle.USER_CURRENT);
+        }
+        setTextSize(clockSize);
         updateClock();
     }
 
