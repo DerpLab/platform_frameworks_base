@@ -63,6 +63,7 @@
     <string name="quick_settings_sound_label">Звук</string>
     <string name="quick_settings_sound_ring">Со звуком</string>
     <string name="quick_settings_sound_vibrate">Вибрация</string>
+    <string name="quick_settings_sound_silent">Без звука</string>
     <!-- Caffeine QS tile -->
     <string name="quick_settings_caffeine_label">Запрет сна</string>
     <string name="quick_settings_caffeine_label_off">Выкл.</string>
@@ -87,8 +88,6 @@
     <string name="use_old_mobiletype_summary">Объединить значки сигнала и типа сети</string>
     <!-- VoLTE switch -->
     <string name="volte_switch_title">VoLTE</string>
-    <!-- VoWiFi switch -->
-    <string name="vowifi_switch_title">VoWiFi</string>
     <!-- Name of the nfc status bar icon. -->
     <string name="status_bar_nfc">NFC</string>
     <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
@@ -140,7 +139,7 @@
     <!-- StatusBar tuner categories -->
     <string name="status_bar_icons_category">Переключатели значков</string>
     <string name="status_bar_signal_category">Настройки значков сигнала</string>
-    <string name="status_bar_volte_category">VoLTE и VoWiFi</string>
+    <string name="status_bar_volte_category">VoLTE</string>
     <string name="status_bar_etc_category">Другое</string>
     <!-- DataSwitch Tile -->
     <string name="qs_data_switch_label">Переключить карту данных</string>
@@ -149,22 +148,15 @@
     <string name="qs_data_switch_changed_1">Переключить передачу данных на SIM 1.</string>
     <string name="qs_data_switch_changed_2">Переключить передачу данных на SIM 2.</string>
     <!-- Show VoLTE icon on statusbar -->
-    <string name="volte_icon_asus">Значок Asus</string>
+    <string name="volte_icon_asus">Значок VoLTE Asus</string>
     <string name="volte_icon_title">Значок VoLTE</string>
     <string name="volte_icon_summary">Отображать значок VoLTE</string>
     <string name="volte_icon_style_title">Выбрать значок VoLTE</string>
     <string name="volte_icon_vo">Только значок Vo</string>
     <string name="volte_icon_volte">Значок VoLTE</string>
-    <string name="volte_icon_oos">Значок OOS</string>
+    <string name="volte_icon_oos">Значок VoLTE OOS</string>
     <string name="volte_icon_hd">Значок HD</string>
     <string name="volte_icon_volit">Значок VoLIT</string>
-    <!-- Show VoWiFi icon on statusbar -->
-    <string name="vowifi_icon_style_title">Выбрать значок VoWiFi</string>
-    <string name="vowifi_icon_default">Значок по умолчанию</string>
-    <string name="vowifi_icon_oneplus">Значок OnePlus</string>
-    <string name="vowifi_icon_moto">Значок Motorola</string>
-    <string name="vowifi_icon_asus">Значок Asus</string>
-    <string name="vowifi_icon_emui">Значок EMUI</string>
     <!-- Navbar editor -->
     <string name="preview">Предпросмотр</string>
     <string name="keycode">Код клавиши</string>
