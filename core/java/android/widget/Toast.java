@@ -76,6 +76,8 @@ public class Toast {
     static final String TAG = "Toast";
     static final boolean localLOGV = false;
 
+    static Drawable mCustomIcon;
+
     /** @hide */
     @IntDef(prefix = { "LENGTH_" }, value = {
             LENGTH_SHORT,
@@ -340,6 +342,14 @@ public class Toast {
         tv.setText(s);
     }
 
+    /**
+     * Set a custom toast icon, instead of the app icon
+     * @param icon The custom Drawable icon
+     */
+    public void setIcon(Drawable icon) {
+        mCustomIcon = icon;
+    }
+
     // =======================================================================================
     // All the gunk below is the interaction with the Notification Service, which handles
     // the proper ordering of these system-wide.
@@ -491,15 +501,19 @@ public class Toast {
                 }
 
                 ImageView appIcon = (ImageView) mView.findViewById(android.R.id.icon);
-                if (appIcon != null) {
-                    PackageManager pm = context.getPackageManager();
-                    Drawable icon = null;
-                    try {
-                        icon = pm.getApplicationIcon(packageName);
-                    } catch (PackageManager.NameNotFoundException e) {
-                        // nothing to do
+                if (appIcon != null) { // using app icon
+                    if (mCustomIcon == null) {
+                        PackageManager pm = context.getPackageManager();
+                        Drawable icon = null;
+                        try {
+                            icon = pm.getApplicationIcon(packageName);
+                        } catch (PackageManager.NameNotFoundException e) {
+                            // nothing to do
+                        }
+                        appIcon.setImageDrawable(icon);
+                    } else { // using a custom icon
+                        appIcon.setImageDrawable(mCustomIcon);
                     }
-                    appIcon.setImageDrawable(icon);
                 }
 
                 mWM = (WindowManager)context.getSystemService(Context.WINDOW_SERVICE);
