@@ -650,7 +650,7 @@ public class FODCircleView extends ImageView implements ConfigurationListener, T
             mPressedParams.dimAmount = 0.0f;
             if (mPressedViewDisplayed) {
                 mPressedViewDisplayed = false;
-                mWindowManager.removeView(mPressedView);
+                mWindowManager.removeViewImmediate(mPressedView);
             }
             updateIconDim(true);
         }
@@ -799,7 +799,7 @@ class FODAnimation extends ImageView {
                 recognizingAnim.selectDrawable(0);
             }
             if (this.getWindowToken() != null) {
-                mWindowManager.removeView(this);
+                mWindowManager.removeViewImmediate(this);
             }
         }
     }
