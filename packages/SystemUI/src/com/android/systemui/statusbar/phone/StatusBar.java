@@ -71,6 +71,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.om.IOverlayManager;
+import android.content.om.OverlayInfo;
 import android.content.pm.IPackageManager;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
@@ -828,6 +829,9 @@ public class StatusBar extends SystemUI implements DemoMode,
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.SHOW_MEDIA_HEADS_UP),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.QS_HEADER_STYLE),
+                    false, this, UserHandle.USER_ALL);
         }
 
         @Override
@@ -872,8 +876,9 @@ public class StatusBar extends SystemUI implements DemoMode,
                 handleCutout(null);
             } else if (uri.equals(Settings.System.getUriFor(
                     Settings.System.SWITCH_STYLE))) {
-                stockSwitchStyle();
                 updateSwitchStyle();
+            } else if (uri.equals(Settings.System.getUriFor(Settings.System.QS_HEADER_STYLE))) {
+                updateQSHeaderStyle();
             }
             update();
         }
@@ -897,6 +902,7 @@ public class StatusBar extends SystemUI implements DemoMode,
             setHeadsUpBlacklist();
             handleCutout(null);
             setMediaHeadsup();
+            updateQSHeaderStyle();
         }
     }
 
@@ -1020,6 +1026,8 @@ public class StatusBar extends SystemUI implements DemoMode,
         mViewHierarchyManager = Dependency.get(NotificationViewHierarchyManager.class);
         mForegroundServiceController = Dependency.get(ForegroundServiceController.class);
         mAppOpsController = Dependency.get(AppOpsController.class);
+        mOverlayManager = IOverlayManager.Stub.asInterface(
+                ServiceManager.getService(Context.OVERLAY_SERVICE));
         mZenController = Dependency.get(ZenModeController.class);
         mKeyguardViewMediator = getComponent(KeyguardViewMediator.class);
         mColorExtractor = Dependency.get(SysuiColorExtractor.class);
@@ -4281,11 +4289,19 @@ public class StatusBar extends SystemUI implements DemoMode,
     public void updateSwitchStyle() {
         int switchStyle = Settings.System.getIntForUser(mContext.getContentResolver(),
                 Settings.System.SWITCH_STYLE, 0, mLockscreenUserManager.getCurrentUserId());
+        ThemesUtils.stockSwitchStyle(mOverlayManager, mLockscreenUserManager.getCurrentUserId());
+        if (switchStyle == 0)
+            return;
         ThemesUtils.updateSwitchStyle(mOverlayManager, mLockscreenUserManager.getCurrentUserId(), switchStyle);
     }
 
-    public void stockSwitchStyle() {
-        ThemesUtils.stockSwitchStyle(mOverlayManager, mLockscreenUserManager.getCurrentUserId());
+    public void updateQSHeaderStyle() {
+        int qsHeaderStyle = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.QS_HEADER_STYLE, 0, mLockscreenUserManager.getCurrentUserId());
+        ThemesUtils.stockQSHeaderStyle(mOverlayManager, mLockscreenUserManager.getCurrentUserId());
+        if (qsHeaderStyle == 0)
+            return;
+        ThemesUtils.updateQSHeaderStyle(mOverlayManager, mLockscreenUserManager.getCurrentUserId(), qsHeaderStyle);
     }
 
     private void updateDozingState() {

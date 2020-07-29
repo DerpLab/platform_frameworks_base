@@ -5616,6 +5616,20 @@ public final class Settings {
                 ANY_INTEGER_VALIDATOR;
 
         /**
+         * QS header style
+         * 0 = Default
+         * 1 = Grey
+         * 2 = Light Grey
+         * 3 = Accent
+         * 4 = Transparent
+         * @hide
+         */
+        public static final String QS_HEADER_STYLE = "qs_header_style";
+        /** @hide */
+        private static final Validator QS_HEADER_STYLE_VALIDATOR =
+                new SettingsValidators.InclusiveIntegerRangeValidator(0, 4);
+
+        /**
          * Force full screen for devices with cutout
          * @hide
          * Whether to use the custom status bar header or not
@@ -6846,6 +6860,7 @@ public final class Settings {
             ENABLE_SUGGESTIONS,
             FORCE_FULLSCREEN_CUTOUT_APPS,
             OMNI_BACK_GESTURE_BLOCK_IME,
+            QS_HEADER_STYLE,
             OMNI_STATUS_BAR_CUSTOM_HEADER,
             OMNI_STATUS_BAR_CUSTOM_HEADER_SHADOW,
             OMNI_STATUS_BAR_DAYLIGHT_HEADER_PACK,
@@ -7139,6 +7154,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(ENABLE_SUGGESTIONS);
             PRIVATE_SETTINGS.add(FORCE_FULLSCREEN_CUTOUT_APPS);
             PRIVATE_SETTINGS.add(OMNI_BACK_GESTURE_BLOCK_IME);
+            PRIVATE_SETTINGS.add(QS_HEADER_STYLE);
             PRIVATE_SETTINGS.add(OMNI_STATUS_BAR_CUSTOM_HEADER);
             PRIVATE_SETTINGS.add(OMNI_STATUS_BAR_CUSTOM_HEADER_SHADOW);
             PRIVATE_SETTINGS.add(OMNI_STATUS_BAR_DAYLIGHT_HEADER_PACK);
@@ -7388,6 +7404,7 @@ public final class Settings {
             VALIDATORS.put(ENABLE_SUGGESTIONS, ENABLE_SUGGESTIONS_VALIDATOR);
             VALIDATORS.put(FORCE_FULLSCREEN_CUTOUT_APPS, FORCE_FULLSCREEN_CUTOUT_APPS_VALIDATOR);
             VALIDATORS.put(OMNI_BACK_GESTURE_BLOCK_IME,OMNI_BACK_GESTURE_BLOCK_IME_VALIDATOR);
+            VALIDATORS.put(QS_HEADER_STYLE, QS_HEADER_STYLE_VALIDATOR);
             VALIDATORS.put(OMNI_STATUS_BAR_CUSTOM_HEADER,
                     OMNI_STATUS_BAR_CUSTOM_HEADER_VALIDATOR);
             VALIDATORS.put(OMNI_STATUS_BAR_CUSTOM_HEADER_SHADOW,
