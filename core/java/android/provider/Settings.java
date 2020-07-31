@@ -6693,16 +6693,27 @@ public final class Settings {
                 new SettingsValidators.InclusiveIntegerRangeValidator(0, 7);
 
        /**
-        * Powermenu Background
+        * Whether Powermenu Background is enabled
         * @hide
         */
         public static final String POWER_MENU_BG = "power_menu_bg";
+        /** @hide */
+        private static final Validator POWER_MENU_BG_VALIDATOR =
+                BOOLEAN_VALIDATOR;
 
         /**
-        * Powermenu Background Style
-        * @hide
-        */
+         * Powermenu Background Style
+         * 0 = Blur
+         * 1 = Grayscale
+         * 2 = Tint
+         * 3 = Gray Blur
+         * 4 = Tinted Blur
+         * @hide
+         */
         public static final String POWER_MENU_BG_STYLE = "power_menu_bg_style";
+        /** @hide */
+        private static final Validator POWER_MENU_BG_STYLE_VALIDATOR =
+                new SettingsValidators.InclusiveIntegerRangeValidator(0, 4);
 
         /**
          * Whether to show heads up on new music tracks
@@ -6988,6 +6999,8 @@ public final class Settings {
             PULSE_SOLID_UNITS_OPACITY,
             PULSE_SMOOTHING_ENABLED,
             SWITCH_STYLE,
+            POWER_MENU_BG,
+            POWER_MENU_BG_STYLE,
             SHOW_MEDIA_HEADS_UP,
         };
 
@@ -7548,6 +7561,8 @@ public final class Settings {
             VALIDATORS.put(PULSE_SOLID_UNITS_OPACITY, PULSE_SOLID_UNITS_OPACITY_VALIDATOR);
             VALIDATORS.put(PULSE_SMOOTHING_ENABLED, PULSE_SMOOTHING_ENABLED_VALIDATOR);
             VALIDATORS.put(SWITCH_STYLE, SWITCH_STYLE_VALIDATOR);
+            VALIDATORS.put(POWER_MENU_BG, POWER_MENU_BG_VALIDATOR);
+            VALIDATORS.put(POWER_MENU_BG_STYLE, POWER_MENU_BG_STYLE_VALIDATOR);
             VALIDATORS.put(SHOW_MEDIA_HEADS_UP, SHOW_MEDIA_HEADS_UP_VALIDATOR);
         }
 
