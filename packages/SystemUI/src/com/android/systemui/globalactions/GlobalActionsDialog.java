@@ -1933,6 +1933,9 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
             int backgroundFilter = Settings.System.getIntForUser(mContext.getContentResolver(),
                     Settings.System.POWER_MENU_BG_STYLE, 0,
                     UserHandle.USER_CURRENT);
+            float radius = 0.25f * ((float) Settings.System.getIntForUser(mContext.getContentResolver(),
+                    Settings.System.POWER_MENU_BG_BLUR_RADIUS, 100,
+                    UserHandle.USER_CURRENT));
             switch (backgroundFilter) {
                 case 0: // Blur
                 default:
@@ -1951,14 +1954,14 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
                     break;
                 case 3: // Gray blur
                     bitMap = ImageHelper.getGrayscaleBlurredImage(mContext,
-                            ImageUtilities.screenshotSurface(mContext), 25.0f);
+                            ImageUtilities.screenshotSurface(mContext), radius);
                     break;
                 case 4: // Tinted blur
                     Drawable bitMapDrawable = new BitmapDrawable(res,
                             ImageUtilities.screenshotSurface(mContext));
                     bitMap = ImageHelper.getColoredBitmap(bitMapDrawable,
                             res.getColor(color.accent_device_default_light));
-                    bitMap = ImageHelper.getBlurredImage(mContext, bitMap, 25.0f);
+                    bitMap = ImageHelper.getBlurredImage(mContext, bitMap, radius);
                     break;
             }
             mbackground = new BitmapDrawable(res, bitMap);
