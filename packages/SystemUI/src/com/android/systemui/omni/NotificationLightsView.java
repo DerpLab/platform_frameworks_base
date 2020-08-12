@@ -105,8 +105,7 @@ public class NotificationLightsView extends RelativeLayout {
     }
 
     public int getDefaultNotificationLightsColor() {
-        int defaultColor = getResources().getInteger(
-                com.android.internal.R.integer.config_ambientNotificationDefaultColor);
+        int defaultColor = Utils.getColorAccentDefaultColor(getContext());
         return Settings.System.getIntForUser(mContext.getContentResolver(),
                     Settings.System.PULSE_AMBIENT_LIGHT_COLOR, defaultColor,
                     UserHandle.USER_CURRENT);
