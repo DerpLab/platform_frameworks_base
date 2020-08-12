@@ -5909,7 +5909,20 @@ public final class Settings {
                 ANY_INTEGER_VALIDATOR;
 
         /**
-         * Ambient edge light color
+         * Ambient edge light color mode
+         * 0 = Notification
+         * 1 = Accent
+         * 2 = Wallpaper
+         * 3 = Custom (Default)
+         * @hide
+         */
+        public static final String PULSE_AMBIENT_LIGHT_COLOR_MODE = "pulse_ambient_light_color_mode";
+        /** @hide */
+        private static final Validator PULSE_AMBIENT_LIGHT_COLOR_MODE_VALIDATOR =
+                new SettingsValidators.InclusiveIntegerRangeValidator(0, 3);
+
+        /**
+         * Ambient edge light default color (fallback)
          * @hide
          */
         public static final String PULSE_AMBIENT_LIGHT_COLOR = "pulse_ambient_light_color";
@@ -5917,15 +5930,6 @@ public final class Settings {
         /** @hide */
         private static final Validator PULSE_AMBIENT_LIGHT_COLOR_VALIDATOR =
                 ANY_INTEGER_VALIDATOR;
-
-        /**
-         * Wether to use color from wallpaper for Ambient edge light
-         * @hide
-         */
-        public static final String PULSE_AMBIENT_AUTO_COLOR = "pulse_ambient_auto_color";
-
-        /** @hide */
-        private static final Validator PULSE_AMBIENT_AUTO_COLOR_VALIDATOR = BOOLEAN_VALIDATOR;
 
         /**
          * Duration of Ambient edge light in seconds
@@ -6257,24 +6261,6 @@ public final class Settings {
 
         /** @hide */
         private static final Validator LOCKSCREEN_CLOCK_VALIDATOR = BOOLEAN_VALIDATOR;
-
-         /**
-         * Whether to use accent color for pulse
-         * @hide
-         */
-
-        public static final String OMNI_AMBIENT_NOTIFICATION_LIGHT_ACCENT = "ambient_notification_light_accent";
-
-        private static final Validator OMNI_AMBIENT_NOTIFICATION_LIGHT_ACCENT_VALIDATOR =
-                BOOLEAN_VALIDATOR;
-
-        /**
-         * @hide
-         */
-        public static final String OMNI_NOTIFICATION_PULSE_COLOR_AUTOMATIC = "ambient_notification_light_color_automatic";
-
-        private static final Validator OMNI_NOTIFICATION_PULSE_COLOR_AUTOMATIC_VALIDATOR =
-                BOOLEAN_VALIDATOR;
 
         /**
          * Whether to show the items underneath lockscreen clock
@@ -6915,12 +6901,10 @@ public final class Settings {
             OMNI_AMBIENT_NOTIFICATION_LIGHT_ACTIVATED,
             OMNI_AMBIENT_NOTIFICATION_LIGHT_ENABLED,
             OMNI_AMBIENT_NOTIFICATION_LIGHT_HIDE_AOD,
-            OMNI_AMBIENT_NOTIFICATION_LIGHT_ACCENT,
-            OMNI_NOTIFICATION_PULSE_COLOR_AUTOMATIC,
             OMNI_AUTO_BRIGHTNESS_MIN_VALUE,
             LOCKSCREEN_ALBUM_ART_FILTER,
+            PULSE_AMBIENT_LIGHT_COLOR_MODE,
             PULSE_AMBIENT_LIGHT_COLOR,
-            PULSE_AMBIENT_AUTO_COLOR,
             PULSE_AMBIENT_LIGHT_DURATION,
             PULSE_AMBIENT_LIGHT_REPEAT_COUNT,
             PULSE_AMBIENT_LIGHT_PULSE_FOR_ALL,
@@ -7209,9 +7193,8 @@ public final class Settings {
             PRIVATE_SETTINGS.add(OMNI_NAVIGATION_BAR_ARROW_KEYS);
             PRIVATE_SETTINGS.add(OMNI_PULSE_AMBIENT_LIGHT);
             PRIVATE_SETTINGS.add(OMNI_AMBIENT_NOTIFICATION_LIGHT_ENABLED);
-            PRIVATE_SETTINGS.add(OMNI_NOTIFICATION_PULSE_COLOR_AUTOMATIC);
+            PRIVATE_SETTINGS.add(PULSE_AMBIENT_LIGHT_COLOR_MODE);
             PRIVATE_SETTINGS.add(PULSE_AMBIENT_LIGHT_COLOR);
-            PRIVATE_SETTINGS.add(PULSE_AMBIENT_AUTO_COLOR);
             PRIVATE_SETTINGS.add(PULSE_AMBIENT_LIGHT_DURATION);
             PRIVATE_SETTINGS.add(PULSE_AMBIENT_LIGHT_REPEAT_COUNT);
             PRIVATE_SETTINGS.add(PULSE_AMBIENT_LIGHT_PULSE_FOR_ALL);
@@ -7471,13 +7454,10 @@ public final class Settings {
             VALIDATORS.put(OMNI_AMBIENT_NOTIFICATION_LIGHT_ACTIVATED, OMNI_AMBIENT_NOTIFICATION_LIGHT_ACTIVATED_VALIDATOR);
             VALIDATORS.put(OMNI_AMBIENT_NOTIFICATION_LIGHT_ENABLED, OMNI_AMBIENT_NOTIFICATION_LIGHT_ENABLED_VALIDATOR);
             VALIDATORS.put(OMNI_AMBIENT_NOTIFICATION_LIGHT_HIDE_AOD, OMNI_AMBIENT_NOTIFICATION_LIGHT_HIDE_AOD_VALIDATOR);
-            VALIDATORS.put(OMNI_AMBIENT_NOTIFICATION_LIGHT_ACCENT, OMNI_AMBIENT_NOTIFICATION_LIGHT_ACCENT_VALIDATOR);
-            VALIDATORS.put(OMNI_NOTIFICATION_PULSE_COLOR_AUTOMATIC,
-                    OMNI_NOTIFICATION_PULSE_COLOR_AUTOMATIC_VALIDATOR);
             VALIDATORS.put(OMNI_AUTO_BRIGHTNESS_MIN_VALUE, OMNI_AUTO_BRIGHTNESS_MIN_VALUE_VALIDATOR);
             VALIDATORS.put(LOCKSCREEN_ALBUM_ART_FILTER, LOCKSCREEN_ALBUM_ART_FILTER_VALIDATOR);
+            VALIDATORS.put(PULSE_AMBIENT_LIGHT_COLOR_MODE, PULSE_AMBIENT_LIGHT_COLOR_MODE_VALIDATOR);
             VALIDATORS.put(PULSE_AMBIENT_LIGHT_COLOR, PULSE_AMBIENT_LIGHT_COLOR_VALIDATOR);
-            VALIDATORS.put(PULSE_AMBIENT_AUTO_COLOR, PULSE_AMBIENT_AUTO_COLOR_VALIDATOR);
             VALIDATORS.put(PULSE_AMBIENT_LIGHT_DURATION, PULSE_AMBIENT_LIGHT_DURATION_VALIDATOR);
             VALIDATORS.put(PULSE_AMBIENT_LIGHT_REPEAT_COUNT, PULSE_AMBIENT_LIGHT_REPEAT_COUNT_VALIDATOR);
             VALIDATORS.put(PULSE_AMBIENT_LIGHT_PULSE_FOR_ALL, PULSE_AMBIENT_LIGHT_PULSE_FOR_ALL_VALIDATOR);

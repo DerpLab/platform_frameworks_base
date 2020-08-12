@@ -3509,7 +3509,7 @@ public class NotificationPanelView extends PanelView implements
         boolean ambientLightsHideAod = Settings.System.getIntForUser(resolver,
                 Settings.System.OMNI_AMBIENT_NOTIFICATION_LIGHT_HIDE_AOD, 0, UserHandle.USER_CURRENT) != 0;
         boolean pulseColorAutomatic = Settings.System.getIntForUser(resolver,
-                Settings.System.OMNI_NOTIFICATION_PULSE_COLOR_AUTOMATIC, 0, UserHandle.USER_CURRENT) != 0;
+                Settings.System.PULSE_AMBIENT_LIGHT_COLOR_MODE, 3, UserHandle.USER_CURRENT) == 0;
         int ambientLightsTimeout = Settings.System.getIntForUser(mContext.getContentResolver(),
                 Settings.System.OMNI_AOD_NOTIFICATION_PULSE_TIMEOUT, 0, UserHandle.USER_CURRENT);
         if (animatePulse) {
