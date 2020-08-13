@@ -152,9 +152,9 @@ public class KeyguardSliceView extends LinearLayout implements View.OnClickListe
         mRowContainer = findViewById(R.id.row_maincenter);
         mRow = findViewById(R.id.row);
         mTextColor = Utils.getColorAttrDefaultColor(mContext, R.attr.wallpaperTextColor);
+        refreshDateSize();
         mIconSize = (int) mRowTextSize;
         mIconSizeWithHeader = (int) mContext.getResources().getDimension(R.dimen.header_icon_size);
-        mRowTextSize = (float) 18;
         mRowWithHeaderTextSize = mContext.getResources().getDimensionPixelSize(
                 R.dimen.header_row_font_size);
         mTitle.setOnClickListener(this);
@@ -451,9 +451,9 @@ public class KeyguardSliceView extends LinearLayout implements View.OnClickListe
 
     @Override
     public void onDensityOrFontScaleChanged() {
+        refreshDateSize();
         mIconSize = (int) mRowTextSize;
         mIconSizeWithHeader = (int) mContext.getResources().getDimension(R.dimen.header_icon_size);
-        mRowTextSize = (float) 18;
         mRowWithHeaderTextSize = mContext.getResources().getDimensionPixelSize(
                 R.dimen.header_row_font_size);
     }
@@ -478,7 +478,7 @@ public class KeyguardSliceView extends LinearLayout implements View.OnClickListe
         Trace.endSection();
     }
 
-    public void refreshdatesize() {
+    public void refreshDateSize() {
         int lockDateSize = Settings.System.getIntForUser(mContext.getContentResolver(),
                 Settings.System.LOCKDATE_FONT_SIZE, 18, UserHandle.USER_CURRENT);
         mRowTextSize = Math.round(TypedValue.applyDimension(

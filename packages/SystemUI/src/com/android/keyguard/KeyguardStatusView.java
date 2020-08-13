@@ -119,7 +119,7 @@ public class KeyguardStatusView extends GridLayout implements
                 mClockView.refreshLockFont();
                 refreshLockDateFont();
                 mClockView.refreshclocksize();
-                mKeyguardSlice.refreshdatesize();
+                mKeyguardSlice.refreshDateSize();
                 refreshOwnerInfoSize();
                 refreshOwnerInfoFont();
             }
@@ -143,7 +143,7 @@ public class KeyguardStatusView extends GridLayout implements
             mClockView.refreshLockFont();
             refreshLockDateFont();
             mClockView.refreshclocksize();
-            mKeyguardSlice.refreshdatesize();
+            mKeyguardSlice.refreshDateSize();
             updateDateStyles();
             refreshOwnerInfoSize();
             refreshOwnerInfoFont();
@@ -233,7 +233,7 @@ public class KeyguardStatusView extends GridLayout implements
         refreshLockDateFont();
         mClockView.refreshclocksize();
         updateDateStyles();
-        mKeyguardSlice.refreshdatesize();
+        mKeyguardSlice.refreshDateSize();
         refreshOwnerInfoSize();
         refreshOwnerInfoFont();
         mTextColor = mClockView.getCurrentTextColor();
