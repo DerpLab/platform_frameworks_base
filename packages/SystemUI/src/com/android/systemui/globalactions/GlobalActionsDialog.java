@@ -1904,9 +1904,9 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
         private final IBinder mToken = new Binder();
         private MultiListLayout mGlobalActionsLayout;
         private Drawable mBackgroundDrawable;
+        private Drawable mCustomBackground;
         private final SysuiColorExtractor mColorExtractor;
         private final GlobalActionsPanelPlugin.PanelViewController mPanelController;
-        private final Drawable mbackground;
         private boolean mKeyguardShowing;
         private boolean mShowing;
         private float mScrimAlpha;
@@ -1927,7 +1927,6 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
             Window window = getWindow();
             window.requestFeature(Window.FEATURE_NO_TITLE);
 
-            View v1 = window.getDecorView();
             Resources res = mContext.getResources();
             Bitmap bitMap;
             int backgroundFilter = Settings.System.getIntForUser(mContext.getContentResolver(),
@@ -1964,7 +1963,7 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
                     bitMap = ImageHelper.getBlurredImage(mContext, bitMap, radius);
                     break;
             }
-            mbackground = new BitmapDrawable(res, bitMap);
+            mCustomBackground = new BitmapDrawable(res, bitMap);
 
             // Inflate the decor view, so the attributes below are not overwritten by the theme.
             window.getDecorView();
@@ -2034,10 +2033,7 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
                                 FrameLayout.LayoutParams.MATCH_PARENT,
                                 FrameLayout.LayoutParams.MATCH_PARENT);
                 panelContainer.addView(mPanelController.getPanelContent(), panelParams);
-                if (Settings.System.getInt(mContext.getContentResolver(),
-                        Settings.System.POWER_MENU_BG, 0) == 0) {
-                    mBackgroundDrawable = mPanelController.getBackgroundDrawable();
-                }
+                mBackgroundDrawable = mPanelController.getBackgroundDrawable();
                 mScrimAlpha = 1f;
             }
         }
@@ -2071,7 +2067,7 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
                     Settings.System.POWER_MENU_BG, 0) == 0) {
                 getWindow().setBackgroundDrawable(mBackgroundDrawable);
             } else {
-                getWindow().setBackgroundDrawable(mbackground);
+                getWindow().setBackgroundDrawable(mCustomBackground);
             }
         }
 
@@ -2109,7 +2105,9 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
             super.onStart();
             mGlobalActionsLayout.updateList();
 
-            if (mBackgroundDrawable instanceof ScrimDrawable) {
+            if (mBackgroundDrawable instanceof ScrimDrawable &&
+                    Settings.System.getInt(mContext.getContentResolver(),
+                    Settings.System.POWER_MENU_BG, 0) == 0) {
                 mColorExtractor.addOnColorsChangedListener(this);
                 GradientColors colors = mColorExtractor.getNeutralColors();
                 updateColors(colors, false /* animate */);
@@ -2122,7 +2120,9 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
          * @param animate Interpolates gradient if true, just sets otherwise.
          */
         private void updateColors(GradientColors colors, boolean animate) {
-            if (!(mBackgroundDrawable instanceof ScrimDrawable)) {
+            if (!(mBackgroundDrawable instanceof ScrimDrawable) ||
+                    Settings.System.getInt(mContext.getContentResolver(),
+                    Settings.System.POWER_MENU_BG, 0) == 1) {
                 return;
             }
             ((ScrimDrawable) mBackgroundDrawable).setColor(colors.getMainColor(), animate);
@@ -2150,10 +2150,7 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
             mBackgroundDrawable.setAlpha(0);
             mGlobalActionsLayout.setTranslationX(mGlobalActionsLayout.getAnimationOffsetX());
             mGlobalActionsLayout.setTranslationY(mGlobalActionsLayout.getAnimationOffsetY());
-            if (Settings.System.getInt(mContext.getContentResolver(),
-                    Settings.System.POWER_MENU_BG, 0) == 0) {
-                mGlobalActionsLayout.setAlpha(0);
-            }
+            mGlobalActionsLayout.setAlpha(0);
             mGlobalActionsLayout.animate()
                     .alpha(1)
                     .translationX(0)
@@ -2163,10 +2160,7 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
                     .setUpdateListener(animation -> {
                         int alpha = (int) ((Float) animation.getAnimatedValue()
                                 * mScrimAlpha * 255);
-                if (Settings.System.getInt(mContext.getContentResolver(),
-                        Settings.System.POWER_MENU_BG, 0) == 0) {
-                    mBackgroundDrawable.setAlpha(alpha);
-                }
+                        mBackgroundDrawable.setAlpha(alpha);
                     })
                     .start();
         }
@@ -2190,10 +2184,7 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
                     .setUpdateListener(animation -> {
                         int alpha = (int) ((1f - (Float) animation.getAnimatedValue())
                                 * mScrimAlpha * 255);
-            if (Settings.System.getInt(mContext.getContentResolver(),
-                    Settings.System.POWER_MENU_BG, 0) == 0) {
-                mBackgroundDrawable.setAlpha(alpha);
-            }
+                        mBackgroundDrawable.setAlpha(alpha);
                     })
                     .start();
             dismissPanel();
