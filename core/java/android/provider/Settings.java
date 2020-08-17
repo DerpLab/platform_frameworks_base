@@ -4790,11 +4790,74 @@ public final class Settings {
                 ANY_STRING_VALIDATOR;
 
         /**
-         * Whether to enable gaming mode or not
+         * Whether gaming mode is enabled
          *
          * @hide
          */
         public static final String ENABLE_GAMING_MODE = "enable_gaming_mode";
+
+        /**
+         * Whether gaming mode sets {@link Global.HEADS_UP_NOTIFICATIONS_ENABLED}
+         * @hide
+         */
+        public static final String GAMING_MODE_HEADS_UP = "gaming_mode_heads_up";
+        /** @hide */
+        private static final Validator GAMING_MODE_HEADS_UP_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
+        /**
+         * Whether gaming mode sets DND {@link Global.ZEN_MODE}
+         * @hide
+         */
+        public static final String GAMING_MODE_ZEN = "gaming_mode_zen";
+        /** @hide */
+        private static final Validator GAMING_MODE_ZEN_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
+        /**
+         * Whether gaming mode sets {@link FORCE_SHOW_NAVBAR}
+         * @hide
+         */
+        public static final String GAMING_MODE_NAVBAR = "gaming_mode_navbar";
+        /** @hide */
+        private static final Validator GAMING_MODE_NAVBAR_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
+        /**
+         * Whether gaming sets {@link HARDWARE_KEYS_DISABLE}
+         * @hide
+         */
+        public static final String GAMING_MODE_HW_BUTTONS = "gaming_mode_hw_buttons";
+        /** @hide */
+        private static final Validator GAMING_MODE_HW_BUTTONS_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
+        /**
+         * Whether gaming mode toggles auto brightness
+         * @hide
+         */
+        public static final String GAMING_MODE_BRIGHTNESS_ENABLED = "gaming_mode_brightness_enabled";
+        /** @hide */
+        private static final Validator GAMING_MODE_BRIGHTNESS_ENABLED_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
+        /**
+         * Whether gaming mode sets media volume
+         * @hide
+         */
+        public static final String GAMING_MODE_MEDIA_ENABLED = "gaming_mode_media_enabled";
+        /** @hide */
+        private static final Validator GAMING_MODE_MEDIA_ENABLED_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
+        /**
+         * Gaming mode media volume level in percentage
+         * @hide
+         */
+        public static final String GAMING_MODE_MEDIA = "gaming_mode_media";
+        /** @hide */
+        private static final Validator GAMING_MODE_MEDIA_VALIDATOR =
+                new SettingsValidators.InclusiveIntegerRangeValidator(0, 100);
 
         /**
          * Screen stabilization parameters
@@ -7006,6 +7069,13 @@ public final class Settings {
             POWER_MENU_BG_BLUR_RADIUS,
             SHOW_MEDIA_HEADS_UP,
             QS_TILE_STYLE,
+            GAMING_MODE_HEADS_UP,
+            GAMING_MODE_ZEN,
+            GAMING_MODE_NAVBAR,
+            GAMING_MODE_HW_BUTTONS,
+            GAMING_MODE_BRIGHTNESS_ENABLED,
+            GAMING_MODE_MEDIA_ENABLED,
+            GAMING_MODE_MEDIA,
         };
 
         /**
@@ -7567,6 +7637,13 @@ public final class Settings {
             VALIDATORS.put(POWER_MENU_BG_BLUR_RADIUS, POWER_MENU_BG_BLUR_RADIUS_VALIDATOR);
             VALIDATORS.put(SHOW_MEDIA_HEADS_UP, SHOW_MEDIA_HEADS_UP_VALIDATOR);
             VALIDATORS.put(QS_TILE_STYLE, QS_TILE_STYLE_VALIDATOR);
+            VALIDATORS.put(GAMING_MODE_HEADS_UP, GAMING_MODE_HEADS_UP_VALIDATOR);
+            VALIDATORS.put(GAMING_MODE_ZEN, GAMING_MODE_ZEN_VALIDATOR);
+            VALIDATORS.put(GAMING_MODE_NAVBAR, GAMING_MODE_NAVBAR_VALIDATOR);
+            VALIDATORS.put(GAMING_MODE_HW_BUTTONS, GAMING_MODE_HW_BUTTONS_VALIDATOR);
+            VALIDATORS.put(GAMING_MODE_BRIGHTNESS_ENABLED, GAMING_MODE_BRIGHTNESS_ENABLED_VALIDATOR);
+            VALIDATORS.put(GAMING_MODE_MEDIA_ENABLED, GAMING_MODE_MEDIA_ENABLED_VALIDATOR);
+            VALIDATORS.put(GAMING_MODE_MEDIA, GAMING_MODE_MEDIA_VALIDATOR);
         }
 
         /**
