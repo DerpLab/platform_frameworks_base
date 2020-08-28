@@ -180,6 +180,7 @@
     <string name="qs_data_switch_changed_2">Switch data card to SIM 2.</string>
 
     <!-- Show VoLTE icon on statusbar -->
+    <string name="volte_icon_oosq">VoLTE OOS Q Icon</string>
     <string name="volte_icon_asus">VoLTE Asus Icon</string>
     <string name="volte_icon_title">VoLTE icon</string>
     <string name="volte_icon_summary">Display VoLTE icon</string>
