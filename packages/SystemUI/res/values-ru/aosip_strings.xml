@@ -115,6 +115,9 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_dash_charging_time">Быстрая зарядка (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> до полной зарядки)</string>
     <string name="keyguard_plugged_in_dash_charging">Быстрая зарядка</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a VOOC charger. Should match keyguard_plugged_in_vooc_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_vooc_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • VOOC зарядка(<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> до полной зарядки)</string>
+    <string name="keyguard_plugged_in_vooc_charging"><xliff:g id="percentage">%s</xliff:g> • VOOC зарядка</string>
     <!-- CPUInfo tile -->
     <string name="quick_settings_cpuinfo_label">Данные ЦП</string>
     <!-- Sound Search tile -->
@@ -148,6 +151,7 @@
     <string name="qs_data_switch_changed_1">Переключить передачу данных на SIM 1.</string>
     <string name="qs_data_switch_changed_2">Переключить передачу данных на SIM 2.</string>
     <!-- Show VoLTE icon on statusbar -->
+    <string name="volte_icon_oosq">Значок VoLTE OOS Q</string>
     <string name="volte_icon_asus">Значок VoLTE Asus</string>
     <string name="volte_icon_title">Значок VoLTE</string>
     <string name="volte_icon_summary">Отображать значок VoLTE</string>
@@ -192,6 +196,12 @@
     <string name="gaming_mode_dialog_message">Когда игровой режим включён, все всплывающие уведомления и аппаратные кнопки будут выключены. Все выключенные настройки будут сброшены после выключения Игрового режима.</string>
     <string name="accessibility_quick_settings_gaming_mode_on">Игровой режим вкл.</string>
     <string name="accessibility_quick_settings_gaming_mode_off">Игровой режим выкл.</string>
+    <string name="gaming_mode_panel_headsup_title">Выключить всплывающие уведомления</string>
+    <string name="gaming_mode_panel_zen_title">Включить режим \"Не беспокоить\"</string>
+    <string name="gaming_mode_panel_navbar_title">Выключить панель навигации</string>
+    <string name="gaming_mode_panel_hw_title">Отключить аппаратные кнопки навигации</string>
+    <string name="gaming_mode_panel_brightness_title">Выключить автоматическую яркость</string>
+    <string name="gaming_mode_panel_media_title">Установить громкость медиа</string>
     <!-- Running service button -->
     <string name="accessibility_quick_settings_running_services">Открыть меню запущенных приложений.</string>
     <!-- Reboot/Recovery/PowerOff QS tile -->
@@ -247,8 +257,8 @@
     <string name="screenrecord_audio_recording_off">Отключено</string>
     <string name="screenrecord_taps_title">Показывать касания на экране</string>
     <string name="screenrecord_taps_summary">Показывать точки касания при записи</string>
-    <string name="screenrecord_stopdot_title">Показывать точку остановки</string>
-    <string name="screenrecord_stopdot_summary">Показывать красную точку для остановки записи одним касанием. Длительное нажатие для перемещения на другую сторону.</string>
+    <string name="screenrecord_stopdot_title">Показывать кнопку остановки</string>
+    <string name="screenrecord_stopdot_summary">Показывать красную кнопку для остановки записи одним касанием. Длительное нажатие для перемещения на другую сторону.</string>
     <string name="screenrecord_video_bitrate_title">Битрейт видео</string>
     <string name="screenrecord_video_bitrate_summary">Большие значения означают лучшее качество за счет ресурсов.</string>
     <!-- USB tethering QS tile -->
