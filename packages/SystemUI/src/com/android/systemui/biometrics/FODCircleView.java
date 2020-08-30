@@ -266,16 +266,22 @@ public class FODCircleView extends ImageView implements ConfigurationListener, T
             protected void onDraw(Canvas canvas) {
                 super.onDraw(canvas);
                 if (mIsCircleShowing) {
-                    if (getFODPressedState() == 0) {
-                        //canvas.drawCircle(mSize / 2, mSize / 2, mSize / 2.0f, mPaintFingerprint);
-                        setImageResource(R.drawable.fod_icon_pressed);
-                    } else if (getFODPressedState() == 1) {
-                        //canvas.drawCircle(mSize / 2, mSize / 2, mSize / 2.0f, mPaintFingerprint);
-                        setImageResource(R.drawable.fod_icon_pressed_white);
-                    } else if (getFODPressedState() == 2) {
-                        mPaintFingerprint.setColor(getFODSolidColor());
-                        mPaintFingerprintBackground.setColor(getFODSolidColor());
-                        canvas.drawCircle(mSize / 2, mSize / 2, mSize / 2.0f, mPaintFingerprint);
+                    int state = getFODPressedState();
+                    switch (state) {
+                        default:
+                        case 0:
+                            //canvas.drawCircle(mSize / 2, mSize / 2, mSize / 2.0f, mPaintFingerprint);
+                            setImageResource(R.drawable.fod_icon_pressed);
+                            break;
+                        case 1:
+                            //canvas.drawCircle(mSize / 2, mSize / 2, mSize / 2.0f, mPaintFingerprint);
+                            setImageResource(R.drawable.fod_icon_pressed_white);
+                            break;
+                        case 2:
+                            mPaintFingerprint.setColor(getFODSolidColor());
+                            mPaintFingerprintBackground.setColor(getFODSolidColor());
+                            canvas.drawCircle(mSize / 2, mSize / 2, mSize / 2.0f, mPaintFingerprint);
+                            break;
                     }
                 }
             }
@@ -347,13 +353,8 @@ public class FODCircleView extends ImageView implements ConfigurationListener, T
         super.onDraw(canvas);
 
         if (mIsCircleShowing) {
-            if (getFODPressedState() == 0) {
-                //canvas.drawCircle(mSize / 2, mSize / 2, mSize / 2.0f, mPaintFingerprint);
-                setImageResource(R.drawable.fod_icon_pressed);
-            } else if (getFODPressedState() == 1) {
-                //canvas.drawCircle(mSize / 2, mSize / 2, mSize / 2.0f, mPaintFingerprint);
-                setImageResource(R.drawable.fod_icon_pressed_white);
-            } else if (getFODPressedState() == 2) {
+            setFODPressedState();
+            if (getFODPressedState() == 2) {
                 mPaintFingerprint.setColor(getFODSolidColor());
                 mPaintFingerprintBackground.setColor(getFODSolidColor());
                 canvas.drawCircle(mSize / 2, mSize / 2, mSize / 2.0f, mPaintFingerprint);
@@ -373,14 +374,12 @@ public class FODCircleView extends ImageView implements ConfigurationListener, T
     }
 
     private void setFODPressedState() {
-        int fodpressed = getFODPressedState();
+        int state = getFODPressedState();
 
-        if (fodpressed == 0) {
+        if (state == 0) {
             setImageResource(R.drawable.fod_icon_pressed);
-        } else if (fodpressed == 1) {
+        } else if (state == 1) {
             setImageResource(R.drawable.fod_icon_pressed_white);
-        } else if (fodpressed == 2) {
-            setImageDrawable(null);
         }
     }
 
