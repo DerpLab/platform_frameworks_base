@@ -3461,8 +3461,13 @@ public class NotificationPanelView extends PanelView implements
         boolean mAmbientLights = Settings.System.getIntForUser(
                 mContext.getContentResolver(), Settings.System.OMNI_AMBIENT_NOTIFICATION_LIGHT_ENABLED,
                 0, UserHandle.USER_CURRENT) != 0;
-
-        if (mAmbientLights) {
+        boolean alwaysDoze = Settings.Secure.getIntForUser(
+                mContext.getContentResolver(), Settings.Secure.DOZE_ALWAYS_ON,
+                0, UserHandle.USER_CURRENT) != 0;
+        boolean dozeOnChargeNow = Settings.System.getIntForUser(
+                mContext.getContentResolver(), Settings.System.DOZE_ON_CHARGE_NOW,
+                0, UserHandle.USER_CURRENT) != 0;
+        if (mAmbientLights && (alwaysDoze || dozeOnChargeNow)) {
             if (DEBUG_PULSE_LIGHT) {
                 Log.d(TAG, "updatePulseLightState dozing = " + dozing + " mAmbientLights = "  + mAmbientLights);
             }
@@ -3510,6 +3515,12 @@ public class NotificationPanelView extends PanelView implements
                 Settings.System.OMNI_AMBIENT_NOTIFICATION_LIGHT_HIDE_AOD, 0, UserHandle.USER_CURRENT) != 0;
         boolean pulseColorAutomatic = Settings.System.getIntForUser(resolver,
                 Settings.System.PULSE_AMBIENT_LIGHT_COLOR_MODE, 3, UserHandle.USER_CURRENT) == 0;
+        boolean alwaysDoze = Settings.Secure.getIntForUser(
+                mContext.getContentResolver(), Settings.Secure.DOZE_ALWAYS_ON,
+                0, UserHandle.USER_CURRENT) != 0;
+        boolean dozeOnChargeNow = Settings.System.getIntForUser(
+                mContext.getContentResolver(), Settings.System.DOZE_ON_CHARGE_NOW,
+                0, UserHandle.USER_CURRENT) != 0;
         int ambientLightsTimeout = Settings.System.getIntForUser(mContext.getContentResolver(),
                 Settings.System.OMNI_AOD_NOTIFICATION_PULSE_TIMEOUT, 0, UserHandle.USER_CURRENT);
         if (animatePulse) {
@@ -3520,7 +3531,7 @@ public class NotificationPanelView extends PanelView implements
         if (!mPulsing && !mDozing) {
             mAnimateNextPositionUpdate = false;
         }
-        if (mPulseLightsView != null && (pulseLights || ambientLights)) {
+        if (mPulseLightsView != null && pulseLights) {
             if (DEBUG_PULSE_LIGHT) {
                 Log.d(TAG, "setPulsing pulsing = " + pulsing + " pulseLights = " + pulseLights
                         + " ambientLights = " + ambientLights + " activeNotif = " + activeNotif
@@ -3553,7 +3564,7 @@ public class NotificationPanelView extends PanelView implements
                             // but we dont want them here
                             mPulseLightsView.setVisibility(View.GONE);
                         }
-                        if (ambientLights) {
+                        if (ambientLights && (alwaysDoze || dozeOnChargeNow)) {
                             mPulseLightHandled = false;
                             // tell power manager that we want to enable aod
                             // must do that here already not on pulsing = false
