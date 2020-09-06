@@ -17,7 +17,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <!-- DerpQuest Settings Tile -->
-    <string name="quick_settings_derp_label">DerpQuest</string>
+    <string name="quick_settings_derp_label">DerpQuest设置</string>
 
     <string name="statusbar_items_title">状态栏图标</string>
     <string name="lockscreen_default">默认</string>
@@ -28,20 +28,20 @@
 
     <!-- Power Menu -->
     <string name="global_action_reboot">重启</string>
-    <string name="global_action_reboot_more">重启\u2026</string>
+    <string name="global_action_reboot_more">重启选项\u2026</string>
     <string name="global_action_reboot_sub">重启系统</string>
-    <string name="global_action_reboot_recovery">重启到Recovery</string>
-    <string name="global_action_reboot_bootloader">重启到Bootloader</string>
+    <string name="global_action_reboot_recovery">重启到恢复模式</string>
+    <string name="global_action_reboot_bootloader">重启到引导模式</string>
     <string name="global_action_dismissable_dialog_text">高级重启已禁用。\n你想要重启吗？\u003f</string>
     <string name="global_action_dnaa">不再显示</string>
-    <string name="global_action_settings">Settings</string>
-    <string name="global_action_restart_sysui">SystemUI</string>
+    <string name="global_action_settings">设置</string>
+    <string name="global_action_restart_sysui">系统界面</string>
 
     <!-- QS Config -->
-    <string name="qs_menu_item_columns">列</string>
-    <string name="qs_menu_item_columns_landscape">列查看</string>
-    <string name="qs_menu_item_rows">行</string>
-    <string name="qs_menu_item_rows_landscape">行查看</string>
+    <string name="qs_menu_item_columns">列数</string>
+    <string name="qs_menu_item_columns_landscape">列数（横屏）</string>
+    <string name="qs_menu_item_rows">行数</string>
+    <string name="qs_menu_item_rows_landscape">行数（横屏）</string>
     <string name="qs_menu_item_columns_one">1</string>
     <string name="qs_menu_item_columns_two">2</string>
     <string name="qs_menu_item_columns_three">3</string>
@@ -51,9 +51,9 @@
     <string name="qs_menu_item_columns_seven">7</string>
     <string name="qs_menu_item_columns_eight">8</string>
     <string name="qs_menu_item_columns_nine">9</string>
-    <string name="qs_menu_item_reset">重启</string>
-    <string name="qs_menu_item_titles">显示标签</string>
-    <string name="qs_menu_item_qs_columns">快速栏</string>
+    <string name="qs_menu_item_reset">重置</string>
+    <string name="qs_menu_item_titles">显示磁贴标题</string>
+    <string name="qs_menu_item_qs_columns">快速栏磁贴个数</string>
     <string name="qs_menu_item_columns_auto">自动</string>
     <string name="qs_footer_text">页脚文字</string>
 
@@ -126,7 +126,7 @@
     <string name="accessibility_quick_settings_heads_up_off">弹出通知已关闭</string>
     <string name="accessibility_quick_settings_heads_up_on">已允许通知弹出</string>
     <string name="accessibility_quick_settings_heads_up_changed_off">弹出通知已关闭</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">P弹出通知已开启</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">弹出通知已开启</string>
 
     <!-- AOD QS tile states -->
     <string name="quick_settings_aod_label">息屏显示</string>
@@ -135,11 +135,11 @@
     <string name="quick_settings_aod_off_powersave_label">息屏显示 关\n省电</string>
 
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_dash_charging_time">Dash 闪充中 (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> until full)</string>
+    <string name="keyguard_indication_dash_charging_time">Dash 闪充中 (还剩 <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> 充满)</string>
     <string name="keyguard_plugged_in_dash_charging">Dash 闪充中</string>
 
     <!-- Indication on the keyguard that is shown when the device is charging with a VOOC charger. Should match keyguard_plugged_in_vooc_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_vooc_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • VOOC 闪充中 (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> until full)</string>
+    <string name="keyguard_indication_vooc_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • VOOC 闪充中 (还剩 <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> 充满)</string>
     <string name="keyguard_plugged_in_vooc_charging"><xliff:g id="percentage">%s</xliff:g> • VOOC 闪充中</string>
 
     <!-- CPUInfo tile -->
@@ -236,7 +236,7 @@
     <string name="gaming_mode_panel_media_title">设置媒体音量</string>
 
     <!-- Running service button -->
-    <string name="accessibility_quick_settings_running_services">打开运行服务屏幕。</string>
+    <string name="accessibility_quick_settings_running_services">打开运行服务页面。</string>
 
     <!-- Reboot/Recovery/PowerOff QS tile -->
     <string name="quick_settings_reboot_label">重启</string>
@@ -291,7 +291,7 @@
     <string name="screenrecord_dialog_start">开始录制</string>
     <string name="screenrecord_dialog_cancel">取消</string>
     <string name="screenrecord_audio_title">声音源</string>
-    <string name="screenrecord_audio_summary">允许选择音频输入或将其禁用。</string>
+    <string name="screenrecord_audio_summary">选择音频输入或将其禁用。</string>
     <string name="screenrecord_audio_recording_internal">系统内部声音</string>
     <string name="screenrecord_audio_recording_microphone">麦克风声音（系统外部）</string>
     <string name="screenrecord_audio_recording_off">禁用</string>
@@ -300,7 +300,7 @@
     <string name="screenrecord_stopdot_title">显示停止圆点标志</string>
     <string name="screenrecord_stopdot_summary">显示一个红圆点，单击以停止录制；长按则将其移至另一侧。</string>
     <string name="screenrecord_video_bitrate_title">视频比特率</string>
-    <string name="screenrecord_video_bitrate_summary">更大的波特率意味着更好的视频录制质量，以录制时手机性能和储存空间为代价。</string>
+    <string name="screenrecord_video_bitrate_summary">更大的波特率意味着更好的视频录制质量，以储存空间和录制时的手机性能为代价。</string>
 
     <!-- USB tethering QS tile -->
     <string name="quick_settings_usb_tether_label">USB网络共享</string>
